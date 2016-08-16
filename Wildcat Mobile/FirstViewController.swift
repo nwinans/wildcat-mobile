@@ -14,12 +14,6 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
-	@IBAction func plusSchedule(sender: UIBarButtonItem) {
-	
-		print("SUCCESS")
-	
-	}
-	
 	
 	
 	override func viewDidLoad() {

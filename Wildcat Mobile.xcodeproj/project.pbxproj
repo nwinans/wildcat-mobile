@@ -13,6 +13,7 @@
 		363EE6291D40150200F4999F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 363EE6271D40150200F4999F /* Main.storyboard */; };
 		363EE62B1D40150200F4999F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 363EE62A1D40150200F4999F /* Assets.xcassets */; };
 		363EE62E1D40150200F4999F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 363EE62C1D40150200F4999F /* LaunchScreen.storyboard */; };
+		3663C9821D62ACF60063BA3C /* AnnouncementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C9811D62ACF60063BA3C /* AnnouncementsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		363EE62D1D40150200F4999F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		363EE62F1D40150200F4999F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3663C9801D6296340063BA3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		3663C9811D62ACF60063BA3C /* AnnouncementsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			children = (
 				363EE6231D40150200F4999F /* FirstViewController.swift */,
 				363EE6251D40150200F4999F /* SecondViewController.swift */,
+				3663C9811D62ACF60063BA3C /* AnnouncementsTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			files = (
 				363EE6261D40150200F4999F /* SecondViewController.swift in Sources */,
 				363EE6221D40150200F4999F /* AppDelegate.swift in Sources */,
+				3663C9821D62ACF60063BA3C /* AnnouncementsTableViewController.swift in Sources */,
 				363EE6241D40150200F4999F /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

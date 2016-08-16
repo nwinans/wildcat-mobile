@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Academics-->
         <scene sceneID="lbX-ks-4mC">
             <objects>
                 <viewController id="eT4-Sc-aaZ" sceneMemberID="viewController">
@@ -14,17 +14,27 @@
                         <viewControllerLayoutGuide type="bottom" id="PvS-4J-Yhk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mk5-HN-f2k">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="KP3-OF-dNz"/>
+                    <navigationItem key="navigationItem" title="Academics" id="KP3-OF-dNz">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="cLA-ft-rlm"/>
+                        <barButtonItem key="leftBarButtonItem" image="hospital" id="ChO-US-SzP">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="A+1" style="done" id="ZfA-p9-vvW">
+                            <connections>
+                                <segue destination="Zh1-XR-jOe" kind="show" id="TQG-Xx-qk6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YnC-0w-QUf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2312" y="-518"/>
         </scene>
-        <!--View Controller-->
+        <!--Clubs-->
         <scene sceneID="sEe-x3-qMA">
             <objects>
                 <viewController id="Nzb-wp-Ab1" sceneMemberID="viewController">
@@ -33,36 +43,106 @@
                         <viewControllerLayoutGuide type="bottom" id="Rsc-YV-T5v"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VGa-d9-OPp">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="iMV-zO-yNX"/>
+                    <navigationItem key="navigationItem" title="Clubs" id="iMV-zO-yNX">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="7M0-yR-LW5"/>
+                        <barButtonItem key="leftBarButtonItem" image="hospital" id="L4T-IV-J4k">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="A+1" style="done" id="KVf-qQ-BwJ">
+                            <connections>
+                                <segue destination="Zh1-XR-jOe" kind="show" id="ETy-bl-4GV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L70-HP-eG8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2312" y="147"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="V6J-XB-zcf">
+        <!--Wildcat Mobile-->
+        <scene sceneID="CPO-fo-bcS">
             <objects>
-                <viewController id="oen-Di-OE1" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="EMP-bT-CsR"/>
-                        <viewControllerLayoutGuide type="bottom" id="i8F-9z-Uve"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Jgz-6q-Z87">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <tableViewController id="fXn-xz-daH" customClass="AnnouncementsTableViewController" customModule="Wildcat_Mobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="XBb-qN-cQm">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Kic-fR-LFE"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fk6-Is-C3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="announcementCell" textLabel="ATF-nF-9QV" style="IBUITableViewCellStyleDefault" id="oJC-Tm-ec4">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oJC-Tm-ec4" id="JsB-1W-eHB">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ATF-nF-9QV">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fXn-xz-daH" id="bwv-hV-A6v"/>
+                            <outlet property="delegate" destination="fXn-xz-daH" id="JSc-6f-bbx"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Wildcat Mobile" id="qpX-vW-hpO">
+                        <barButtonItem key="leftBarButtonItem" image="hospital" id="00R-2A-Nwn">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="A+1" style="done" id="lHg-Q1-S5m">
+                            <connections>
+                                <segue destination="Zh1-XR-jOe" kind="show" id="zkG-Iz-8Qo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="XBb-qN-cQm" id="nG6-S7-z4e"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zCX-be-6L3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2307" y="-1854"/>
+            <point key="canvasLocation" x="2312" y="-1870"/>
         </scene>
-        <!--View Controller-->
+        <!--Plus Schedule-->
+        <scene sceneID="UBJ-qQ-cQY">
+            <objects>
+                <viewController title="Plus Schedule" id="Zh1-XR-jOe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fQw-7q-sZP"/>
+                        <viewControllerLayoutGuide type="bottom" id="wjL-Da-yT5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NqR-nf-Pa2">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plusSchedule" translatesAutoresizingMaskIntoConstraints="NO" id="NDJ-Ib-VjT">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NDJ-Ib-VjT" firstAttribute="leading" secondItem="NqR-nf-Pa2" secondAttribute="leading" id="BfD-qS-ns6"/>
+                            <constraint firstItem="NDJ-Ib-VjT" firstAttribute="top" secondItem="fQw-7q-sZP" secondAttribute="bottom" id="VAX-NT-w1g"/>
+                            <constraint firstAttribute="trailing" secondItem="NDJ-Ib-VjT" secondAttribute="trailing" id="hY9-7O-RQ9"/>
+                            <constraint firstItem="NDJ-Ib-VjT" firstAttribute="bottom" secondItem="wjL-Da-yT5" secondAttribute="top" id="sF1-cK-NnA"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nTd-ap-JDU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3305" y="-846"/>
+        </scene>
+        <!--Articles-->
         <scene sceneID="DTY-MP-1wG">
             <objects>
                 <viewController id="o4g-qd-Nic" sceneMemberID="viewController">
@@ -71,11 +151,21 @@
                         <viewControllerLayoutGuide type="bottom" id="7Pi-Sl-o8Q"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SS8-Pf-J5v">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wb5-ii-eKW"/>
+                    <navigationItem key="navigationItem" title="Articles" id="wb5-ii-eKW">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="9Ep-dZ-pqr"/>
+                        <barButtonItem key="leftBarButtonItem" image="hospital" id="Nj2-0p-ZcA">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="A+1" style="done" id="jOk-3A-H4f">
+                            <connections>
+                                <segue destination="Zh1-XR-jOe" kind="show" id="PQA-xf-zbL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iKK-dz-vwL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -107,13 +197,15 @@
                 <navigationController title="AnnouncementsNavigation" automaticallyAdjustsScrollViewInsets="NO" id="MeO-6v-CpK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Announcements" image="newspaper" id="tdF-Pw-JT3"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Jg-oO-NTj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="1Jg-oO-NTj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="oen-Di-OE1" kind="relationship" relationship="rootViewController" id="YQb-5x-HUs"/>
+                        <segue destination="fXn-xz-daH" kind="relationship" relationship="rootViewController" id="ggi-ps-bBT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BWJ-r8-Wcg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -126,9 +218,11 @@
                 <navigationController title="ArticlesNavigation" automaticallyAdjustsScrollViewInsets="NO" id="lJg-7H-AU8" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Articles" image="heart" id="eyc-dr-hZb"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hMF-rv-RAn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="hMF-rv-RAn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -145,9 +239,11 @@
                 <navigationController title="AcademicsNagivation" automaticallyAdjustsScrollViewInsets="NO" id="ebL-qP-6UV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Academics" image="school" id="El9-Lk-hhc"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zft-MO-rBB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="Zft-MO-rBB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -164,9 +260,11 @@
                 <navigationController title="ClubsNavigation" automaticallyAdjustsScrollViewInsets="NO" id="ctI-jU-23k" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Clubs" image="people" id="Wfp-cb-UZt"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C6T-ay-KuH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="C6T-ay-KuH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -180,8 +278,13 @@
     </scenes>
     <resources>
         <image name="heart" width="25" height="25"/>
+        <image name="hospital" width="24" height="24"/>
         <image name="newspaper" width="24" height="24"/>
         <image name="people" width="24" height="24"/>
+        <image name="plusSchedule" width="566" height="733"/>
         <image name="school" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="zkG-Iz-8Qo"/>
+    </inferredMetricsTieBreakers>
 </document>
