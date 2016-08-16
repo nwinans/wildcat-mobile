@@ -13,7 +13,6 @@
 		363EE6291D40150200F4999F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 363EE6271D40150200F4999F /* Main.storyboard */; };
 		363EE62B1D40150200F4999F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 363EE62A1D40150200F4999F /* Assets.xcassets */; };
 		363EE62E1D40150200F4999F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 363EE62C1D40150200F4999F /* LaunchScreen.storyboard */; };
-		3663C97E1D6295030063BA3C /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3663C97C1D6295030063BA3C /* main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +24,7 @@
 		363EE62A1D40150200F4999F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		363EE62D1D40150200F4999F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		363EE62F1D40150200F4999F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3663C97D1D6295030063BA3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/main.storyboard; sourceTree = "<group>"; };
+		3663C9801D6296340063BA3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +80,6 @@
 			children = (
 				363EE6271D40150200F4999F /* Main.storyboard */,
 				363EE62C1D40150200F4999F /* LaunchScreen.storyboard */,
-				3663C97C1D6295030063BA3C /* main.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -149,7 +147,6 @@
 				363EE62E1D40150200F4999F /* LaunchScreen.storyboard in Resources */,
 				363EE62B1D40150200F4999F /* Assets.xcassets in Resources */,
 				363EE6291D40150200F4999F /* Main.storyboard in Resources */,
-				3663C97E1D6295030063BA3C /* main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +170,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				363EE6281D40150200F4999F /* Base */,
+				3663C9801D6296340063BA3C /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -183,14 +181,6 @@
 				363EE62D1D40150200F4999F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		3663C97C1D6295030063BA3C /* main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3663C97D1D6295030063BA3C /* Base */,
-			);
-			name = main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
