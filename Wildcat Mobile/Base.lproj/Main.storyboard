@@ -3,6 +3,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Academics-->
@@ -72,22 +75,68 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="announcementCell" textLabel="ATF-nF-9QV" style="IBUITableViewCellStyleDefault" id="oJC-Tm-ec4">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="announcementCell" rowHeight="128" id="oJC-Tm-ec4" customClass="AnnouncementTableViewCell" customModule="Wildcat_Mobile" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="128"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oJC-Tm-ec4" id="JsB-1W-eHB">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="127"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ATF-nF-9QV">
-                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rithika sucks at everything she does she cant even beat me in vocabulary in Mrs. Sweeney's class" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wil-fs-Tgt">
+                                            <rect key="frame" x="8" y="8" width="584" height="53"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="School Life" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vf6-fX-L8w">
+                                            <rect key="frame" x="8" y="98" width="496" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6/17/2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTK-IZ-WSz">
+                                            <rect key="frame" x="512" y="98" width="80" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="ZLc-7x-cop"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mr. Jagels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziG-WC-umB">
+                                            <rect key="frame" x="8" y="69" width="584" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="VuY-d5-0Bh"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Wil-fs-Tgt" firstAttribute="leading" secondItem="JsB-1W-eHB" secondAttribute="leadingMargin" id="0fA-q7-ONl"/>
+                                        <constraint firstItem="ziG-WC-umB" firstAttribute="top" secondItem="Wil-fs-Tgt" secondAttribute="bottom" constant="8" id="2OM-RB-loi"/>
+                                        <constraint firstItem="vf6-fX-L8w" firstAttribute="top" secondItem="ziG-WC-umB" secondAttribute="bottom" constant="8" symbolic="YES" id="4xb-7e-3SZ"/>
+                                        <constraint firstItem="ziG-WC-umB" firstAttribute="leading" secondItem="vf6-fX-L8w" secondAttribute="leading" id="8vw-uB-EsP"/>
+                                        <constraint firstItem="vf6-fX-L8w" firstAttribute="baseline" secondItem="qTK-IZ-WSz" secondAttribute="baseline" id="9Xf-Wp-mbh"/>
+                                        <constraint firstItem="Wil-fs-Tgt" firstAttribute="leading" secondItem="ziG-WC-umB" secondAttribute="leading" id="HsI-sZ-8kd"/>
+                                        <constraint firstItem="qTK-IZ-WSz" firstAttribute="trailing" secondItem="JsB-1W-eHB" secondAttribute="trailingMargin" id="Hu0-6Y-aAf"/>
+                                        <constraint firstItem="Wil-fs-Tgt" firstAttribute="trailing" secondItem="ziG-WC-umB" secondAttribute="trailing" id="MXP-LE-Du3"/>
+                                        <constraint firstItem="qTK-IZ-WSz" firstAttribute="bottom" secondItem="JsB-1W-eHB" secondAttribute="bottomMargin" id="P3R-sL-lTv"/>
+                                        <constraint firstItem="ziG-WC-umB" firstAttribute="trailing" secondItem="qTK-IZ-WSz" secondAttribute="trailing" id="VEc-tb-BTW"/>
+                                        <constraint firstItem="Wil-fs-Tgt" firstAttribute="trailing" secondItem="JsB-1W-eHB" secondAttribute="trailingMargin" id="VNb-ha-ACm"/>
+                                        <constraint firstItem="qTK-IZ-WSz" firstAttribute="baseline" secondItem="vf6-fX-L8w" secondAttribute="firstBaseline" id="ffv-M1-3FJ"/>
+                                        <constraint firstItem="Wil-fs-Tgt" firstAttribute="top" secondItem="JsB-1W-eHB" secondAttribute="topMargin" id="lJw-eB-tJA"/>
+                                        <constraint firstItem="vf6-fX-L8w" firstAttribute="bottom" secondItem="JsB-1W-eHB" secondAttribute="bottomMargin" id="qAL-vZ-Ypr"/>
+                                        <constraint firstItem="ziG-WC-umB" firstAttribute="top" secondItem="Wil-fs-Tgt" secondAttribute="bottom" constant="8" symbolic="YES" id="rUe-jb-0Yc"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="activityLabel" destination="vf6-fX-L8w" id="ql5-uk-c40"/>
+                                    <outlet property="announcementLabel" destination="Wil-fs-Tgt" id="chn-IF-FgT"/>
+                                    <outlet property="dateLabel" destination="qTK-IZ-WSz" id="Uhd-qj-cLr"/>
+                                    <outlet property="nameLabel" destination="ziG-WC-umB" id="9lL-sj-5zh"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -96,6 +145,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Wildcat Mobile" id="qpX-vW-hpO">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="KSu-Hk-eOi"/>
                         <barButtonItem key="leftBarButtonItem" image="hospital" id="00R-2A-Nwn">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
@@ -105,6 +155,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="F9P-Td-ClM">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refresh:" destination="fXn-xz-daH" eventType="valueChanged" id="lIr-ea-HEe"/>
+                        </connections>
+                    </refreshControl>
                     <connections>
                         <outlet property="tableView" destination="XBb-qN-cQm" id="nG6-S7-z4e"/>
                     </connections>

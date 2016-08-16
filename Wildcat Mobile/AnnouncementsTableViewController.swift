@@ -9,28 +9,30 @@
 import UIKit
 
 class AnnouncementsTableViewController: UITableViewController {
+	
+	//Make arrays for data storage as type Array<String> and assign it an empty string array
+	var announcementArray:Array<String> = Array<String>()
+	var nameArray:Array<String> = Array<String>()
+	var activityArray: Array<String> = Array<String>()
+	var dateArray: Array<String> = Array<String>()
 
-	//Get UI Table View from Announcement Scene on Storyboard and set it as mTableView reference
-	@IBOutlet var mTableView: UITableView!
-	
-	
-	//Make variable named tableData as type Array<String> and assign it an empty string array
-	var tableData:Array<String> = Array<String>()
-	
-	//var defaultSpreadsheatURL = "https://spreadsheets.google.com/tq?key=17xalaHNqjOMFq7FcHfgSMXaNpibj9DgzQ0TJuxf1r-Q"
-	var defaultSpreadsheatURL = "http://www.kaleidosblog.com/tutorial/tutorial.json"
+	//Spreadsheet URL (script converts spreadsheet into JSON for downloading)
+	var defaultSpreadsheetURL = "https://script.google.com/macros/s/AKfycbxOLElujQcy1-ZUer1KgEvK16gkTLUqYftApjNCM_IRTL3HSuDk/exec?id=1ZET4Sf4U3j-8kBuTRVEgk7szsESiwLss6OgaxSLIMik&sheet=Sheet1"
 	
 	//Called when the view has loaded
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		getDataFromURL(defaultSpreadsheatURL)
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+		getDataFromURL(defaultSpreadsheetURL)
+		
+		tableView.estimatedRowHeight = 100
+		tableView.rowHeight = UITableViewAutomaticDimension
+		
+		
+		refreshControl = UIRefreshControl()
+		refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
+		refreshControl!.addTarget(self, action: #selector(AnnouncementsTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+		
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,30 +40,32 @@ class AnnouncementsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
+	//Default TableView function when using Dynamic Protoypes - We only have one section of announcements currently, so we just return 1
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
+	//Default TableView function when using Dynamic Prototypes - we will always have an announcement so we pass the length of the announcementArray
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return tableData.count
+		return announcementArray.count
     }
 
-    
+    //Default TableView function when using DynamicPrototypes - sets up cell's labels to go with corrosponding arrays
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("announcementCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("announcementCell", forIndexPath: indexPath) as! AnnouncementTableViewCell
 
-        cell.textLabel?.text = tableData[indexPath.row]
+        cell.announcementLabel.text = announcementArray[indexPath.row]
+		cell.nameLabel.text = nameArray[indexPath.row]
+		cell.activityLabel.text = activityArray[indexPath.row]
+		cell.dateLabel.text = dateArray[indexPath.row]
 
         return cell
     }
 	
 	func getDataFromURL(url: String) {
-		let httpMethod = "GET"
-		let timeout = 15
+		let timeout = 15.0
 		let url = NSURL(string: url)
-		let urlRequest = NSMutableURLRequest(URL: url!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 15.0)
+		let urlRequest = NSMutableURLRequest(URL: url!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeout)
 		let queue = NSOperationQueue()
 		NSURLConnection.sendAsynchronousRequest(urlRequest, queue: queue) { (response: NSURLResponse?, data: NSData?, error: NSError?) in
 			if data!.length > 0 && error == nil {
@@ -74,30 +78,6 @@ class AnnouncementsTableViewController: UITableViewController {
 		}
 	}
 	
-	func extractJSON(jsonData: NSData) {
-		var parseError: NSError?
-		do {
-			 let json: AnyObject? = try! NSJSONSerialization.JSONObjectWithData(jsonData, options: [])
-			
-			if let countriesList = json as? NSArray{
-				for (var i = 0; i < countriesList.count; i += 1) {
-					if let countryObj = countriesList[i] as? NSDictionary{
-						if let countryName = countryObj["country"] as? String{
-							if let countryCode = countryObj["code"] as? String{
-								tableData.append(countryName + " [" + countryCode + "]")
-							}
-						}
-					}
-				}
-			}
-			
-			doTableRefresh();
-			
-		} catch {
-			print("There was an error in NSJSONSerialization")
-		}
-	}
-	
 	func doTableRefresh() {
 		
 		dispatch_async(dispatch_get_main_queue(), {
@@ -106,6 +86,50 @@ class AnnouncementsTableViewController: UITableViewController {
 		})
 		
 	}
+	
+	func extractJSON(jsonData: NSData) {
+			let json: AnyObject? = try! NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments)
+			
+			if let table = json?["Sheet1"] as? NSArray{
+			
+				for var i in 0.stride(to: table.count, by: 1) {
+					if let announcementObject = table[i] as? NSDictionary {
+						if let announcementApproved = announcementObject["Approved"] as? String {
+							if let announcementMessage = announcementObject["What_is_the_announcement?"] as? String {
+								if let announcementName = announcementObject["What_is_your_name?"] as? String {
+									if let announcementActivity = announcementObject["What_activity_is_this_announcement_related?"] as? String {
+										if announcementApproved.isEmpty {
+											print("The announcement \(announcementMessage) wasn't approved")
+										} else {
+											announcementArray.append(announcementMessage)
+											nameArray.append(announcementName)
+											dateArray.append("8/8/16")
+											activityArray.append(announcementActivity)
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		
+		doTableRefresh();
+	}
+	
+	
+	@IBAction func refresh(sender: UIRefreshControl) {
+		announcementArray.removeAll()
+		activityArray.removeAll()
+		nameArray.removeAll()
+		dateArray.removeAll()
+		
+		tableView.reloadData()
+		
+		getDataFromURL(defaultSpreadsheetURL)
+		sender.endRefreshing()
+	}
+	
 	
 	
 
@@ -153,5 +177,4 @@ class AnnouncementsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
