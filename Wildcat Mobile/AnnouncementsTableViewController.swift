@@ -4,6 +4,7 @@
 //
 //	This ViewController handles the Announcements scene and downloads the JSON form of a database and parses it and then sets tableView with that information
 //	TODO: add check if end date of announcement is before or after current data and include it if it is after the current date
+//	TODO: prevent title from overlapping date
 //
 //  Created by Nicholas Winans on 8/15/16.
 //  Copyright © 2016 Centreville HS. All rights reserved.
@@ -79,7 +80,7 @@ class AnnouncementsTableViewController: UITableViewController {
 		let url = NSURL(string: url)
 		
 		//setup url request with url, default cache policy, and timeout length
-		let urlRequest = NSMutableURLRequest(URL: url!, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: timeout)
+		let urlRequest = NSMutableURLRequest(URL: url!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: timeout)
 		
 		let queue = NSOperationQueue()
 		
