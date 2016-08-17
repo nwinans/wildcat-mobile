@@ -15,6 +15,8 @@ class AnnouncementsTableViewController: UITableViewController {
 	var nameArray:Array<String> = Array<String>()
 	var activityArray: Array<String> = Array<String>()
 	var dateArray: Array<String> = Array<String>()
+	
+	var isRefreshing = false
 
 	//Spreadsheet URL (script converts spreadsheet into JSON for downloading)
 	var defaultSpreadsheetURL = "https://script.google.com/macros/s/AKfycbxOLElujQcy1-ZUer1KgEvK16gkTLUqYftApjNCM_IRTL3HSuDk/exec?id=1ZET4Sf4U3j-8kBuTRVEgk7szsESiwLss6OgaxSLIMik&sheet=Sheet1"
@@ -58,6 +60,8 @@ class AnnouncementsTableViewController: UITableViewController {
 		cell.nameLabel.text = nameArray[indexPath.row]
 		cell.activityLabel.text = activityArray[indexPath.row]
 		cell.dateLabel.text = dateArray[indexPath.row]
+		
+		cell.nameLabel.sizeToFit()
 
         return cell
     }
@@ -124,9 +128,8 @@ class AnnouncementsTableViewController: UITableViewController {
 		nameArray.removeAll()
 		dateArray.removeAll()
 		
-		tableView.reloadData()
-		
 		getDataFromURL(defaultSpreadsheetURL)
+		
 		sender.endRefreshing()
 	}
 	
