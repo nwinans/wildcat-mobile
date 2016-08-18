@@ -127,16 +127,56 @@ class AnnouncementsTableViewController: UITableViewController {
 									//sets announcementActivity equal to the activity the announcement is related to
 									if let announcementActivity = announcementObject["What_activity_is_this_announcement_related?"] as? String {
 										
-										//check to see if the announcement is approved, or it is empty
-										// if the announcement is empty, it prints a message to the console saying which announcement wasn't approved
-										// if the announcement is approved, it adds all the relevant data into the relevant arrays
-										if announcementApproved.isEmpty {
-											print("The announcement \(announcementMessage) wasn't approved")
-										} else {
-											announcementArray.append(announcementMessage)
-											nameArray.append(announcementName)
-											dateArray.append("8/8/16")
-											activityArray.append(announcementActivity)
+										//sets announcementTimestamp equal to the time the announcement was created
+										if let announcementTimestamp = announcementObject["Timestamp"] as? String {
+											
+											//sets announcementExpiration to the expiraton date of the announcement
+											if let announcementExpiration = announcementObject["Until_when_should_this_announcement_be_shown?"] as? String{
+												
+												//set current date to constant called currentDate
+												let currentDate: NSDate = NSDate()
+												
+												//Create NSDateFormatter to parse times into NSDates
+												var formatter = NSDateFormatter()
+												
+												//set timezone of formatter to east coast
+												formatter.timeZone = NSTimeZone.defaultTimeZone()
+												
+												//set dateFormat of formatter to IRFC 3339 (the format that google spreadsheets saves in)
+												formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+												
+												//create NSDates for timestamp and expiration date
+												var timestamp = formatter.dateFromString(announcementTimestamp)
+												var expiraton = formatter.dateFromString(announcementExpiration)
+												
+												//check to see if the announcement is still valid, or if it has expired
+												//	if it is valid, check to see if announcement is approved
+												//	if the announcement is expired, it prints a message saying which annoncement is expired
+												
+												if (expiraton?.compare(currentDate) == .OrderedDescending) {
+													
+													//check to see if the announcement is approved, or it is empty
+													// if the announcement isnt approved, it prints a message to the console saying which announcement wasn't approved
+													// if the announcement is approved, it adds all the relevant data into the relevant arrays
+													if announcementApproved.isEmpty {
+														print("The announcement \(announcementMessage) wasn't approved")
+													} else {
+														//Format timestamp as desired format ("Month, Day, Year")
+														var dateFormatter = NSDateFormatter()
+														dateFormatter.dateFormat = "MM/dd/yyyy"
+														let date = dateFormatter.stringFromDate(timestamp!)
+														
+														announcementArray.append(announcementMessage)
+														nameArray.append(announcementName)
+														dateArray.append(date)
+														activityArray.append(announcementActivity)
+													}
+												} else {
+													print("The announcement \(announcementMessage) has expired")
+												}
+												
+											}
+											
 										}
 									}
 								}
@@ -165,14 +205,17 @@ class AnnouncementsTableViewController: UITableViewController {
 	@IBAction func refresh(sender: UIRefreshControl) {
 		
 		//remove all data from the arrays to prevent duplicate data
-		announcementArray.removeAll()
-		activityArray.removeAll()
-		nameArray.removeAll()
-		dateArray.removeAll()
+		announcementArray.removeAll(keepCapacity: false)
+		activityArray.removeAll(keepCapacity: false)
+		nameArray.removeAll(keepCapacity: false)
+		dateArray.removeAll(keepCapacity: false)
+		
+		//notify the tableView that it's data has changed (it will remove all items from the tableView temporarily)
+		//There is probably a better way to handle this because if the data doesn't reload for whatever reason, then the table will remain blank
+		self.tableView.reloadData()
 		
 		//re-run the getDataFromURL function which is originally called when the view is first loaded
 		getDataFromURL(defaultSpreadsheetURL)
-		
 		
 		//sends information to sender that the table is done refreshing
 		sender.endRefreshing()

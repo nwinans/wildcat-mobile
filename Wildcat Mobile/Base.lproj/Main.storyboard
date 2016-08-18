@@ -17,16 +17,19 @@
                         <viewControllerLayoutGuide type="bottom" id="PvS-4J-Yhk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mk5-HN-f2k">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Academics" id="KP3-OF-dNz">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="cLA-ft-rlm"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="cLA-ft-rlm">
+                            <color key="tintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="leftBarButtonItem" image="hospital" id="ChO-US-SzP">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="A+1" style="done" id="ZfA-p9-vvW">
+                            <color key="tintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="Zh1-XR-jOe" kind="show" id="TQG-Xx-qk6"/>
                             </connections>
@@ -46,16 +49,19 @@
                         <viewControllerLayoutGuide type="bottom" id="Rsc-YV-T5v"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VGa-d9-OPp">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Clubs" id="iMV-zO-yNX">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="7M0-yR-LW5"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="7M0-yR-LW5">
+                            <color key="tintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="leftBarButtonItem" image="hospital" id="L4T-IV-J4k">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="A+1" style="done" id="KVf-qQ-BwJ">
+                            <color key="tintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="Zh1-XR-jOe" kind="show" id="ETy-bl-4GV"/>
                             </connections>
@@ -232,16 +238,19 @@
                         <viewControllerLayoutGuide type="bottom" id="7Pi-Sl-o8Q"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SS8-Pf-J5v">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Articles" id="wb5-ii-eKW">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="9Ep-dZ-pqr"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="9Ep-dZ-pqr">
+                            <color key="tintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="leftBarButtonItem" image="hospital" id="Nj2-0p-ZcA">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="A+1" style="done" id="jOk-3A-H4f">
+                            <color key="tintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="Zh1-XR-jOe" kind="show" id="PQA-xf-zbL"/>
                             </connections>
@@ -283,7 +292,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="1Jg-oO-NTj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -303,11 +312,13 @@
                 <navigationController title="ArticlesNavigation" automaticallyAdjustsScrollViewInsets="NO" id="lJg-7H-AU8" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Articles" image="heart" id="eyc-dr-hZb"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="hMF-rv-RAn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="hMF-rv-RAn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -324,11 +335,13 @@
                 <navigationController title="AcademicsNagivation" automaticallyAdjustsScrollViewInsets="NO" id="ebL-qP-6UV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Academics" image="school" id="El9-Lk-hhc"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="Zft-MO-rBB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Zft-MO-rBB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -345,11 +358,13 @@
                 <navigationController title="ClubsNavigation" automaticallyAdjustsScrollViewInsets="NO" id="ctI-jU-23k" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Clubs" image="people" id="Wfp-cb-UZt"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="C6T-ay-KuH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="C6T-ay-KuH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -370,6 +385,6 @@
         <image name="school" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zkG-Iz-8Qo"/>
+        <segue reference="PQA-xf-zbL"/>
     </inferredMetricsTieBreakers>
 </document>

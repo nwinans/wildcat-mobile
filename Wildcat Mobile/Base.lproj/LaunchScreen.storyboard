@@ -17,14 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="wildcat" translatesAutoresizingMaskIntoConstraints="NO" id="Eqt-PP-Dbo">
-                                <rect key="frame" x="266" y="269" width="61" height="61"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wildcat" translatesAutoresizingMaskIntoConstraints="NO" id="O5k-Pb-eEA">
+                                <rect key="frame" x="265" y="264" width="71" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="71" id="DI6-tG-RAC"/>
+                                    <constraint firstAttribute="height" constant="71" id="Rqz-OS-BrC"/>
+                                </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.1647058824" green="0.80392156859999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Eqt-PP-Dbo" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Obv-df-DZH"/>
-                            <constraint firstItem="Eqt-PP-Dbo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jz7-AN-wJG"/>
+                            <constraint firstItem="O5k-Pb-eEA" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="WmQ-8w-Shv"/>
+                            <constraint firstItem="O5k-Pb-eEA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="w4g-HU-72F"/>
                         </constraints>
                     </view>
                 </viewController>
