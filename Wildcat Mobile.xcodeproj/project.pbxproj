@@ -15,6 +15,7 @@
 		363EE62E1D40150200F4999F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 363EE62C1D40150200F4999F /* LaunchScreen.storyboard */; };
 		3663C9821D62ACF60063BA3C /* AnnouncementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C9811D62ACF60063BA3C /* AnnouncementsTableViewController.swift */; };
 		3663C9841D63AA4F0063BA3C /* AnnouncementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C9831D63AA4F0063BA3C /* AnnouncementTableViewCell.swift */; };
+		36B71FC91D65461100DDCB0C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B71FC81D65461100DDCB0C /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		3663C9801D6296340063BA3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		3663C9811D62ACF60063BA3C /* AnnouncementsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementsTableViewController.swift; sourceTree = "<group>"; };
 		3663C9831D63AA4F0063BA3C /* AnnouncementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementTableViewCell.swift; sourceTree = "<group>"; };
+		36B71FC81D65461100DDCB0C /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				36E68FAB1D40337700543F9A /* Storyboards */,
 				363EE62A1D40150200F4999F /* Assets.xcassets */,
 				363EE62F1D40150200F4999F /* Info.plist */,
+				36B71FC81D65461100DDCB0C /* CardView.swift */,
 			);
 			path = "Wildcat Mobile";
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				363EE6221D40150200F4999F /* AppDelegate.swift in Sources */,
 				3663C9821D62ACF60063BA3C /* AnnouncementsTableViewController.swift in Sources */,
 				3663C9841D63AA4F0063BA3C /* AnnouncementTableViewCell.swift in Sources */,
+				36B71FC91D65461100DDCB0C /* CardView.swift in Sources */,
 				363EE6241D40150200F4999F /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

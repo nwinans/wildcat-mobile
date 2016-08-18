@@ -71,59 +71,90 @@
             <objects>
                 <tableViewController id="fXn-xz-daH" customClass="AnnouncementsTableViewController" customModule="Wildcat_Mobile" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="XBb-qN-cQm">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="announcementCell" rowHeight="136" id="oJC-Tm-ec4" customClass="AnnouncementTableViewCell" customModule="Wildcat_Mobile" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="136"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="136"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oJC-Tm-ec4" id="JsB-1W-eHB">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="136"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rithika sucks at everything she does she cant even beat me in vocabulary in Mrs. Sweeney's class" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wil-fs-Tgt">
-                                            <rect key="frame" x="8" y="37" width="584" height="53"/>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="School Life" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vf6-fX-L8w">
-                                            <rect key="frame" x="8" y="8" width="496" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="6/17/2016" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTK-IZ-WSz">
-                                            <rect key="frame" x="512" y="8" width="80" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Mr. Jagels" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziG-WC-umB">
-                                            <rect key="frame" x="8" y="98" width="584" height="23"/>
-                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pGb-R4-oW6" customClass="CardView" customModule="Wildcat_Mobile" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="8" width="584" height="120"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="School Life" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vf6-fX-L8w">
+                                                    <rect key="frame" x="8" y="8" width="480" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="6/17/2016" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTK-IZ-WSz">
+                                                    <rect key="frame" x="496" y="8" width="80" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Rithika sucks at everything she does she cant even beat me in vocabulary in Mrs. Sweeney's class" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wil-fs-Tgt">
+                                                    <rect key="frame" x="8" y="33" width="568" height="48"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Mr. Jagels" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziG-WC-umB">
+                                                    <rect key="frame" x="8" y="89" width="568" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="qTK-IZ-WSz" firstAttribute="trailing" secondItem="pGb-R4-oW6" secondAttribute="trailingMargin" id="6Xa-ST-6V1"/>
+                                                <constraint firstItem="ziG-WC-umB" firstAttribute="bottom" secondItem="pGb-R4-oW6" secondAttribute="bottomMargin" id="9Xg-Sp-lA4"/>
+                                                <constraint firstItem="vf6-fX-L8w" firstAttribute="top" secondItem="pGb-R4-oW6" secondAttribute="top" constant="8" id="Akk-3C-mDj"/>
+                                                <constraint firstItem="vf6-fX-L8w" firstAttribute="leading" secondItem="pGb-R4-oW6" secondAttribute="leadingMargin" id="I3H-Ml-ts0"/>
+                                                <constraint firstItem="ziG-WC-umB" firstAttribute="leading" secondItem="Wil-fs-Tgt" secondAttribute="leading" id="NiR-rq-N5H"/>
+                                                <constraint firstItem="Wil-fs-Tgt" firstAttribute="top" secondItem="qTK-IZ-WSz" secondAttribute="bottom" constant="4" id="Sfh-pt-cS1"/>
+                                                <constraint firstItem="Wil-fs-Tgt" firstAttribute="trailing" secondItem="qTK-IZ-WSz" secondAttribute="trailing" id="ULF-pe-vEu"/>
+                                                <constraint firstItem="qTK-IZ-WSz" firstAttribute="top" secondItem="pGb-R4-oW6" secondAttribute="top" constant="8" id="YQu-Pf-a9j"/>
+                                                <constraint firstItem="vf6-fX-L8w" firstAttribute="top" secondItem="pGb-R4-oW6" secondAttribute="topMargin" id="ZrQ-E2-N83"/>
+                                                <constraint firstItem="qTK-IZ-WSz" firstAttribute="baseline" secondItem="vf6-fX-L8w" secondAttribute="firstBaseline" id="aXc-b8-kOW"/>
+                                                <constraint firstItem="Wil-fs-Tgt" firstAttribute="leading" secondItem="vf6-fX-L8w" secondAttribute="leading" id="bQM-wt-4LI"/>
+                                                <constraint firstItem="Wil-fs-Tgt" firstAttribute="top" secondItem="vf6-fX-L8w" secondAttribute="bottom" constant="4" id="bR0-T3-cYC"/>
+                                                <constraint firstAttribute="bottom" secondItem="ziG-WC-umB" secondAttribute="bottom" constant="8" id="eu3-nB-AoE"/>
+                                                <constraint firstItem="ziG-WC-umB" firstAttribute="trailing" secondItem="Wil-fs-Tgt" secondAttribute="trailing" id="ggB-EH-LVi"/>
+                                                <constraint firstItem="qTK-IZ-WSz" firstAttribute="top" secondItem="vf6-fX-L8w" secondAttribute="top" id="j9K-xV-frj"/>
+                                                <constraint firstAttribute="trailing" secondItem="qTK-IZ-WSz" secondAttribute="trailing" constant="8" id="rnw-2f-3bf"/>
+                                                <constraint firstItem="qTK-IZ-WSz" firstAttribute="bottom" secondItem="vf6-fX-L8w" secondAttribute="bottom" id="sYm-jO-fJT"/>
+                                                <constraint firstItem="ziG-WC-umB" firstAttribute="top" secondItem="Wil-fs-Tgt" secondAttribute="bottom" constant="8" symbolic="YES" id="wj6-ay-cmE"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="13"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetWidth">
+                                                    <integer key="value" value="0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetHeight">
+                                                    <integer key="value" value="3"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                    <real key="value" value="0.5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="qTK-IZ-WSz" firstAttribute="trailing" secondItem="JsB-1W-eHB" secondAttribute="trailingMargin" id="6QB-hZ-ggc"/>
-                                        <constraint firstItem="ziG-WC-umB" firstAttribute="top" secondItem="Wil-fs-Tgt" secondAttribute="bottom" constant="8" symbolic="YES" id="84u-xZ-3BY"/>
-                                        <constraint firstItem="Wil-fs-Tgt" firstAttribute="top" secondItem="vf6-fX-L8w" secondAttribute="bottom" constant="8" symbolic="YES" id="89K-Zq-NsH"/>
-                                        <constraint firstItem="Wil-fs-Tgt" firstAttribute="leading" secondItem="ziG-WC-umB" secondAttribute="leading" id="AXT-4V-V5X"/>
-                                        <constraint firstItem="vf6-fX-L8w" firstAttribute="baseline" secondItem="qTK-IZ-WSz" secondAttribute="baseline" id="HsC-Bc-E8n"/>
-                                        <constraint firstItem="qTK-IZ-WSz" firstAttribute="top" secondItem="JsB-1W-eHB" secondAttribute="topMargin" id="Jdj-bb-qb6"/>
-                                        <constraint firstItem="vf6-fX-L8w" firstAttribute="leading" secondItem="Wil-fs-Tgt" secondAttribute="leading" id="LhZ-xh-K77"/>
-                                        <constraint firstItem="vf6-fX-L8w" firstAttribute="leading" secondItem="JsB-1W-eHB" secondAttribute="leadingMargin" id="MFU-eW-tnW"/>
-                                        <constraint firstItem="qTK-IZ-WSz" firstAttribute="trailing" secondItem="Wil-fs-Tgt" secondAttribute="trailing" id="NiZ-fp-wlt"/>
-                                        <constraint firstItem="Wil-fs-Tgt" firstAttribute="trailing" secondItem="ziG-WC-umB" secondAttribute="trailing" id="Peu-nr-opm"/>
-                                        <constraint firstItem="Wil-fs-Tgt" firstAttribute="centerY" secondItem="JsB-1W-eHB" secondAttribute="centerY" id="Q5q-3J-3Dt"/>
-                                        <constraint firstItem="qTK-IZ-WSz" firstAttribute="baseline" secondItem="vf6-fX-L8w" secondAttribute="firstBaseline" id="SV3-cH-ymL"/>
-                                        <constraint firstItem="qTK-IZ-WSz" firstAttribute="trailing" secondItem="JsB-1W-eHB" secondAttribute="trailingMargin" id="xFf-XE-wBw"/>
-                                        <constraint firstItem="vf6-fX-L8w" firstAttribute="top" secondItem="JsB-1W-eHB" secondAttribute="topMargin" id="xkA-RH-Q1u"/>
+                                        <constraint firstItem="pGb-R4-oW6" firstAttribute="top" secondItem="JsB-1W-eHB" secondAttribute="topMargin" id="WhH-Jo-0TG"/>
+                                        <constraint firstItem="pGb-R4-oW6" firstAttribute="bottom" secondItem="JsB-1W-eHB" secondAttribute="bottomMargin" id="egu-b7-LvJ"/>
+                                        <constraint firstItem="pGb-R4-oW6" firstAttribute="trailing" secondItem="JsB-1W-eHB" secondAttribute="trailingMargin" id="oxb-Lf-p4s"/>
+                                        <constraint firstItem="pGb-R4-oW6" firstAttribute="leading" secondItem="JsB-1W-eHB" secondAttribute="leadingMargin" id="tXQ-Nm-Ns4"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="activityLabel" destination="vf6-fX-L8w" id="ql5-uk-c40"/>
                                     <outlet property="announcementLabel" destination="Wil-fs-Tgt" id="chn-IF-FgT"/>
@@ -143,6 +174,7 @@
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="A+1" style="done" id="lHg-Q1-S5m">
+                            <color key="tintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="Zh1-XR-jOe" kind="show" id="zkG-Iz-8Qo"/>
                             </connections>
@@ -171,10 +203,10 @@
                         <viewControllerLayoutGuide type="bottom" id="wjL-Da-yT5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NqR-nf-Pa2">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plusSchedule" translatesAutoresizingMaskIntoConstraints="NO" id="NDJ-Ib-VjT">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="plusSchedule" translatesAutoresizingMaskIntoConstraints="NO" id="NDJ-Ib-VjT">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                             </imageView>
                         </subviews>
@@ -224,10 +256,12 @@
         <scene sceneID="IqV-EO-hjy">
             <objects>
                 <tabBarController id="3WU-y6-4pW" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="NiY-NJ-0Xa">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="NiY-NJ-0Xa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="MeO-6v-CpK" kind="relationship" relationship="viewControllers" id="NuE-GG-GnN"/>
@@ -246,11 +280,13 @@
                 <navigationController title="AnnouncementsNavigation" automaticallyAdjustsScrollViewInsets="NO" id="MeO-6v-CpK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Announcements" image="newspaper" id="tdF-Pw-JT3"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="1Jg-oO-NTj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="1Jg-oO-NTj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
