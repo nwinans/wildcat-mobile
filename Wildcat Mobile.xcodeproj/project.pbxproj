@@ -7,26 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D3A1B495A6FC92E286A7B2C /* Pods_Wildcat_Mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F98CAED648D1544B52F50026 /* Pods_Wildcat_Mobile.framework */; };
+		360A61D51D6F6A4700E76E00 /* ClubsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360A61D41D6F6A4700E76E00 /* ClubsCell.swift */; };
 		363EE6221D40150200F4999F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363EE6211D40150200F4999F /* AppDelegate.swift */; };
 		363EE6291D40150200F4999F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 363EE6271D40150200F4999F /* Main.storyboard */; };
 		363EE62B1D40150200F4999F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 363EE62A1D40150200F4999F /* Assets.xcassets */; };
 		363EE62E1D40150200F4999F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 363EE62C1D40150200F4999F /* LaunchScreen.storyboard */; };
+		36405A2F1D6F584800CE9021 /* ClubsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36405A2E1D6F584800CE9021 /* ClubsViewController.swift */; };
+		36405A371D6F5C2700CE9021 /* FoldingCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36405A361D6F5C2700CE9021 /* FoldingCell.framework */; };
 		3663C9821D62ACF60063BA3C /* AnnouncementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C9811D62ACF60063BA3C /* AnnouncementsTableViewController.swift */; };
 		3663C9841D63AA4F0063BA3C /* AnnouncementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C9831D63AA4F0063BA3C /* AnnouncementTableViewCell.swift */; };
 		36B71FC91D65461100DDCB0C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B71FC81D65461100DDCB0C /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		265503FACC5E26795D273A77 /* Pods-Wildcat Mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wildcat Mobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wildcat Mobile/Pods-Wildcat Mobile.release.xcconfig"; sourceTree = "<group>"; };
+		360A61D41D6F6A4700E76E00 /* ClubsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubsCell.swift; sourceTree = "<group>"; };
 		363EE61E1D40150200F4999F /* Wildcat Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wildcat Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		363EE6211D40150200F4999F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		363EE6281D40150200F4999F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		363EE62A1D40150200F4999F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		363EE62D1D40150200F4999F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		363EE62F1D40150200F4999F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36405A2E1D6F584800CE9021 /* ClubsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubsViewController.swift; sourceTree = "<group>"; };
+		36405A331D6F5ADA00CE9021 /* Wildcat Mobile-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wildcat Mobile-Bridging-Header.h"; sourceTree = "<group>"; };
+		36405A361D6F5C2700CE9021 /* FoldingCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FoldingCell.framework; path = "../../../Library/Developer/Xcode/DerivedData/Wildcat_Mobile-fgglzhcgoqpjgrgsaavhjgjwmrkw/Build/Products/Debug-iphonesimulator/FoldingCell/FoldingCell.framework"; sourceTree = "<group>"; };
 		3663C9801D6296340063BA3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		3663C9811D62ACF60063BA3C /* AnnouncementsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementsTableViewController.swift; sourceTree = "<group>"; };
 		3663C9831D63AA4F0063BA3C /* AnnouncementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementTableViewCell.swift; sourceTree = "<group>"; };
 		36B71FC81D65461100DDCB0C /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		4BFCCA37773FC54FC7FE30EB /* Pods-Wildcat Mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wildcat Mobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wildcat Mobile/Pods-Wildcat Mobile.debug.xcconfig"; sourceTree = "<group>"; };
+		F98CAED648D1544B52F50026 /* Pods_Wildcat_Mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wildcat_Mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36405A371D6F5C2700CE9021 /* FoldingCell.framework in Frameworks */,
+				0D3A1B495A6FC92E286A7B2C /* Pods_Wildcat_Mobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +58,8 @@
 			children = (
 				363EE6201D40150200F4999F /* Wildcat Mobile */,
 				363EE61F1D40150200F4999F /* Products */,
+				55384A7F766D589F7EE7E81B /* Pods */,
+				67CF0FCC3E664BE921A90A7A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,14 +74,23 @@
 		363EE6201D40150200F4999F /* Wildcat Mobile */ = {
 			isa = PBXGroup;
 			children = (
+				36405A2D1D6E27D800CE9021 /* CustomViews */,
 				363EE6211D40150200F4999F /* AppDelegate.swift */,
 				36E68FAA1D40335E00543F9A /* ViewControllers */,
 				36E68FAB1D40337700543F9A /* Storyboards */,
 				363EE62A1D40150200F4999F /* Assets.xcassets */,
 				363EE62F1D40150200F4999F /* Info.plist */,
-				36B71FC81D65461100DDCB0C /* CardView.swift */,
+				36405A331D6F5ADA00CE9021 /* Wildcat Mobile-Bridging-Header.h */,
 			);
 			path = "Wildcat Mobile";
+			sourceTree = "<group>";
+		};
+		36405A2D1D6E27D800CE9021 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				36B71FC81D65461100DDCB0C /* CardView.swift */,
+			);
+			name = CustomViews;
 			sourceTree = "<group>";
 		};
 		36E68FAA1D40335E00543F9A /* ViewControllers */ = {
@@ -74,6 +98,8 @@
 			children = (
 				3663C9811D62ACF60063BA3C /* AnnouncementsTableViewController.swift */,
 				3663C9831D63AA4F0063BA3C /* AnnouncementTableViewCell.swift */,
+				36405A2E1D6F584800CE9021 /* ClubsViewController.swift */,
+				360A61D41D6F6A4700E76E00 /* ClubsCell.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -87,6 +113,24 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
+		55384A7F766D589F7EE7E81B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4BFCCA37773FC54FC7FE30EB /* Pods-Wildcat Mobile.debug.xcconfig */,
+				265503FACC5E26795D273A77 /* Pods-Wildcat Mobile.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		67CF0FCC3E664BE921A90A7A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				36405A361D6F5C2700CE9021 /* FoldingCell.framework */,
+				F98CAED648D1544B52F50026 /* Pods_Wildcat_Mobile.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -94,9 +138,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 363EE6321D40150200F4999F /* Build configuration list for PBXNativeTarget "Wildcat Mobile" */;
 			buildPhases = (
+				9335461BBFC83901C23519A0 /* [CP] Check Pods Manifest.lock */,
 				363EE61A1D40150100F4999F /* Sources */,
 				363EE61B1D40150100F4999F /* Frameworks */,
 				363EE61C1D40150100F4999F /* Resources */,
+				73D46F45E41F57761E5BACDF /* [CP] Embed Pods Frameworks */,
+				F1CEA8A486A1B86C9F178C8E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -155,6 +202,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		73D46F45E41F57761E5BACDF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wildcat Mobile/Pods-Wildcat Mobile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9335461BBFC83901C23519A0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F1CEA8A486A1B86C9F178C8E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wildcat Mobile/Pods-Wildcat Mobile-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		363EE61A1D40150100F4999F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -162,8 +257,10 @@
 			files = (
 				363EE6221D40150200F4999F /* AppDelegate.swift in Sources */,
 				3663C9821D62ACF60063BA3C /* AnnouncementsTableViewController.swift in Sources */,
+				36405A2F1D6F584800CE9021 /* ClubsViewController.swift in Sources */,
 				3663C9841D63AA4F0063BA3C /* AnnouncementTableViewCell.swift in Sources */,
 				36B71FC91D65461100DDCB0C /* CardView.swift in Sources */,
+				360A61D51D6F6A4700E76E00 /* ClubsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,28 +372,36 @@
 		};
 		363EE6331D40150200F4999F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BFCCA37773FC54FC7FE30EB /* Pods-Wildcat Mobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Wildcat Mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.centrevillehs.wildcatmobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Wildcat Mobile/Wildcat Mobile-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
 		363EE6341D40150200F4999F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 265503FACC5E26795D273A77 /* Pods-Wildcat Mobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Wildcat Mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.centrevillehs.wildcatmobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Wildcat Mobile/Wildcat Mobile-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 2.3;
 			};
