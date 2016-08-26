@@ -47,17 +47,17 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="600" sectionHeaderHeight="28" sectionFooterHeight="28" id="4bg-tW-jrw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoldingCell" rowHeight="600" id="n2Y-oc-igp" customClass="ClubsCell" customModule="Wildcat_Mobile" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoldingCell" rowHeight="600" id="n2Y-oc-igp" customClass="ClubsCell" customModule="Wildcat_Mobile">
                                 <rect key="frame" x="0.0" y="92" width="600" height="600"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n2Y-oc-igp" id="WF6-ej-tLZ">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xah-rC-m4d" userLabel="Foreground" customClass="RotatedView" customModule="FoldingCell">
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xah-rC-m4d" userLabel="Foreground" customClass="RotatedView" customModule="Wildcat_Mobile">
                                             <rect key="frame" x="8" y="36" width="584" height="50"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amnesty International Club" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONM-hx-DXa">
@@ -77,7 +77,7 @@
                                             <rect key="frame" x="8" y="113" width="584" height="120"/>
                                             <subviews>
                                                 <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4u-kG-rK4" userLabel="SecondContanerView" customClass="RotatedView" customModule="FoldingCell">
-                                                    <rect key="frame" x="0.0" y="40" width="584" height="40"/>
+                                                    <rect key="frame" x="5" y="40" width="574" height="40"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sponsor(s): Kathryn Mayhew" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHK-zI-QoN">
                                                             <rect key="frame" x="8" y="11" width="544" height="21"/>
@@ -92,7 +92,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euq-eL-c0F" userLabel="ThirdContainerView" customClass="RotatedView" customModule="FoldingCell">
-                                                    <rect key="frame" x="0.0" y="80" width="584" height="32"/>
+                                                    <rect key="frame" x="5" y="80" width="574" height="32"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Description: Support human rights in a peaceful manner" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="568" translatesAutoresizingMaskIntoConstraints="NO" id="t3Q-6G-RIo">
                                                             <rect key="frame" x="8" y="0.0" width="568" height="30"/>
@@ -146,17 +146,15 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="120" id="4kt-sq-iVY"/>
-                                                <constraint firstItem="h4u-kG-rK4" firstAttribute="leading" secondItem="3zE-8l-m8Z" secondAttribute="leading" id="5gM-Kj-YLn"/>
+                                                <constraint firstItem="h4u-kG-rK4" firstAttribute="leading" secondItem="3zE-8l-m8Z" secondAttribute="leading" constant="5" id="5gM-Kj-YLn"/>
                                                 <constraint firstAttribute="height" constant="120" id="CYc-Ni-Dbd"/>
-                                                <constraint firstAttribute="trailing" secondItem="euq-eL-c0F" secondAttribute="trailing" id="Ikt-JN-xi6"/>
                                                 <constraint firstItem="7vL-jJ-qAX" firstAttribute="leading" secondItem="3zE-8l-m8Z" secondAttribute="leading" id="Ix1-yK-76k"/>
-                                                <constraint firstAttribute="trailing" secondItem="euq-eL-c0F" secondAttribute="trailing" id="UHt-GO-DAg"/>
-                                                <constraint firstItem="euq-eL-c0F" firstAttribute="leading" secondItem="3zE-8l-m8Z" secondAttribute="leading" id="ctN-gB-bV3"/>
+                                                <constraint firstAttribute="trailing" secondItem="euq-eL-c0F" secondAttribute="trailing" constant="5" id="UHt-GO-DAg"/>
+                                                <constraint firstItem="euq-eL-c0F" firstAttribute="leading" secondItem="3zE-8l-m8Z" secondAttribute="leading" constant="5" id="ctN-gB-bV3"/>
                                                 <constraint firstItem="euq-eL-c0F" firstAttribute="top" secondItem="3zE-8l-m8Z" secondAttribute="top" constant="80" id="gIG-Jb-vGQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="7vL-jJ-qAX" secondAttribute="trailing" id="h76-oz-Q5z"/>
                                                 <constraint firstItem="h4u-kG-rK4" firstAttribute="top" secondItem="3zE-8l-m8Z" secondAttribute="top" constant="40" id="lWY-fL-lZc"/>
-                                                <constraint firstItem="euq-eL-c0F" firstAttribute="leading" secondItem="3zE-8l-m8Z" secondAttribute="leading" id="tzR-Sa-OtP"/>
-                                                <constraint firstAttribute="trailing" secondItem="h4u-kG-rK4" secondAttribute="trailing" id="vjT-ob-VkR"/>
+                                                <constraint firstAttribute="trailing" secondItem="h4u-kG-rK4" secondAttribute="trailing" constant="5" id="vjT-ob-VkR"/>
                                                 <constraint firstItem="7vL-jJ-qAX" firstAttribute="top" secondItem="3zE-8l-m8Z" secondAttribute="top" id="w4S-y3-HxY"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
@@ -182,10 +180,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <outlet property="basicClubTitle" destination="ONM-hx-DXa" id="RWC-oE-dlc"/>
                                     <outlet property="containerView" destination="3zE-8l-m8Z" id="EKR-66-SyU"/>
                                     <outlet property="containerViewTop" destination="brJ-WM-bCB" id="fdk-aD-OTU"/>
                                     <outlet property="foregroundView" destination="Xah-rC-m4d" id="dXi-jK-yRV"/>
                                     <outlet property="foregroundViewTop" destination="IiP-2p-3b7" id="F4M-rd-LuU"/>
+                                    <outlet property="moreClubDescription" destination="t3Q-6G-RIo" id="abl-pI-5c2"/>
+                                    <outlet property="moreClubSponsor" destination="BHK-zI-QoN" id="frW-fS-8Fs"/>
+                                    <outlet property="moreClubTitle" destination="Hgh-zl-48j" id="baV-vn-ANO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
