@@ -24,7 +24,7 @@
 //Changes made for Wildcat Mobile app:
 //Changed backViewColor to baby blue so color matches background
 
-//Changes to be made in iOS 10 (Swift 2.3)
+//Changes to be made in iOS 10 (Swift 2.3/3.0)
 //add CAAnimationDelegate typecasting to RotatorView
 
 import UIKit

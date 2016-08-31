@@ -18,6 +18,8 @@ class AnnouncementTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+		
+		//self.announcementLabel.preferredMaxLayoutWidth = self.announcementLabel.frame.width
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

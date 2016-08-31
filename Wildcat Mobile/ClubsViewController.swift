@@ -24,13 +24,7 @@ class ClubsViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		
-		
 		getDataFromURL(spreadsheetURL)
-		
-		
-
-		
 	}
 	
 	// MARK: configure
@@ -57,8 +51,8 @@ class ClubsViewController: UITableViewController {
 		
 		cell.basicClubTitle.text = clubTitles[indexPath.row]
 		cell.moreClubTitle.text = clubTitles[indexPath.row]
-		cell.moreClubSponsor.text = clubSponsors[indexPath.row]
-		cell.moreClubDescription.text = clubDescriptions[indexPath.row]
+		cell.moreClubSponsor.text = "Sponsor(s): " + clubSponsors[indexPath.row]
+		cell.moreClubDescription.text = "Description: " + clubDescriptions[indexPath.row]
 		
 		return cell
 	}
