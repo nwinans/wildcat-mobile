@@ -16,6 +16,9 @@
 		36405A2F1D6F584800CE9021 /* ClubsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36405A2E1D6F584800CE9021 /* ClubsViewController.swift */; };
 		3663C9821D62ACF60063BA3C /* AnnouncementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C9811D62ACF60063BA3C /* AnnouncementsTableViewController.swift */; };
 		3663C9841D63AA4F0063BA3C /* AnnouncementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C9831D63AA4F0063BA3C /* AnnouncementTableViewCell.swift */; };
+		36B435881D77BEC900284697 /* SwiftyExpandingTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B435871D77BEC900284697 /* SwiftyExpandingTransition.swift */; };
+		36B4358A1D77BF4300284697 /* AcademicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B435891D77BF4300284697 /* AcademicsViewController.swift */; };
+		36B4358C1D77BF6800284697 /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4358B1D77BF6800284697 /* SegueHandlerType.swift */; };
 		36B71FC91D65461100DDCB0C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B71FC81D65461100DDCB0C /* CardView.swift */; };
 		36DE7E481D6FCF6D005F5283 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE7E471D6FCF6C005F5283 /* FoldingCell.swift */; };
 /* End PBXBuildFile section */
@@ -33,6 +36,9 @@
 		3663C9801D6296340063BA3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		3663C9811D62ACF60063BA3C /* AnnouncementsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementsTableViewController.swift; sourceTree = "<group>"; };
 		3663C9831D63AA4F0063BA3C /* AnnouncementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementTableViewCell.swift; sourceTree = "<group>"; };
+		36B435871D77BEC900284697 /* SwiftyExpandingTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyExpandingTransition.swift; sourceTree = "<group>"; };
+		36B435891D77BF4300284697 /* AcademicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcademicsViewController.swift; sourceTree = "<group>"; };
+		36B4358B1D77BF6800284697 /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
 		36B71FC81D65461100DDCB0C /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		36DE7E471D6FCF6C005F5283 /* FoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +83,7 @@
 		36275D2C1D74A9F000355BE2 /* Academics */ = {
 			isa = PBXGroup;
 			children = (
+				36B435891D77BF4300284697 /* AcademicsViewController.swift */,
 			);
 			name = Academics;
 			sourceTree = "<group>";
@@ -102,7 +109,7 @@
 			children = (
 				36DE7E491D6FD094005F5283 /* App Delegate */,
 				36E68FAB1D40337700543F9A /* Storyboards */,
-				36E68FAA1D40335E00543F9A /* View Controllers */,
+				36CFD5971D77D8F80016618D /* New Group */,
 				36405A2D1D6E27D800CE9021 /* Other */,
 				363EE62F1D40150200F4999F /* Info.plist */,
 				363EE62A1D40150200F4999F /* Assets.xcassets */,
@@ -116,8 +123,18 @@
 			children = (
 				36DE7E471D6FCF6C005F5283 /* FoldingCell.swift */,
 				36B71FC81D65461100DDCB0C /* CardView.swift */,
+				36B435871D77BEC900284697 /* SwiftyExpandingTransition.swift */,
+				36B4358B1D77BF6800284697 /* SegueHandlerType.swift */,
 			);
 			name = Other;
+			sourceTree = "<group>";
+		};
+		36CFD5971D77D8F80016618D /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				36E68FAA1D40335E00543F9A /* View Controllers */,
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		36DE7E491D6FD094005F5283 /* App Delegate */ = {
@@ -225,10 +242,13 @@
 				36DE7E481D6FCF6D005F5283 /* FoldingCell.swift in Sources */,
 				3663C9821D62ACF60063BA3C /* AnnouncementsTableViewController.swift in Sources */,
 				36405A2F1D6F584800CE9021 /* ClubsViewController.swift in Sources */,
+				36B4358C1D77BF6800284697 /* SegueHandlerType.swift in Sources */,
 				3663C9841D63AA4F0063BA3C /* AnnouncementTableViewCell.swift in Sources */,
 				36275D2E1D74ABCC00355BE2 /* ArticlesViewController.swift in Sources */,
+				36B435881D77BEC900284697 /* SwiftyExpandingTransition.swift in Sources */,
 				36B71FC91D65461100DDCB0C /* CardView.swift in Sources */,
 				360A61D51D6F6A4700E76E00 /* ClubsCell.swift in Sources */,
+				36B4358A1D77BF4300284697 /* AcademicsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
