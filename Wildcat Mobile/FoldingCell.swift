@@ -444,7 +444,7 @@ public class FoldingCell: UITableViewCell {
 
 // MARK: RotatedView
 
-public class RotatedView: UIView {
+public class RotatedView: UIView{
   var hiddenAfterAnimation = false
   var backView: RotatedView?
   
@@ -507,12 +507,12 @@ extension RotatedView {
     self.layer.addAnimation(rotateAnimation, forKey: "rotation.x")
   }
   
-  override public func animationDidStart(anim: CAAnimation) {
+  public override func animationDidStart(anim: CAAnimation) {
     self.layer.shouldRasterize = true
     self.alpha = 1
   }
   
-  override public func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+  public override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
     if hiddenAfterAnimation {
       self.alpha = 0
     }

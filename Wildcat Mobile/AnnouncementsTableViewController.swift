@@ -163,7 +163,7 @@ class AnnouncementsTableViewController: UITableViewController {
 													} else {
 														//Format timestamp as desired format ("Month, Day, Year")
 														var dateFormatter = NSDateFormatter()
-														dateFormatter.dateFormat = "MM/dd/yyyy"
+														dateFormatter.dateFormat = "MM/dd"
 														let date = dateFormatter.stringFromDate(timestamp!)
 														
 														announcementArray.append(announcementMessage)
