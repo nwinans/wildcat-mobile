@@ -144,7 +144,7 @@ class ClubsViewController: UITableViewController {
 						clubSponsors.append(clubSponsor!)
 						clubDescriptions.append(clubDescription!)
 						
-						doTableRefresh()
+						self.tableView.reloadData()
 					} else {
 						print("club not yet active")
 					}
@@ -167,7 +167,7 @@ class ClubsViewController: UITableViewController {
 		
 		dispatch_async(dispatch_get_main_queue(), {
 			//sleep(4)
-			self.tableView.reloadData()
+			
 			return
 		})
 		

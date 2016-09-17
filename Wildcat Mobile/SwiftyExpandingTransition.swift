@@ -29,7 +29,7 @@ class SwiftyExpandingTransition: NSObject, UIViewControllerAnimatedTransitioning
         let destinationVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         let destinationView = destinationVC.view
 
-        let container = transitionContext.containerView()!
+        let container = transitionContext.containerView()
 
         let initialFrame = transitionContext.initialFrameForViewController(sourceVC)
         let finalFrame = transitionContext.finalFrameForViewController(destinationVC)
@@ -48,7 +48,7 @@ class SwiftyExpandingTransition: NSObject, UIViewControllerAnimatedTransitioning
 
             sourceView.drawViewHierarchyInRect(bounds, afterScreenUpdates: false)
 
-            snapShot = UIGraphicsGetImageFromCurrentImageContext()
+            snapShot = UIGraphicsGetImageFromCurrentImageContext()!
 
             UIGraphicsEndImageContext()
 
