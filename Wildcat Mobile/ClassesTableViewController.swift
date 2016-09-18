@@ -86,12 +86,6 @@ class ClassesTableViewController: UITableViewController {
 		return false
 	}
 	
-	/*func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-		if classes != nil {
-			classes?.text
-		}
-	}*/
-
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier("classes", forIndexPath: indexPath) as! ClassesTableViewCell
 		
@@ -104,21 +98,35 @@ class ClassesTableViewController: UITableViewController {
 		
 	}
 	
-    // Override to support conditional editing of the table view.
-	override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+	override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
 		if indexPath.row > 0 {
-			return true
+			return UITableViewCellEditingStyle.Delete
 		} else {
-			return false
+			return UITableViewCellEditingStyle.None
 		}
 	}
 	
+    // Override to support conditional editing of the table view.
+	override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+		/*if indexPath.row > 0 {
+			return true
+		} else {
+			return false
+		}*/
+		
+		return true
+	}
+	
+	
 	override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-		if (editingStyle == UITableViewCellEditingStyle.Delete) {
-			// handle delete (by removing the data from your array and updating the tableview)
-			classes.removeAtIndex(indexPath.row)
-			saveClasses()
-			tableView.reloadData()
+		
+		if indexPath.row > 0 {
+			if (editingStyle == UITableViewCellEditingStyle.Delete) {
+				// handle delete (by removing the data from your array and updating the tableview)
+				classes.removeAtIndex(indexPath.row)
+				saveClasses()
+				tableView.reloadData()
+			}
 		}
 	}
 	
@@ -130,24 +138,7 @@ class ClassesTableViewController: UITableViewController {
 	}
 	
 	func loadClasses() -> [ClassObject]? {
-		return NSKeyedUnarchiver.unarchiveObjectWithFile(ClassSchedule.ArchiveURL!.path!) as? [ClassObject]
-	}
-	
-	@IBAction func unwindToClassList(sender: UIStoryboardSegue) {
-		if let sourceViewController = sender.sourceViewController as? ClassesTableViewController, singleClass = sourceViewController.singleClass {
-			
-			if let selectedIndexPath = tableView.indexPathForSelectedRow {
-				classes[selectedIndexPath.row] = singleClass
-				tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .Right)
-			} else {
-				let newIndexPath = NSIndexPath(forRow: classes.count, inSection: 0)
-				classes.append(singleClass)
-				tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Right)
-				
-			}
-			
-			saveClasses()
-		}
+		return NSKeyedUnarchiver.unarchiveObjectWithFile(ClassObject.ArchiveURL!.path!) as? [ClassObject]
 	}
 	
 	var newsubject: String = ""
@@ -185,7 +176,13 @@ class ClassesTableViewController: UITableViewController {
 	}
 	
 	func addNewItem() {
-		classes += [ClassObject(subject: newsubject, room: newroom)!]
+		if newsubject.isEmpty {
+			return
+		} else if newroom.isEmpty {
+			classes += [ClassObject(subject: newsubject, room: " ")!]
+		} else {
+			classes += [ClassObject(subject: newsubject, room: newroom)!]
+		}
 		saveClasses()
 		tableView.reloadData()
 	}

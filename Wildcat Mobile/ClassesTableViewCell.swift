@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ClassesTableViewCell: UITableViewCell, UITextFieldDelegate{
+class ClassesTableViewCell: UITableViewCell{
 
 	let subject: UITextField!
 	let room: UITextField!
@@ -32,10 +32,7 @@ class ClassesTableViewCell: UITableViewCell, UITextFieldDelegate{
 		room.font = UIFont.systemFontOfSize(16.0)
 		
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
-		
-		subject.delegate = self
-		room.delegate = self
-		
+				
 		subject.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
 		room.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
 		
@@ -73,37 +70,6 @@ class ClassesTableViewCell: UITableViewCell, UITextFieldDelegate{
 			subject.text = classes?.subject
 			room.text = classes?.room
 			}
-		}
-	}
-	
-	func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-		if subject.text! == "Class" && room.text! == "Room #" {
-			return false
-		} else {
-			return true
-		}
-	}
-	
-	func textFieldShouldReturn(textField: UITextField) -> Bool {
-		textField.resignFirstResponder()
-		return false
-	}
-	
-	func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-		if classes != nil {
-			classes?.subject = subject.text!
-			classes?.room = room.text!
-			
-			print(classes)
-		}
-		return true
-	}
-	
-	func saveClasses() {
-		let isSaveSuccessful = NSKeyedArchiver.archiveRootObject(classes!, toFile: ClassSchedule.ArchiveURL!.path!)
-		
-		if !isSaveSuccessful {
-			print("Failed to save class...")
 		}
 	}
 }
