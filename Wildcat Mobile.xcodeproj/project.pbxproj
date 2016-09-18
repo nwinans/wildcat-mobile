@@ -21,6 +21,9 @@
 		36B435881D77BEC900284697 /* SwiftyExpandingTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B435871D77BEC900284697 /* SwiftyExpandingTransition.swift */; };
 		36B4358A1D77BF4300284697 /* AcademicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B435891D77BF4300284697 /* AcademicsViewController.swift */; };
 		36B71FC91D65461100DDCB0C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B71FC81D65461100DDCB0C /* CardView.swift */; };
+		36DBBEFB1D8D9AAB00532E0F /* ClassesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DBBEFA1D8D9AAB00532E0F /* ClassesTableViewController.swift */; };
+		36DBBEFD1D8DAF0B00532E0F /* ClassesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DBBEFC1D8DAF0B00532E0F /* ClassesTableViewCell.swift */; };
+		36DBBEFF1D8DB0C800532E0F /* ClassObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DBBEFE1D8DB0C800532E0F /* ClassObject.swift */; };
 		36DE7E481D6FCF6D005F5283 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE7E471D6FCF6C005F5283 /* FoldingCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +45,9 @@
 		36B435871D77BEC900284697 /* SwiftyExpandingTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyExpandingTransition.swift; sourceTree = "<group>"; };
 		36B435891D77BF4300284697 /* AcademicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcademicsViewController.swift; sourceTree = "<group>"; };
 		36B71FC81D65461100DDCB0C /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		36DBBEFA1D8D9AAB00532E0F /* ClassesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesTableViewController.swift; sourceTree = "<group>"; };
+		36DBBEFC1D8DAF0B00532E0F /* ClassesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesTableViewCell.swift; sourceTree = "<group>"; };
+		36DBBEFE1D8DB0C800532E0F /* ClassObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassObject.swift; sourceTree = "<group>"; };
 		36DE7E471D6FCF6C005F5283 /* FoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				36B435891D77BF4300284697 /* AcademicsViewController.swift */,
+				36DBBEF91D8D96C400532E0F /* Classes */,
 				36A2ACC51D7F854600046487 /* Teachers */,
 			);
 			name = Academics;
@@ -138,6 +145,16 @@
 				36A2ACC61D7F857900046487 /* TeachersTableViewController.swift */,
 			);
 			name = Teachers;
+			sourceTree = "<group>";
+		};
+		36DBBEF91D8D96C400532E0F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				36DBBEFA1D8D9AAB00532E0F /* ClassesTableViewController.swift */,
+				36DBBEFC1D8DAF0B00532E0F /* ClassesTableViewCell.swift */,
+				36DBBEFE1D8DB0C800532E0F /* ClassObject.swift */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		36DE7E491D6FD094005F5283 /* App Delegate */ = {
@@ -247,10 +264,13 @@
 				3663C9821D62ACF60063BA3C /* AnnouncementsTableViewController.swift in Sources */,
 				36405A2F1D6F584800CE9021 /* ClubsViewController.swift in Sources */,
 				3663C9841D63AA4F0063BA3C /* AnnouncementTableViewCell.swift in Sources */,
+				36DBBEFF1D8DB0C800532E0F /* ClassObject.swift in Sources */,
+				36DBBEFD1D8DAF0B00532E0F /* ClassesTableViewCell.swift in Sources */,
 				36A2ACC71D7F857900046487 /* TeachersTableViewController.swift in Sources */,
 				36275D2E1D74ABCC00355BE2 /* ArticlesViewController.swift in Sources */,
 				36B435881D77BEC900284697 /* SwiftyExpandingTransition.swift in Sources */,
 				36B71FC91D65461100DDCB0C /* CardView.swift in Sources */,
+				36DBBEFB1D8D9AAB00532E0F /* ClassesTableViewController.swift in Sources */,
 				360A61D51D6F6A4700E76E00 /* ClubsCell.swift in Sources */,
 				36B4358A1D77BF4300284697 /* AcademicsViewController.swift in Sources */,
 			);
