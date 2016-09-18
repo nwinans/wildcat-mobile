@@ -36,9 +36,10 @@ class AcademicsViewController: UITableViewController, UINavigationControllerDele
 	}
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		
-		self.selectedCellFrame = tableView.convertRect(sender!.frame, toView: tableView.superview)
-		self.navigationController?.delegate = self
+		if segue.identifier != "crisisAcademics" && segue.identifier != "plusAcademics" {
+			self.selectedCellFrame = tableView.convertRect(sender!.frame, toView: tableView.superview)
+			self.navigationController?.delegate = self
+		}
 	}
 	
 	func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {

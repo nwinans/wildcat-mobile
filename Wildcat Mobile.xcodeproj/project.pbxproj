@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3603F3821D8C996A0037DDF9 /* SwiftyAccordianCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3603F3811D8C996A0037DDF9 /* SwiftyAccordianCells.swift */; };
+		36064A651D8E211800AF605D /* CrisisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36064A641D8E211800AF605D /* CrisisTableViewController.swift */; };
 		360A61D51D6F6A4700E76E00 /* ClubsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360A61D41D6F6A4700E76E00 /* ClubsCell.swift */; };
 		36275D2E1D74ABCC00355BE2 /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36275D2D1D74ABCC00355BE2 /* ArticlesViewController.swift */; };
 		363EE6221D40150200F4999F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363EE6211D40150200F4999F /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		3603F3811D8C996A0037DDF9 /* SwiftyAccordianCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyAccordianCells.swift; sourceTree = "<group>"; };
+		36064A641D8E211800AF605D /* CrisisTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrisisTableViewController.swift; sourceTree = "<group>"; };
 		360A61D41D6F6A4700E76E00 /* ClubsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubsCell.swift; sourceTree = "<group>"; };
 		36275D2D1D74ABCC00355BE2 /* ArticlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
 		363EE61E1D40150200F4999F /* Wildcat Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wildcat Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +174,7 @@
 				36275D2C1D74A9F000355BE2 /* Academics */,
 				36275D2B1D74A9E900355BE2 /* Articles */,
 				36275D2A1D74A9E400355BE2 /* Clubs */,
+				36064A641D8E211800AF605D /* CrisisTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				36B71FC91D65461100DDCB0C /* CardView.swift in Sources */,
 				36DBBEFB1D8D9AAB00532E0F /* ClassesTableViewController.swift in Sources */,
 				360A61D51D6F6A4700E76E00 /* ClubsCell.swift in Sources */,
+				36064A651D8E211800AF605D /* CrisisTableViewController.swift in Sources */,
 				36B4358A1D77BF4300284697 /* AcademicsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,7 +396,7 @@
 				INFOPLIST_FILE = "Wildcat Mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.centrevillehs.wildcatmobile;
+				PRODUCT_BUNDLE_IDENTIFIER = com.centrevillehs.wildcatmobiletest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Wildcat Mobile/Wildcat Mobile-Bridging-Header.h";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
@@ -411,7 +415,7 @@
 				INFOPLIST_FILE = "Wildcat Mobile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.centrevillehs.wildcatmobile;
+				PRODUCT_BUNDLE_IDENTIFIER = com.centrevillehs.wildcatmobiletest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Wildcat Mobile/Wildcat Mobile-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
