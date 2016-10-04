@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class CrisisTableViewController: UITableViewController {
+class CrisisTableViewController: UITableViewController, MFMessageComposeViewControllerDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,32 +27,43 @@ class CrisisTableViewController: UITableViewController {
     }
 
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-		switch(indexPath.row) {
-		case 0:
-			callNumber("tel://7035274077")
-		case 1:
-			callNumber("tel://7035362000")
-		case 2:
-			callNumber("tel://7032897560")
-		case 3:
-			callNumber("tel://18446274747")
-		case 4:
-			callNumber("tel://1800273TALK")
-		case 5:
-			callNumber("tel://7035735769")
-		case 6:
-			callNumber("tel://7036912131")
-		case 7:
-			callNumber("tel://7033608404")
-		case 8:
-			callNumber("tel://911")
-		default:
-			break
+		
+		if indexPath.section == 0 {
+		
+			switch(indexPath.row) {
+			case 0:
+				callNumber("tel://7035274077")
+			case 1:
+				callNumber("tel://7035362000")
+			case 2:
+				callNumber("tel://7032897560")
+			case 3:
+				callNumber("tel://18446274747")
+			case 4:
+				callNumber("tel://1800273TALK")
+			case 5:
+				callNumber("tel://7035735769")
+			case 6:
+				callNumber("tel://7036912131")
+			case 7:
+				callNumber("tel://7033608404")
+			case 8:
+				callNumber("tel://911")
+			default:
+				break
+			}
+		} else if indexPath.section == 1 {
+			switch(indexPath.row) {
+			case 0:
+				sendMessage(self)
+			default:
+				break
+			}
 		}
 	}
 	
 	func callNumber(number: String) {
-		var alert = UIAlertController.init(title: "This number is for crisis only", message: "Are you sure you want to call this number?", preferredStyle: UIAlertControllerStyle.ActionSheet)
+		let alert = UIAlertController.init(title: "This number is for crisis only", message: "Are you sure you want to call this number?", preferredStyle: UIAlertControllerStyle.ActionSheet)
 		
 		let callAction = UIAlertAction.init(title: "Call", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
 			UIApplication.sharedApplication().openURL(NSURL(string: number)!)
@@ -64,6 +76,21 @@ class CrisisTableViewController: UITableViewController {
 		alert.addAction(callAction)
 		alert.addAction(cancelAction)
 		self.presentViewController(alert, animated: true, completion: nil)
+	}
+	
+	func sendMessage(sender: AnyObject) {
+		let messageVC = MFMessageComposeViewController()
+		
+		messageVC.body = "NEEDHELP";
+		messageVC.recipients = ["85511"]
+		
+		messageVC.messageComposeDelegate = self;
+		
+		self.presentViewController(messageVC, animated: false, completion: nil)
+	}
+	
+	func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+		self.dismissViewControllerAnimated(true, completion: nil)
 	}
 
 }

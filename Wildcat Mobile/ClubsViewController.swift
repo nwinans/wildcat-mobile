@@ -128,7 +128,7 @@ class ClubsViewController: UITableViewController {
 		if let table = json?["Sheet1"] as? NSArray{
 			
 			//loop through all the clubs in the json object, table
-			for var i in 0.stride(to: table.count, by: 1) {
+			for i in 0.stride(to: table.count, by: 1) {
 				
 				//sets clubObject equal to to the current object in the table array as type NSDictionary
 				if let clubObject = table[i] as? NSDictionary {

@@ -110,7 +110,7 @@ class AnnouncementsTableViewController: UITableViewController {
 			if let table = json?["Sheet1"] as? NSArray{
 				
 				//loop through all the announcements in the json object, table
-				for var i in 0.stride(to: table.count, by: 1) {
+				for i in 0.stride(to: table.count, by: 1) {
 					
 					//sets announcementObject equal to to the current object in the table array as type NSDictionary
 					if let announcementObject = table[i] as? NSDictionary {
@@ -137,7 +137,7 @@ class AnnouncementsTableViewController: UITableViewController {
 												let currentDate: NSDate = NSDate()
 												
 												//Create NSDateFormatter to parse times into NSDates
-												var formatter = NSDateFormatter()
+												let formatter = NSDateFormatter()
 												
 												//set timezone of formatter to east coast
 												formatter.timeZone = NSTimeZone.defaultTimeZone()
@@ -146,8 +146,8 @@ class AnnouncementsTableViewController: UITableViewController {
 												formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 												
 												//create NSDates for timestamp and expiration date
-												var timestamp = formatter.dateFromString(announcementTimestamp)
-												var expiraton = formatter.dateFromString(announcementExpiration)
+												let timestamp = formatter.dateFromString(announcementTimestamp)
+												let expiraton = formatter.dateFromString(announcementExpiration)
 												
 												//check to see if the announcement is still valid, or if it has expired
 												//	if it is valid, check to see if announcement is approved
@@ -162,7 +162,7 @@ class AnnouncementsTableViewController: UITableViewController {
 														print("The announcement \(announcementMessage) wasn't approved")
 													} else {
 														//Format timestamp as desired format ("Month, Day, Year")
-														var dateFormatter = NSDateFormatter()
+														let dateFormatter = NSDateFormatter()
 														dateFormatter.dateFormat = "MM/dd"
 														let date = dateFormatter.stringFromDate(timestamp!)
 														

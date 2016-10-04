@@ -391,7 +391,7 @@ class TeachersTableViewController: UITableViewController {
 			
 		} else {
 			self.currentlySelectedItemIndex = indexPath.row
-			var alert = UIAlertController.init(title: "What would you like to do?", message: "Would you like to copy this teacher's email, or start a new email to this teacher?", preferredStyle: UIAlertControllerStyle.ActionSheet)
+			let alert = UIAlertController.init(title: "What would you like to do?", message: "Would you like to copy this teacher's email, or start a new email to this teacher?", preferredStyle: UIAlertControllerStyle.ActionSheet)
 			
 			let copyAction = UIAlertAction.init(title: "Copy", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
 				UIPasteboard.generalPasteboard().string = self.emailDictionary[item.value as! String]!
