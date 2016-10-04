@@ -19,6 +19,7 @@ class AcademicsViewController: UITableViewController, UINavigationControllerDele
 	//Setup variables to get library cell and calendar cell from the Storyboard View
 	@IBOutlet weak var libraryCell: UITableViewCell!
 	@IBOutlet weak var calendarCell: UITableViewCell!
+	@IBOutlet weak var athleticsCell: UITableViewCell!
 	
 	//Default function called when view has been loaded (view is shown to user)
 	override func viewDidLoad() {
@@ -27,18 +28,22 @@ class AcademicsViewController: UITableViewController, UINavigationControllerDele
 		//setup tap recognizers so the library cell and calendar cell do their desired actions when clicked on
 		let libraryTap = UITapGestureRecognizer(target: self, action: #selector(AcademicsViewController.libraryWebsite))
 		let calendarTap = UITapGestureRecognizer(target: self, action: #selector(AcademicsViewController.calendarLink))
+		let athleticsTap = UITapGestureRecognizer(target: self, action: #selector(AcademicsViewController.athleticsWebsite))
 		
 		//setup tap recognizers to only need 1 tap
 		libraryTap.numberOfTapsRequired = 1
 		calendarTap.numberOfTapsRequired = 1
+		athleticsTap.numberOfTapsRequired = 1
 		
 		//override any settings in the storyboard disabling user input on the library and calendar cells
 		libraryCell.userInteractionEnabled = true
 		calendarCell.userInteractionEnabled = true
+		athleticsCell.userInteractionEnabled = true
 		
 		//add the tap recognizer to the corrosponding cell
 		libraryCell.addGestureRecognizer(libraryTap)
 		calendarCell.addGestureRecognizer(calendarTap)
+		athleticsCell.addGestureRecognizer(athleticsTap)
 	}
 	
 	//default function run right before segue is called (right before leaving this page)
@@ -77,7 +82,12 @@ class AcademicsViewController: UITableViewController, UINavigationControllerDele
 	
 	//pass the library url to the openURL function
 	func libraryWebsite() {
-		openURL("http://libcat.fcps.edu/uhtbin/cgisirsi/?ps=niWwvVsnMv/305/113560215/60/1182/X")
+		openURL("http://libcat.fcps.edu/uhtbin/cgisirsi/x/0/0/57/49?user_id=410WEB")
+	}
+	
+	//pass the athletics url to the openURL function
+	func athleticsWebsite() {
+		openURL("http://wearecville.com")
 	}
 	
 	//open url function

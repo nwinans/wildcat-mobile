@@ -9,27 +9,41 @@
 import UIKit
 import SafariServices
 
-class ArticlesViewController: UIViewController, SFSafariViewControllerDelegate{
+class ArticlesViewController: UITableViewController, SFSafariViewControllerDelegate{
 
-	@IBOutlet weak var educatorToolkitImageView: UIImageView!
-	@IBOutlet weak var generalStatisticsButton: UIButton!
-	@IBOutlet weak var whatShouldISayButton: UIButton!
-	@IBOutlet weak var bodyImageButton: UIButton!
+	@IBOutlet weak var educatorToolkitView: UIView!
+	@IBOutlet weak var generalStatisticsView: UIView!
+	@IBOutlet weak var whatShouldISayView: UIView!
+	@IBOutlet weak var bodyImageView: UIView!
+	@IBOutlet weak var projectAwareView: UIView!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		let singleTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.educatorToolkit))
-		singleTap.numberOfTapsRequired = 1
+		let educatorTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.educatorToolkit))
+		let generalStatsTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.generalStatistics))
+		let whatShouldTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.whatShouldISay))
+		let bodyImageTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.bodyImage))
+		let projectAwareTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.projectAware))
 		
-		educatorToolkitImageView.userInteractionEnabled = true
-		educatorToolkitImageView.addGestureRecognizer(singleTap)
+		educatorTap.numberOfTapsRequired = 1
+		generalStatsTap.numberOfTapsRequired = 1
+		whatShouldTap.numberOfTapsRequired = 1
+		bodyImageTap.numberOfTapsRequired = 1
+		projectAwareTap.numberOfTapsRequired = 1
 		
-		generalStatisticsButton.addTarget(self, action: #selector(ArticlesViewController.generalStatistics), forControlEvents: .TouchUpInside)
+		educatorToolkitView.userInteractionEnabled = true
+		generalStatisticsView.userInteractionEnabled = true
+		whatShouldISayView.userInteractionEnabled = true
+		bodyImageView.userInteractionEnabled = true
+		projectAwareView.userInteractionEnabled = true
 		
-		whatShouldISayButton.addTarget(self, action: #selector(ArticlesViewController.whatShouldISay), forControlEvents: .TouchUpInside)
+		educatorToolkitView.addGestureRecognizer(educatorTap)
+		generalStatisticsView.addGestureRecognizer(generalStatsTap)
+		whatShouldISayView.addGestureRecognizer(whatShouldTap)
+		bodyImageView.addGestureRecognizer(bodyImageTap)
+		projectAwareView.addGestureRecognizer(projectAwareTap)
 		
-		bodyImageButton.addTarget(self, action: #selector(ArticlesViewController.bodyImage), forControlEvents: .TouchUpInside)
 	}
 	
 	func educatorToolkit() {
@@ -46,6 +60,10 @@ class ArticlesViewController: UIViewController, SFSafariViewControllerDelegate{
 	
 	func bodyImage() {
 		openURL("http://www.nationaleatingdisorders.org/what-body-image")
+	}
+	
+	func projectAware() {
+		openURL("http://www.SAMHSA.gov")
 	}
 	
 	func openURL(url: String) {
