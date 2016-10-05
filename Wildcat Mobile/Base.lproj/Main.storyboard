@@ -321,7 +321,7 @@
         <!--Plus Schedule-->
         <scene sceneID="UBJ-qQ-cQY">
             <objects>
-                <viewController title="Plus Schedule" id="Zh1-XR-jOe" sceneMemberID="viewController">
+                <viewController title="Plus Schedule" automaticallyAdjustsScrollViewInsets="NO" id="Zh1-XR-jOe" customClass="PlusViewController" customModule="Wildcat_Mobile" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fQw-7q-sZP"/>
                         <viewControllerLayoutGuide type="bottom" id="wjL-Da-yT5"/>
@@ -330,16 +330,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plusSchedule" translatesAutoresizingMaskIntoConstraints="NO" id="NDJ-Ib-VjT"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="6" translatesAutoresizingMaskIntoConstraints="NO" id="4GR-T2-c2J">
+                                <subviews>
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="plusschedule" translatesAutoresizingMaskIntoConstraints="NO" id="NDJ-Ib-VjT">
+                                        <rect key="frame" x="0.0" y="-63" width="375" height="554"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="NDJ-Ib-VjT" firstAttribute="leading" secondItem="4GR-T2-c2J" secondAttribute="leading" id="FTz-D7-Z0u"/>
+                                    <constraint firstItem="NDJ-Ib-VjT" firstAttribute="top" secondItem="4GR-T2-c2J" secondAttribute="top" constant="1" id="Onw-zL-uKd"/>
+                                    <constraint firstItem="NDJ-Ib-VjT" firstAttribute="centerX" secondItem="4GR-T2-c2J" secondAttribute="centerX" id="ZTE-rU-cvA"/>
+                                    <constraint firstItem="NDJ-Ib-VjT" firstAttribute="centerY" secondItem="4GR-T2-c2J" secondAttribute="centerY" id="eZL-Ae-h7K"/>
+                                    <constraint firstAttribute="bottom" secondItem="NDJ-Ib-VjT" secondAttribute="bottom" id="oTe-Ah-SFM"/>
+                                    <constraint firstAttribute="trailing" secondItem="NDJ-Ib-VjT" secondAttribute="trailing" id="t4c-pN-DFE"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="Zh1-XR-jOe" id="YJQ-kv-VcP"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="NDJ-Ib-VjT" firstAttribute="leading" secondItem="NqR-nf-Pa2" secondAttribute="leading" id="BfD-qS-ns6"/>
-                            <constraint firstItem="NDJ-Ib-VjT" firstAttribute="top" secondItem="fQw-7q-sZP" secondAttribute="bottom" id="VAX-NT-w1g"/>
-                            <constraint firstAttribute="trailing" secondItem="NDJ-Ib-VjT" secondAttribute="trailing" id="hY9-7O-RQ9"/>
-                            <constraint firstItem="NDJ-Ib-VjT" firstAttribute="bottom" secondItem="wjL-Da-yT5" secondAttribute="top" id="sF1-cK-NnA"/>
+                            <constraint firstItem="4GR-T2-c2J" firstAttribute="leading" secondItem="NqR-nf-Pa2" secondAttribute="leading" id="Cnb-SD-aRu"/>
+                            <constraint firstAttribute="trailing" secondItem="4GR-T2-c2J" secondAttribute="trailing" id="GLN-W1-EAJ"/>
+                            <constraint firstItem="wjL-Da-yT5" firstAttribute="top" secondItem="4GR-T2-c2J" secondAttribute="bottom" id="KNl-KX-ngY"/>
+                            <constraint firstItem="4GR-T2-c2J" firstAttribute="top" secondItem="fQw-7q-sZP" secondAttribute="bottom" id="aq6-v9-2rQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="NDJ-Ib-VjT" id="aJr-Zv-1za"/>
+                        <outlet property="scrollView" destination="4GR-T2-c2J" id="OeM-g3-n8I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTd-ap-JDU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1294,15 +1315,15 @@
         <image name="library" width="48" height="48"/>
         <image name="newspaper" width="24" height="24"/>
         <image name="people" width="24" height="24"/>
-        <image name="plusSchedule" width="566" height="733"/>
+        <image name="plusschedule" width="24" height="24"/>
         <image name="schedule" width="48" height="48"/>
         <image name="school" width="24" height="24"/>
         <image name="teacher" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Z5Q-ay-lUR"/>
+        <segue reference="qLb-zE-2OP"/>
         <segue reference="ZMD-DU-lDe"/>
-        <segue reference="7HN-rq-kwX"/>
         <segue reference="utc-d6-pgl"/>
     </inferredMetricsTieBreakers>
 </document>

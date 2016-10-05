@@ -26,6 +26,7 @@
 		36DBBEFD1D8DAF0B00532E0F /* ClassesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DBBEFC1D8DAF0B00532E0F /* ClassesTableViewCell.swift */; };
 		36DBBEFF1D8DB0C800532E0F /* ClassObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DBBEFE1D8DB0C800532E0F /* ClassObject.swift */; };
 		36DE7E481D6FCF6D005F5283 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DE7E471D6FCF6C005F5283 /* FoldingCell.swift */; };
+		36E8D6E21DA47AC200E1F222 /* PlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E8D6E11DA47AC200E1F222 /* PlusViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		36DBBEFC1D8DAF0B00532E0F /* ClassesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesTableViewCell.swift; sourceTree = "<group>"; };
 		36DBBEFE1D8DB0C800532E0F /* ClassObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassObject.swift; sourceTree = "<group>"; };
 		36DE7E471D6FCF6C005F5283 /* FoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
+		36E8D6E11DA47AC200E1F222 /* PlusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlusViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				36275D2B1D74A9E900355BE2 /* Articles */,
 				36275D2A1D74A9E400355BE2 /* Clubs */,
 				36064A641D8E211800AF605D /* CrisisTableViewController.swift */,
+				36E8D6E11DA47AC200E1F222 /* PlusViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				363EE6221D40150200F4999F /* AppDelegate.swift in Sources */,
 				36DE7E481D6FCF6D005F5283 /* FoldingCell.swift in Sources */,
 				3663C9821D62ACF60063BA3C /* AnnouncementsTableViewController.swift in Sources */,
+				36E8D6E21DA47AC200E1F222 /* PlusViewController.swift in Sources */,
 				36405A2F1D6F584800CE9021 /* ClubsViewController.swift in Sources */,
 				3663C9841D63AA4F0063BA3C /* AnnouncementTableViewCell.swift in Sources */,
 				36DBBEFF1D8DB0C800532E0F /* ClassObject.swift in Sources */,
