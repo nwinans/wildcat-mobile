@@ -127,8 +127,11 @@ class TeachersTableViewController: UITableViewController {
 	var artTeachers:Array<String> = [
 	"Drinkwater, Kara",
 	"Killinger, Kris",
-	"Marcaccio, Rory",
 	"Search Kurt, Katherine"]
+	
+	var worldLanguagesTeachers:Array<String> = []
+	
+	var counselorTeachers:Array<String> = []
 	
 	
 	var emailDictionary: [String: String] = [String: String]()
@@ -154,51 +157,53 @@ class TeachersTableViewController: UITableViewController {
 	
 	func setup() {
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Mathematics"))
-		
 		for teacher in mathTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 		
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Science"))
-		
 		for teacher in scienceTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 		
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Social Studies"))
-		
 		for teacher in socialTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 		
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "English"))
-		
 		for teacher in englishTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 		
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Physical Education"))
-		
 		for teacher in peTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
+	
+		self.cells.append(SwiftyAccordianCells.HeaderItem(value: "World Languages"))
+		for teacher in worldLanguagesTeachers {
+			self.cells.append(SwiftAccordianCells.Item(value:teacher))
+		}
 		
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Music"))
-		
 		for teacher in musicTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 		
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Career Technical Education"))
-		
 		for teacher in cteTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 		
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Art"))
-			
 		for teacher in artTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
+		}
+		
+		self.cells.append(SwiftyAccordianCells.HeaderItem(value: "Counselor"))
+		for teacher in counselorTeachers {
+			self.cells.append(SwiftAccordianCells.Item(value: teacher))
 		}
 		
 		emailDictionary["Ahmad, Mirza"] = "msahmad@fcps.edu"
@@ -310,9 +315,18 @@ class TeachersTableViewController: UITableViewController {
 		
 		emailDictionary["Drinkwater, Kara"] = "KMDrinkwater@fcps.edu"
 		emailDictionary["Killinger, Kris"] = "PKKillinger@fcps.edu"
-		emailDictionary["Marcaccio, Rory"] = "RMarcaccio@fcps.edu"
 		emailDictionary["Search Kurt, Katherine"] = "kmsearchkurt@fcps.edu"
 		
+		emailDictionary["Chace, Anne-Marie"] = "alchace@fcps.edu"
+		emailDictionary["DeHaven, Sinitra"] = "sldehaven@fcps.edu"
+		emailDictionary["Doss, Dana"] = "dbdoss@fcps.edu"
+		emailDictionary["Foussekis, Katherine"] = "kafoussekis@fcps.edu"
+		emailDictionary["Koo, Autumn"] = "ATKoo@fcps.edu"
+		emailDictionary["Mehaffey, Linda"] = "LEMehaffey@fcps.edu"
+		emailDictionary["No, Jean"] = "jno@fcps.edu"
+		emailDictionary["Schneider, Nancy"] = "NWSchneider@fcps.edu"
+		emailDictionary["Thompson, Donna"] = "DNThompson@fcps.edu"
+		emailDictionary["Vasquez, Jimmy"] = "VSVasquez@fcps.edu"
 		
 	}
 	
