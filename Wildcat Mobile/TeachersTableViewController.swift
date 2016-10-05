@@ -11,6 +11,7 @@ import UIKit
 class TeachersTableViewController: UITableViewController {
 
 	var mathTeachers:Array<String> = [
+	"Ahmad, Mirza"
 	"Beatty, Kathy",
 	"Bonnell, Brittany",
 	"Hwang, Renae Eunae",
@@ -18,101 +19,101 @@ class TeachersTableViewController: UITableViewController {
 	"Kent, Elizabeth",
 	"McCarthy, Megan M",
 	"Mishin, Julia",
-	"Mossholder, Steven C",
+	"Mossholder, Steven",
 	"Nicholson, Marisa",
 	"Noga, Matthew",
-	"Person, Gordon L",
-	"Post, Eric M",
-	"Rigby, Susan E",
-	"Rubin, Mary K",
-	"Shanahan, Mary M",
-	"Small, Oliver A",
+	"Person, Gordon",
+	"Post, Eric",
+	"Rigby, Susan",
+	"Rubin, Mary",
+	"Shanahan, Mary",
+	"Small, Oliver",
 	"Terninko, Miriam",
-	"Wallace, Jessica K",
-	"Williams, Jed C"]
+	"Wallace, Jessica",
+	"Williams, Jed"]
 	
 	var scienceTeachers:Array<String> = [
 	"Abrahams, Heather",
-	"Banbury, Demby B",
+	"Banbury, Demby",
 	"Cash, Tammy",
 	"Cole-Kleitz, Jean",
 	"Fehr, Heather",
 	"Fehr, Joe",
 	"Jarvis, Neal",
 	"Lee, Christina",
-	"Malik, Maliha A",
-	"McLaren, John D",
+	"Malik, Maliha",
+	"McLaren, John",
 	"Neer, Michelle",
-	"Reese, Susan T",
-	"Rife, Melissa M",
+	"Reese, Susa",
+	"Rife, Melissa ",
 	"Rock, Caitlin",
 	"Saccomando, Ashley",
 	"Shepard, Katherine",
 	"Trahan, Ryley",
 	"Touhy, Kevin",
 	"Waterfall, Kathleen",
-	"White, Lauren A",
-	"Williams, David B"]
+	"White, Lauren",
+	"Williams, David"]
 	
 	var socialTeachers:Array<String> = [
-	"Baird, Gary B",
+	"Baird, Gary",
 	"Bausman, David",
 	"Brown, Heidi",
-	"Campbell, David C",
+	"Campbell, David",
 	"Christ, Tony",
-	"Clark, Paige W",
-	"Flanagin, Wiley S",
+	"Clark, Paige",
+	"Flanagin, Wiley",
 	"Golodolinski, Jacquelyn",
 	"Gumersell, Bridget",
-	"Hadden, Anita L",
+	"Hadden, Anita",
 	"Novak, Jim",
-	"O'Rourke, John M",
+	"O'Rourke, John",
 	"Pillor, Michelle",
-	"Powell, Jennifer T",
-	"Radun, Joseph N",
+	"Powell, Jennifer",
+	"Radun, Joseph",
 	"Ritchey, Terri",
-	"Ruffing, Catherine A",
-	"Rutz, Jonathan E",
-	"Smith, Catherine D",
-	"Wisda, Martin J"]
+	"Ruffing, Catherine",
+	"Rutz, Jonathan",
+	"Smith, Catherine",
+	"Wisda, Martin"]
 	
 	var englishTeachers:Array<String> = [
 	"Berg, Jessica",
 	"Bergel, Jennifer",
 	"Borah, Brown",
-	"Brown, Margot S",
+	"Brown, Margot",
 	"D'Orazio, Marissa",
-	"DuncanHudsbeth, Sharon D",
+	"DuncanHudsbeth, Sharon",
 	"Filsinger, Jennifer",
 	"Harar, Bethany",
 	"Hughes, Alison",
 	"Hwangpo, Jennie",
 	"Kinsolving, Kathleen",
-	"Lee, Megan C",
+	"Lee, Megan",
 	"McIntosh, Christopher",
 	"Metzler, Debra J",
-	"Munson, Russell W",
+	"Munson, Russell",
 	"Saunders, Karen",
 	"Sweeney, Donna",
 	"Wuerfel, Victoria"]
 	
 	var peTeachers:Array<String> = [
-	"Andersen, Jon T",
+	"Andersen, Jon",
 	"Bates, Jessica",
-	"Bigus, Geordie L",
+	"Bigus, Geordie",
 	"Culver, Joshua",
 	"Ferrick, Richard",
 	"Findley, Scott",
 	"Francis, Laramie",
-	"Martino, Erin M",
-	"Rozzoni, Anthony M",
+	"Martino, Erin",
+	"Rozzoni, Anthony",
 	"Stobl, Katherin",
 	"Williams, Emily"]
 	
 	var musicTeachers:Array<String> = [
-	"Babcock, Lynne A",
+	"Babcock, Lynne",
 	"Burke, Bill",
-	"Hall, Melissa A",
+	"Hall, Melissa",
 	"Morrison, Alex"]
 	
 	var cteTeachers:Array<String> = [
@@ -124,9 +125,9 @@ class TeachersTableViewController: UITableViewController {
 	"Reid, Leah"]
 	
 	var artTeachers:Array<String> = [
-	"Drinkwater, Kara M",
+	"Drinkwater, Kara",
 	"Killinger, Kris",
-	"Marcaccio, Rory F",
+	"Marcaccio, Rory",
 	"Search Kurt, Katherine"]
 	
 	
@@ -200,104 +201,104 @@ class TeachersTableViewController: UITableViewController {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 		
-		
+		emailDictionary["Ahmad, Mirza"] = "msahmad@fcps.edu"
 		emailDictionary["Beatty, Kathy"] = "KABeatty@fcps.edu"
 		emailDictionary["Bonnell, Brittany"] = "blbonnell@fcps.edu"
 		emailDictionary["Hwang, Renae Eunae"] = "rehwang@fcps.edu"
-		emailDictionary["Joyce, Masha E"] = "MEJoyce@fcps.edu"
+		emailDictionary["Joyce, Masha"] = "MEJoyce@fcps.edu"
 		emailDictionary["Kent, Elizabeth"] = "ekent1@fcps.edu"
-		emailDictionary["McCarthy, Megan M"] = "MMMcCarthy@fcps.edu"
+		emailDictionary["McCarthy, Megan"] = "MMMcCarthy@fcps.edu"
 		emailDictionary["Mishin, Julia"] = "JMishin@fcps.edu"
-		emailDictionary["Mossholder, Steven C"] = "SCMossholder@fcps.edu"
+		emailDictionary["Mossholder, Steven"] = "SCMossholder@fcps.edu"
 		emailDictionary["Nicholson, Marisa"] = "menicholson@fcps.edu"
 		emailDictionary["Noga, Matthew"] = "mjnoga@fcps.edu"
-		emailDictionary["Person, Gordon L"] = "GLPerson@fcps.edu"
-		emailDictionary["Post, Eric M"] = "EMPost@fcps.edu"
-		emailDictionary["Rigby, Susan E"] = "SERigby@fcps.edu"
-		emailDictionary["Rubin, Mary K"] = "MKRubin@fcps.edu"
-		emailDictionary["Shanahan, Mary M"] = "mmshanahan@fcps.edu"
-		emailDictionary["Small, Oliver A"] = "OASmall@fcps.edu"
+		emailDictionary["Person, Gordon"] = "GLPerson@fcps.edu"
+		emailDictionary["Post, Eric"] = "EMPost@fcps.edu"
+		emailDictionary["Rigby, Susan"] = "SERigby@fcps.edu"
+		emailDictionary["Rubin, Mary"] = "MKRubin@fcps.edu"
+		emailDictionary["Shanahan, Mary"] = "mmshanahan@fcps.edu"
+		emailDictionary["Small, Oliver"] = "OASmall@fcps.edu"
 		emailDictionary["Terninko, Miriam"] = "msterninko@fcps.edu"
-		emailDictionary["Wallace, Jessica K"] = "JKWallace@fcps.edu"
-		emailDictionary["Williams, Jed C"] = "JCWilliams1@fcps.edu"
+		emailDictionary["Wallace, Jessica"] = "JKWallace@fcps.edu"
+		emailDictionary["Williams, Jed"] = "JCWilliams1@fcps.edu"
 		
 		emailDictionary["Abrahams, Heather"] = "haabrahams@fcps.edu"
-		emailDictionary["Banbury, Demby B"] = "DBBanbury@fcps.edu"
+		emailDictionary["Banbury, Demby"] = "DBBanbury@fcps.edu"
 		emailDictionary["Cash, Tammy"] = "tjcash@fcps.edu"
 		emailDictionary["Cole-Kleitz, Jean"] = "jmcolesleitz@fcps.edu"
 		emailDictionary["Fehr, Heather"] = "hlfehr@fcps.edu"
 		emailDictionary["Fehr, Joe"] = "JJFehr@fcps.edu"
 		emailDictionary["Jarvis, Neal"] = "JNJarvis@fcps.edu"
 		emailDictionary["Lee, Christina"] = "clee2@fcps.edu"
-		emailDictionary["Malik, Maliha A"] = "mamalik@fcps.edu"
-		emailDictionary["McLaren, John D"] = "JCMcLaren@fcps.edu"
+		emailDictionary["Malik, Maliha"] = "mamalik@fcps.edu"
+		emailDictionary["McLaren, John"] = "JCMcLaren@fcps.edu"
 		emailDictionary["Neer, Michelle"] = "mlneer@fcps.edu"
-		emailDictionary["Reese, Susan T"] = "STReese@fcps.edu"
-		emailDictionary["Rife, Melissa M"] = "MMRife1@fcps.edu"
+		emailDictionary["Reese, Susan"] = "STReese@fcps.edu"
+		emailDictionary["Rife, Melissa"] = "MMRife1@fcps.edu"
 		emailDictionary["Rock, Caitlin"] = "cerock@fcps.edu"
 		emailDictionary["Saccomando, Ashley"] = "ajsaccamando@fcps.edu"
 		emailDictionary["Shepard, Katherine"] = "kshepard@fcps.edu"
 		emailDictionary["Trahan, Ryley"] = "rjtrahan@fcps.edu"
 		emailDictionary["Touhy, Kevin"] = "kftouhy@fcps.edu"
 		emailDictionary["Waterfall, Kathleen"] = "kmwaterfall@fcps.edu"
-		emailDictionary["White, Lauren A"] = "LAWhite1@fcps.edu"
-		emailDictionary["Williams, David B"] = "DBWilliams@fcps.edu"
+		emailDictionary["White, Lauren"] = "LAWhite1@fcps.edu"
+		emailDictionary["Williams, David"] = "DBWilliams@fcps.edu"
 		
-		emailDictionary["Baird, Gary B"] = "GBBaird@fcps.edu"
+		emailDictionary["Baird, Gary"] = "GBBaird@fcps.edu"
 		emailDictionary["Bausman, David"] = "SDBausman@fcps.edu"
 		emailDictionary["Brown, Heidi"] = "hfbrown@fcps.edu"
-		emailDictionary["Campbell, David C"] = "DCCampbell@fcps.edu"
+		emailDictionary["Campbell, David"] = "DCCampbell@fcps.edu"
 		emailDictionary["Christ, Tony"] = "eachrist1@fcps.edu"
-		emailDictionary["Clark, Paige W"] = "PWClark@fcps.edu"
-		emailDictionary["Flanagin, Wiley S"] = "WSFlanagin@fcps.edu"
+		emailDictionary["Clark, Paige"] = "PWClark@fcps.edu"
+		emailDictionary["Flanagin, Wiley"] = "WSFlanagin@fcps.edu"
 		emailDictionary["Golodolinski, Jacquelyn"] = "jcgolodolins@fcps.edu"
 		emailDictionary["Gumersell, Bridget"] = "bgumersell@fcps.edu"
-		emailDictionary["Hadden, Anita L"] = "ALHadden@fcps.edu"
+		emailDictionary["Hadden, Anita"] = "ALHadden@fcps.edu"
 		emailDictionary["Novak, Jim"] = "jhnovak@fcps.edu"
-		emailDictionary["O'Rourke, John M"] = "jmorourke@fcps.edu"
+		emailDictionary["O'Rourke, John"] = "jmorourke@fcps.edu"
 		emailDictionary["Pillor, Michelle"] = "MSPillor@fcps.edu"
-		emailDictionary["Powell, Jennifer T"] = "JTPowell@fcps.edu"
-		emailDictionary["Radun, Joseph N"] = "JNRadun@fcps.edu"
+		emailDictionary["Powell, Jennifer"] = "JTPowell@fcps.edu"
+		emailDictionary["Radun, Joseph"] = "JNRadun@fcps.edu"
 		emailDictionary["Ritchey, Terri"] = "TRitchey@fcps.edu"
-		emailDictionary["Ruffing, Catherine A"] = "CARuffing@fcps.edu"
-		emailDictionary["Rutz, Jonathan E"] = "JERutz@fcps.edu"
-		emailDictionary["Smith, Catherine D"] = "CDSmith1@fcps.edu"
-		emailDictionary["Wisda, Martin J"] = "mjwisad@fcps.edu"
+		emailDictionary["Ruffing, Catherine"] = "CARuffing@fcps.edu"
+		emailDictionary["Rutz, Jonathan"] = "JERutz@fcps.edu"
+		emailDictionary["Smith, Catherine"] = "CDSmith1@fcps.edu"
+		emailDictionary["Wisda, Martin"] = "mjwisad@fcps.edu"
 		
 		emailDictionary["Berg, Jessica"] = "jeberg@fcps.edu"
 		emailDictionary["Bergel, Jennifer"] = "jkbergel@fcps.edu"
 		emailDictionary["Borah, Brown"] = "wbborah@fcps.edu"
-		emailDictionary["Brown, Margot S"] = "MSBrown2@fcps.edu"
+		emailDictionary["Brown, Margot"] = "MSBrown2@fcps.edu"
 		emailDictionary["D'Orazio, Marissa"] = "mcdorazio@fcps.edu"
-		emailDictionary["DuncanHudsbeth, Sharon D"] = "SDDuncanHuds@fcps.edu"
+		emailDictionary["DuncanHudsbeth, Sharon"] = "SDDuncanHuds@fcps.edu"
 		emailDictionary["Filsinger, Jennifer"] = "JLFilsinger@fcps.edu"
 		emailDictionary["Harar, Bethany"] = "baharar@fcps.edu"
 		emailDictionary["Hughes, Alison"] = "aghughes@fcps.edu"
 		emailDictionary["Hwangpo, Jennie"] = "jkhwangpo@fcps.edu"
 		emailDictionary["Kinsolving, Kathleen"] = "kskinsolving@fcps.edu"
-		emailDictionary["Lee, Megan C"] = "MWLee@fcps.edu"
+		emailDictionary["Lee, Megan"] = "MWLee@fcps.edu"
 		emailDictionary["McIntosh, Christopher"] = "camcintosh@fcps.edu"
-		emailDictionary["Metzler, Debra J"] = "djmetzler@fcps.edu"
-		emailDictionary["Munson, Russell W"] = "RWMunsion@fcps.edu"
+		emailDictionary["Metzler, Debra"] = "djmetzler@fcps.edu"
+		emailDictionary["Munson, Russell"] = "RWMunsion@fcps.edu"
 		emailDictionary["Saunders, Karen"] = "kbsaunders@fcps.edu"
 		emailDictionary["Sweeney, Donna"] = "dlsweeney@fcps.edu"
 		emailDictionary["Wuerfel, Victoria"] = "VKWuerfel@fcps.edu"
 		
-		emailDictionary["Andersen, Jon T"] = "JTAnderson@fcps.edu"
+		emailDictionary["Andersen, Jon"] = "JTAnderson@fcps.edu"
 		emailDictionary["Bates, Jessica"] = "jmbates@fcps.edu"
-		emailDictionary["Bigus, Geordie L"] = "GLBigus@fcps.edu"
+		emailDictionary["Bigus, Geordie"] = "GLBigus@fcps.edu"
 		emailDictionary["Culver, Joshua"] = "JCulver@fcps.edu"
 		emailDictionary["Ferrick, Richard"] = "REFerrick@fcps.edu"
 		emailDictionary["Findley, Scott"] = "stfindley@fcps.edu"
 		emailDictionary["Francis, Laramie"] = "lbfrancis@fcps.edu"
-		emailDictionary["Martino, Erin M"] = "EMMartino@fcps.edu"
-		emailDictionary["Rozzoni, Anthony M"] = "AMRozzoni@fcps.edu"
+		emailDictionary["Martino, Erin"] = "EMMartino@fcps.edu"
+		emailDictionary["Rozzoni, Anthony"] = "AMRozzoni@fcps.edu"
 		emailDictionary["Stobl, Katherin"] = "klstrobl@fcps.edu"
 		emailDictionary["Williams, Emily"] = "eawilliams@fcps.edu"
 		
-		emailDictionary["Babcock, Lynne A"] = "LLBabcock1@fcps.edu"
+		emailDictionary["Babcock, Lynne"] = "LLBabcock1@fcps.edu"
 		emailDictionary["Burke, Bill"] = "WBBurke@fcps.edu"
-		emailDictionary["Hall, Melissa A"] = "MAHall3@fcps.edu"
+		emailDictionary["Hall, Melissa"] = "MAHall3@fcps.edu"
 		emailDictionary["Morrison, Alex"] = "ammorrison1@fcps.edu"
 		
 		emailDictionary["Agrait, Pat"] = "plagrait@fcps.edu"
@@ -307,9 +308,9 @@ class TeachersTableViewController: UITableViewController {
 		emailDictionary["Love, Bridget"] = "bmlove@fcps.edu"
 		emailDictionary["Reid, Leah"] = "lereid1@fcps.edu"
 		
-		emailDictionary["Drinkwater, Kara M"] = "KMDrinkwater@fcps.edu"
+		emailDictionary["Drinkwater, Kara"] = "KMDrinkwater@fcps.edu"
 		emailDictionary["Killinger, Kris"] = "PKKillinger@fcps.edu"
-		emailDictionary["Marcaccio, Rory F"] = "RMarcaccio@fcps.edu"
+		emailDictionary["Marcaccio, Rory"] = "RMarcaccio@fcps.edu"
 		emailDictionary["Search Kurt, Katherine"] = "kmsearchkurt@fcps.edu"
 		
 		
