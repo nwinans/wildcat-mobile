@@ -45,13 +45,13 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3zE-8l-m8Z" userLabel="Container" customClass="CardView" customModule="Wildcat_Mobile" customModuleProvider="target">
-                                            <frame key="frameInset" minX="8" minY="113" width="359" height="120"/>
+                                            <frame key="frameInset" minX="8" minY="113" width="359" height="160"/>
                                             <subviews>
                                                 <view tag="1" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h4u-kG-rK4" userLabel="SecondContanerView" customClass="RotatedView" customModule="Wildcat_Mobile" customModuleProvider="target">
-                                                    <frame key="frameInset" minX="5" minY="40" width="346" height="40"/>
+                                                    <frame key="frameInset" minX="5" minY="40" width="346" height="30"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sponsor(s): Kathryn Mayhew" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHK-zI-QoN">
-                                                            <frame key="frameInset" minY="4" width="346" height="32"/>
+                                                            <frame key="frameInset" minY="4" width="346" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -64,18 +64,19 @@
                                                     </constraints>
                                                 </view>
                                                 <view tag="2" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="euq-eL-c0F" userLabel="ThirdContainerView" customClass="RotatedView" customModule="Wildcat_Mobile" customModuleProvider="target">
-                                                    <frame key="frameInset" minX="5" minY="80" width="347" height="39"/>
+                                                    <frame key="frameInset" minX="5" minY="70" width="347" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="568" translatesAutoresizingMaskIntoConstraints="NO" id="t3Q-6G-RIo">
-                                                            <frame key="frameInset" width="347" height="39"/>
+                                                            <frame key="frameInset" width="347" height="49"/>
                                                             <string key="text">Description: Support human rights in a peaceful manner. I am now testing to see how long this label well go on for it seems to go on for a while which is good</string>
-                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="5dC-sb-N5d"/>
                                                         <constraint firstAttribute="trailing" secondItem="t3Q-6G-RIo" secondAttribute="trailing" id="GAR-jw-RD1"/>
                                                         <constraint firstItem="t3Q-6G-RIo" firstAttribute="centerX" secondItem="euq-eL-c0F" secondAttribute="centerX" id="PTA-1P-q03"/>
                                                         <constraint firstItem="t3Q-6G-RIo" firstAttribute="centerY" secondItem="euq-eL-c0F" secondAttribute="centerY" id="S38-zh-qc2"/>
@@ -114,18 +115,40 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
+                                                <view tag="2" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BHI-3r-cQz" userLabel="FourthContainerView" customClass="RotatedView" customModule="Wildcat_Mobile" customModuleProvider="target">
+                                                    <frame key="frameInset" minX="6" minY="120" width="345" height="39"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVG-nC-cAB">
+                                                            <frame key="frameInset" minX="8" width="329" height="31"/>
+                                                            <color key="backgroundColor" red="0.0" green="0.46274509803921571" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <state key="normal" title="Contact">
+                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="9MC-wh-QJr"/>
+                                                        <constraint firstAttribute="bottom" secondItem="NVG-nC-cAB" secondAttribute="bottom" constant="5" id="XbW-JA-okx"/>
+                                                        <constraint firstItem="NVG-nC-cAB" firstAttribute="top" secondItem="BHI-3r-cQz" secondAttribute="top" id="boV-p1-d0g"/>
+                                                        <constraint firstAttribute="trailing" secondItem="NVG-nC-cAB" secondAttribute="trailing" id="eJl-Ud-HK3"/>
+                                                        <constraint firstItem="NVG-nC-cAB" firstAttribute="leading" secondItem="BHI-3r-cQz" secondAttribute="leading" id="fTu-il-0FY"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="120" id="4kt-sq-iVY"/>
+                                                <constraint firstAttribute="height" constant="160" id="4kt-sq-iVY" userLabel="height = 160"/>
                                                 <constraint firstItem="h4u-kG-rK4" firstAttribute="leading" secondItem="3zE-8l-m8Z" secondAttribute="leading" constant="5" id="5gM-Kj-YLn"/>
-                                                <constraint firstAttribute="height" constant="120" id="CYc-Ni-Dbd"/>
+                                                <constraint firstAttribute="bottom" secondItem="BHI-3r-cQz" secondAttribute="bottom" id="7kJ-kl-lRa"/>
+                                                <constraint firstAttribute="trailing" secondItem="BHI-3r-cQz" secondAttribute="trailing" constant="5" id="8Zu-m4-Rcc"/>
+                                                <constraint firstAttribute="height" constant="160" id="CYc-Ni-Dbd"/>
                                                 <constraint firstItem="7vL-jJ-qAX" firstAttribute="leading" secondItem="3zE-8l-m8Z" secondAttribute="leading" id="Ix1-yK-76k"/>
+                                                <constraint firstItem="BHI-3r-cQz" firstAttribute="leading" secondItem="3zE-8l-m8Z" secondAttribute="leading" constant="5" id="Lp5-Gx-YzO"/>
+                                                <constraint firstItem="BHI-3r-cQz" firstAttribute="top" secondItem="3zE-8l-m8Z" secondAttribute="top" constant="120" id="T0Q-Qh-fG9"/>
                                                 <constraint firstAttribute="trailing" secondItem="euq-eL-c0F" secondAttribute="trailing" constant="5" id="UHt-GO-DAg"/>
                                                 <constraint firstItem="euq-eL-c0F" firstAttribute="leading" secondItem="3zE-8l-m8Z" secondAttribute="leading" constant="5" id="ctN-gB-bV3"/>
-                                                <constraint firstItem="euq-eL-c0F" firstAttribute="top" secondItem="3zE-8l-m8Z" secondAttribute="top" constant="80" id="gIG-Jb-vGQ"/>
+                                                <constraint firstItem="euq-eL-c0F" firstAttribute="top" secondItem="3zE-8l-m8Z" secondAttribute="top" constant="70" id="gIG-Jb-vGQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="7vL-jJ-qAX" secondAttribute="trailing" id="h76-oz-Q5z"/>
-                                                <constraint firstAttribute="bottom" secondItem="euq-eL-c0F" secondAttribute="bottom" constant="5" id="iOW-LS-UEY"/>
                                                 <constraint firstItem="h4u-kG-rK4" firstAttribute="top" secondItem="3zE-8l-m8Z" secondAttribute="top" constant="40" id="lWY-fL-lZc"/>
                                                 <constraint firstAttribute="trailing" secondItem="h4u-kG-rK4" secondAttribute="trailing" constant="5" id="vjT-ob-VkR"/>
                                                 <constraint firstItem="7vL-jJ-qAX" firstAttribute="top" secondItem="3zE-8l-m8Z" secondAttribute="top" id="w4S-y3-HxY"/>
@@ -152,7 +175,7 @@
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="itemCount">
-                                        <integer key="value" value="3"/>
+                                        <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -161,6 +184,7 @@
                                     <outlet property="containerViewTop" destination="brJ-WM-bCB" id="fdk-aD-OTU"/>
                                     <outlet property="foregroundView" destination="Xah-rC-m4d" id="dXi-jK-yRV"/>
                                     <outlet property="foregroundViewTop" destination="IiP-2p-3b7" id="F4M-rd-LuU"/>
+                                    <outlet property="moreClubContact" destination="NVG-nC-cAB" id="NTg-V7-zrU"/>
                                     <outlet property="moreClubDescription" destination="t3Q-6G-RIo" id="abl-pI-5c2"/>
                                     <outlet property="moreClubSponsor" destination="BHK-zI-QoN" id="frW-fS-8Fs"/>
                                     <outlet property="moreClubTitle" destination="Hgh-zl-48j" id="baV-vn-ANO"/>
@@ -905,7 +929,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IdW-mF-TbR" id="JDn-z2-jGi">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Room #" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pqJ-Uo-rj1">
@@ -1002,7 +1026,7 @@
         <scene sceneID="Gvc-FM-NSm">
             <objects>
                 <navigationController title="ArticlesNavigation" automaticallyAdjustsScrollViewInsets="NO" id="lJg-7H-AU8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Articles" image="heart" id="eyc-dr-hZb"/>
+                    <tabBarItem key="tabBarItem" title="Health" image="heart" id="eyc-dr-hZb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="hMF-rv-RAn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1021,7 +1045,7 @@
             </objects>
             <point key="canvasLocation" x="1500" y="-1179"/>
         </scene>
-        <!--Articles-->
+        <!--Health-->
         <scene sceneID="Dse-Zi-MdZ">
             <objects>
                 <tableViewController id="eeQ-7F-C29" customClass="ArticlesViewController" customModule="Wildcat_Mobile" customModuleProvider="target" sceneMemberID="viewController">
@@ -1235,7 +1259,7 @@
                             <outlet property="delegate" destination="eeQ-7F-C29" id="lrV-iB-OBJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Articles" id="6ps-FZ-awL">
+                    <navigationItem key="navigationItem" title="Health" id="6ps-FZ-awL">
                         <barButtonItem key="leftBarButtonItem" image="hospital" id="K0w-G1-GPa">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -1321,9 +1345,9 @@
         <image name="teacher" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="vlr-L2-ULg"/>
         <segue reference="Z5Q-ay-lUR"/>
-        <segue reference="qLb-zE-2OP"/>
-        <segue reference="ZMD-DU-lDe"/>
         <segue reference="utc-d6-pgl"/>
+        <segue reference="cJX-D0-pZ4"/>
     </inferredMetricsTieBreakers>
 </document>

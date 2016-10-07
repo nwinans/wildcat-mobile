@@ -80,7 +80,7 @@ class AnnouncementsTableViewController: UITableViewController {
 		let url = NSURL(string: url)
 		
 		//setup url request with url, default cache policy, and timeout length
-		let urlRequest = NSMutableURLRequest(URL: url!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: timeout)
+		let urlRequest = NSMutableURLRequest(URL: url!, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: timeout)
 		
 		let queue = NSOperationQueue()
 		

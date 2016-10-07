@@ -11,9 +11,9 @@ import UIKit
 class TeachersTableViewController: UITableViewController {
 
 	var mathTeachers:Array<String> = [
-	"Ahmad, Mirza"
+	"Ahmad, Mirza",
 	"Beatty, Kathy",
-	"Bonnell, Brittany",
+	"Hiemstra, Maryam",
 	"Hwang, Renae Eunae",
 	"Joyce, Masha",
 	"Kent, Elizabeth",
@@ -39,53 +39,50 @@ class TeachersTableViewController: UITableViewController {
 	"Cole-Kleitz, Jean",
 	"Fehr, Heather",
 	"Fehr, Joe",
+	"Hong, Joyce",
 	"Jarvis, Neal",
 	"Lee, Christina",
 	"Malik, Maliha",
 	"McLaren, John",
 	"Neer, Michelle",
-	"Reese, Susa",
-	"Rife, Melissa ",
 	"Rock, Caitlin",
 	"Saccomando, Ashley",
-	"Shepard, Katherine",
-	"Trahan, Ryley",
 	"Touhy, Kevin",
 	"Waterfall, Kathleen",
-	"White, Lauren",
+	"Wells, Ginger",
 	"Williams, David"]
 	
 	var socialTeachers:Array<String> = [
 	"Baird, Gary",
-	"Bausman, David",
 	"Brown, Heidi",
 	"Campbell, David",
-	"Christ, Tony",
 	"Clark, Paige",
-	"Flanagin, Wiley",
 	"Golodolinski, Jacquelyn",
-	"Gumersell, Bridget",
 	"Hadden, Anita",
+	"Holloway, Tara",
+	"Karsner, Kevin",
 	"Novak, Jim",
 	"O'Rourke, John",
 	"Pillor, Michelle",
 	"Powell, Jennifer",
 	"Radun, Joseph",
+	"Richardson, Ryan",
+	"Rigby, Meredith",
 	"Ritchey, Terri",
 	"Ruffing, Catherine",
 	"Rutz, Jonathan",
-	"Smith, Catherine",
+	"Saunders, Karen",
 	"Wisda, Martin"]
 	
 	var englishTeachers:Array<String> = [
 	"Arnold, Tammie",
-	"Bale, Alison",
+	"Balen, Alison",
 	"Berg, Jessica",
 	"Borah, Brown",
 	"Brown, Margot",
 	"DuncanHudsbeth, Sharon",
 	"Filsinger, Jennifer",
-	"Hughes, Alison"
+	"Hughes, Alison",
 	"Hwangpo, Jennie",
 	"Kinsolving, Kathleen",
 	"Lee, Megan",
@@ -98,7 +95,6 @@ class TeachersTableViewController: UITableViewController {
 	
 	var peTeachers:Array<String> = [
 	"Andersen, Jon",
-	"Bates, Jessica",
 	"Bigus, Geordie",
 	"Culver, Joshua",
 	"Ferrick, Richard",
@@ -106,7 +102,7 @@ class TeachersTableViewController: UITableViewController {
 	"Francis, Laramie",
 	"Martino, Erin",
 	"Rozzoni, Anthony",
-	"Stobl, Katherin",
+	"Sholders, Andrea",
 	"Williams, Emily"]
 	
 	var musicTeachers:Array<String> = [
@@ -153,7 +149,7 @@ class TeachersTableViewController: UITableViewController {
 	
 	var counselorTeachers:Array<String> = [
 	"Chace, Anne-Marie",
-	"DeHaven, Sinatra",
+	"DeHaven, Sinitra",
 	"Doss, Dana",
 	"Foussekis, Katherine",
 	"Koo, Autumn",
@@ -162,6 +158,13 @@ class TeachersTableViewController: UITableViewController {
 	"Schneider, Nancy",
 	"Thompson, Donna",
 	"Vasquez, Jimmy"]
+	
+	var otherTeachers:Array<String> = [
+	"Hudson, Mike",
+	"Miller, Noel",
+	"Pevner, Sarah",
+	"Rose, Lyman",
+	"Stamper, Kara"]
 	
 	
 	var emailDictionary: [String: String] = [String: String]()
@@ -211,9 +214,9 @@ class TeachersTableViewController: UITableViewController {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 	
-		self.cells.append(SwiftyAccordianCells.HeaderItem(value: "World Languages"))
+		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "World Languages"))
 		for teacher in worldLanguagesTeachers {
-			self.cells.append(SwiftAccordianCells.Item(value:teacher))
+			self.cells.append(SwiftyAccordionCells.Item(value:teacher))
 		}
 		
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Music"))
@@ -231,19 +234,26 @@ class TeachersTableViewController: UITableViewController {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 		
-		self.cells.append(SwiftAccordianCells.HeaderItem(value: "ESOL")) 
+		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "ESOL"))
 		for teacher in esolTeachers {
-			self.cells.append(SwiftAccordianCells.Item(value: teacher))
+			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 		
-		self.cells.append(SwiftyAccordianCells.HeaderItem(value: "Counselor"))
+		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Counselor"))
 		for teacher in counselorTeachers {
-			self.cells.append(SwiftAccordianCells.Item(value: teacher))
+			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 		
+		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Other"))
+		for teacher in otherTeachers {
+			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
+		}
+		
+		//EMAILS
+		//Math Teachers
 		emailDictionary["Ahmad, Mirza"] = "msahmad@fcps.edu"
 		emailDictionary["Beatty, Kathy"] = "KABeatty@fcps.edu"
-		emailDictionary["Bonnell, Brittany"] = "blbonnell@fcps.edu"
+		emailDictionary["Hiemstra, Maryam"] = "MHHiemstra@fcps.edu"
 		emailDictionary["Hwang, Renae Eunae"] = "rehwang@fcps.edu"
 		emailDictionary["Joyce, Masha"] = "MEJoyce@fcps.edu"
 		emailDictionary["Kent, Elizabeth"] = "ekent1@fcps.edu"
@@ -262,50 +272,51 @@ class TeachersTableViewController: UITableViewController {
 		emailDictionary["Wallace, Jessica"] = "JKWallace@fcps.edu"
 		emailDictionary["Williams, Jed"] = "JCWilliams1@fcps.edu"
 		
+		//Science Teachers
 		emailDictionary["Abrahams, Heather"] = "haabrahams@fcps.edu"
 		emailDictionary["Banbury, Demby"] = "DBBanbury@fcps.edu"
 		emailDictionary["Cash, Tammy"] = "tjcash@fcps.edu"
 		emailDictionary["Cole-Kleitz, Jean"] = "jmcolesleitz@fcps.edu"
 		emailDictionary["Fehr, Heather"] = "hlfehr@fcps.edu"
 		emailDictionary["Fehr, Joe"] = "JJFehr@fcps.edu"
+		emailDictionary["Hong, Joyce"] = "jhong@fcps.edu"
 		emailDictionary["Jarvis, Neal"] = "JNJarvis@fcps.edu"
 		emailDictionary["Lee, Christina"] = "clee2@fcps.edu"
 		emailDictionary["Malik, Maliha"] = "mamalik@fcps.edu"
 		emailDictionary["McLaren, John"] = "JCMcLaren@fcps.edu"
 		emailDictionary["Neer, Michelle"] = "mlneer@fcps.edu"
-		emailDictionary["Reese, Susan"] = "STReese@fcps.edu"
-		emailDictionary["Rife, Melissa"] = "MMRife1@fcps.edu"
 		emailDictionary["Rock, Caitlin"] = "cerock@fcps.edu"
 		emailDictionary["Saccomando, Ashley"] = "ajsaccamando@fcps.edu"
-		emailDictionary["Shepard, Katherine"] = "kshepard@fcps.edu"
-		emailDictionary["Trahan, Ryley"] = "rjtrahan@fcps.edu"
 		emailDictionary["Touhy, Kevin"] = "kftouhy@fcps.edu"
 		emailDictionary["Waterfall, Kathleen"] = "kmwaterfall@fcps.edu"
-		emailDictionary["White, Lauren"] = "LAWhite1@fcps.edu"
+		emailDictionary["Wells, Ginger"] = "vawells@fcps.edu"
 		emailDictionary["Williams, David"] = "DBWilliams@fcps.edu"
 		
+		//Social Studies Teachers
 		emailDictionary["Baird, Gary"] = "GBBaird@fcps.edu"
-		emailDictionary["Bausman, David"] = "SDBausman@fcps.edu"
 		emailDictionary["Brown, Heidi"] = "hfbrown@fcps.edu"
 		emailDictionary["Campbell, David"] = "DCCampbell@fcps.edu"
-		emailDictionary["Christ, Tony"] = "eachrist1@fcps.edu"
 		emailDictionary["Clark, Paige"] = "PWClark@fcps.edu"
-		emailDictionary["Flanagin, Wiley"] = "WSFlanagin@fcps.edu"
 		emailDictionary["Golodolinski, Jacquelyn"] = "jcgolodolins@fcps.edu"
-		emailDictionary["Gumersell, Bridget"] = "bgumersell@fcps.edu"
 		emailDictionary["Hadden, Anita"] = "ALHadden@fcps.edu"
+		emailDictionary["Holloway, Tara"] = "tmholloway@fcps.edu"
+		emailDictionary["Karsner, Kevin"] = "kkarsner@fcps.edu"
 		emailDictionary["Novak, Jim"] = "jhnovak@fcps.edu"
 		emailDictionary["O'Rourke, John"] = "jmorourke@fcps.edu"
 		emailDictionary["Pillor, Michelle"] = "MSPillor@fcps.edu"
 		emailDictionary["Powell, Jennifer"] = "JTPowell@fcps.edu"
 		emailDictionary["Radun, Joseph"] = "JNRadun@fcps.edu"
+		emailDictionary["Richardson, Ryan"] = "rdrichardso1@fcps.edu"
+		emailDictionary["Rigby, Meredith"] = "mrrigby@fcps.edu"
 		emailDictionary["Ritchey, Terri"] = "TRitchey@fcps.edu"
 		emailDictionary["Ruffing, Catherine"] = "CARuffing@fcps.edu"
 		emailDictionary["Rutz, Jonathan"] = "JERutz@fcps.edu"
-		emailDictionary["Smith, Catherine"] = "CDSmith1@fcps.edu"
-		emailDictionary["Wisda, Martin"] = "mjwisad@fcps.edu"
+		emailDictionary["Saunders, Karen"] = "kbsaunders@fcps.edu"
+		emailDictionary["Wisda, Martin"] = "mjwisda@fcps.edu"
 		
+		//English Teachers
 		emailDictionary["Arnold, Tammie"] = "TSArnold@fcps.edu"
+		emailDictionary["Balen, Alison"] = "aabalen@fcps.edu"
 		emailDictionary["Berg, Jessica"] = "jeberg@fcps.edu"
 		emailDictionary["Borah, Brown"] = "wbborah@fcps.edu"
 		emailDictionary["Brown, Margot"] = "MSBrown2@fcps.edu"
@@ -323,8 +334,8 @@ class TeachersTableViewController: UITableViewController {
 		emailDictionary["Sweeney, Donna"] = "dlsweeney@fcps.edu"
 		emailDictionary["Wuerfel, Victoria"] = "VKWuerfel@fcps.edu"
 		
+		//PE Teachers
 		emailDictionary["Andersen, Jon"] = "JTAnderson@fcps.edu"
-		emailDictionary["Bates, Jessica"] = "jmbates@fcps.edu"
 		emailDictionary["Bigus, Geordie"] = "GLBigus@fcps.edu"
 		emailDictionary["Culver, Joshua"] = "JCulver@fcps.edu"
 		emailDictionary["Ferrick, Richard"] = "REFerrick@fcps.edu"
@@ -332,14 +343,16 @@ class TeachersTableViewController: UITableViewController {
 		emailDictionary["Francis, Laramie"] = "lbfrancis@fcps.edu"
 		emailDictionary["Martino, Erin"] = "EMMartino@fcps.edu"
 		emailDictionary["Rozzoni, Anthony"] = "AMRozzoni@fcps.edu"
-		emailDictionary["Stobl, Katherin"] = "klstrobl@fcps.edu"
+		emailDictionary["Sholders, Andrea"] = "klstrobl@fcps.edu"
 		emailDictionary["Williams, Emily"] = "eawilliams@fcps.edu"
 		
+		//Music Teachers
 		emailDictionary["Babcock, Lynne"] = "LLBabcock1@fcps.edu"
 		emailDictionary["Burke, Bill"] = "WBBurke@fcps.edu"
 		emailDictionary["Hall, Melissa"] = "MAHall3@fcps.edu"
 		emailDictionary["Morrison, Alex"] = "ammorrison1@fcps.edu"
 		
+		//CTE Teachers
 		emailDictionary["Agrait, Pat"] = "plagrait@fcps.edu"
 		emailDictionary["Bedford, Yvette"] = "ybedford@fcps.edu"
 		emailDictionary["Belsky, Cindy"] = "cdbelsky@fcps.edu"
@@ -348,10 +361,12 @@ class TeachersTableViewController: UITableViewController {
 		emailDictionary["McDermott, Michael"] = "mamcdermott@fcps.edu"
 		emailDictionary["Scott, Sean"] = "scscott@fcps.edu"
 		
+		//Art Teachers
 		emailDictionary["Drinkwater, Kara"] = "KMDrinkwater@fcps.edu"
 		emailDictionary["Killinger, Kris"] = "PKKillinger@fcps.edu"
 		emailDictionary["Search Kurt, Katherine"] = "kmsearchkurt@fcps.edu"
 		
+		//ESOL Teachers
 		emailDictionary["Akpati, Rose"] = "rnakpati@fcps.edu"
 		emailDictionary["DeBose, Claudia"] = "cddebose@fcps.edu"
 		emailDictionary["Langstein, Hanna"] = "hblangstein@fcps.edu"
@@ -361,6 +376,7 @@ class TeachersTableViewController: UITableViewController {
 		emailDictionary["Singh, Anita"] = "ASingh1@fcps.edu"
 		emailDictionary["Williamson Theil, Robin"] = "rlwilliamson@fcps.edu"
 		
+		//Counselors
 		emailDictionary["Chace, Anne-Marie"] = "alchace@fcps.edu"
 		emailDictionary["DeHaven, Sinitra"] = "sldehaven@fcps.edu"
 		emailDictionary["Doss, Dana"] = "dbdoss@fcps.edu"
@@ -372,6 +388,25 @@ class TeachersTableViewController: UITableViewController {
 		emailDictionary["Thompson, Donna"] = "DNThompson@fcps.edu"
 		emailDictionary["Vasquez, Jimmy"] = "VSVasquez@fcps.edu"
 		
+		//World Languages Teachers
+		emailDictionary["Andros, Christina"] = "ccandros@fcps.edu"
+		emailDictionary["Fasick, Elise"] = "EMFasick@fcps.edu"
+		emailDictionary["Haber, Barbara"] = "BMHaber@fcps.edu"
+		emailDictionary["Lott, Antonia"] = "ALott@fcps.edu"
+		emailDictionary["Martin, Judith"] = "JAMartin1@fcps.edu"
+		emailDictionary["Mayhew, Katie"] = "KVMayhew@fcps.edu"
+		emailDictionary["Rife, Melissa"] = "MMRife1@fcps.edu"
+		emailDictionary["Taboada, Marina"] = "mtaboada@fcps.edu"
+		emailDictionary["Turpin, Sophie"] = "ssturpin@fcps.edu"
+		emailDictionary["Yu, Patricia"] = "pbyu@fcps.edu"
+		
+		//Other Teachers
+		emailDictionary["Hudson, Mike"] = "gmhudson@fcps.edu"
+		emailDictionary["Miller, Noel"] = "NLMiller@fcps.edu"
+		emailDictionary["Pevner, Sarah"] = "sjpevner@fcps.edu"
+		emailDictionary["Rose, Lyman"] = "LGRose@fcps.edu"
+		emailDictionary["Stamper, Kara"] = "KAStamper@fcps.edu"
+	
 	}
 	
 	
@@ -388,12 +423,7 @@ class TeachersTableViewController: UITableViewController {
 		let value = item.value as? String
 		
 		if item as? SwiftyAccordionCells.HeaderItem == nil {
-			/*let cell = tableView.dequeueReusableCellWithIdentifier("teachers", forIndexPath: indexPath) as! TeachersTableViewCell
-			
-			cell.teacher.text = value
-			cell.email.text = "hello"//emailDictionary[value!]*/
-			
-			let cell = UITableViewCell(/*style: UITableViewCellStyle.Subtitle, reuseIdentifier: "teacherz"*/)
+			let cell = UITableViewCell()
 			cell.textLabel?.numberOfLines = 2
 			cell.textLabel?.text = value! + "\n" + emailDictionary[value!]!
 			cell.textLabel?.clipsToBounds = true
@@ -415,7 +445,7 @@ class TeachersTableViewController: UITableViewController {
 		let item = self.cells.items[indexPath.row]
 		
 		if item is SwiftyAccordionCells.HeaderItem {
-			return 60
+			return 45
 		} else if item.isHidden {
 			return 0
 		} else {

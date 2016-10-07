@@ -11,24 +11,31 @@ import UIKit
 class ClubsViewController: UITableViewController {
 	
 	let kCloseCellHeight: CGFloat = 60
-	let kOpenCellHeight: CGFloat = 130
+	let kOpenCellHeight: CGFloat = 170
 	
 	var cellHeights = [CGFloat]()
 	
 	var clubTitles = [String]()
 	var clubSponsors = [String]()
 	var clubDescriptions = [String]()
+	var clubContacts = [String]()
 	
 	let spreadsheetURL = "https://script.google.com/macros/s/AKfycbxOLElujQcy1-ZUer1KgEvK16gkTLUqYftApjNCM_IRTL3HSuDk/exec?id=1Mu8Wn1CeEr7ehC4TYEUHmA-iVMknJF0c4Hpu-bJZvqY&sheet=Sheet1"
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		cellHeights.removeAll(keepCapacity: false)
+		clubTitles.removeAll(keepCapacity: false)
+		clubDescriptions.removeAll(keepCapacity: false)
+		clubContacts.removeAll(keepCapacity: false)
+		
 		getDataFromURL(spreadsheetURL)
 	}
 	
 	// MARK: configure
 	func createCellHeightsArray() {
+		cellHeights.removeAll(keepCapacity: false)
 		for _ in 1...clubTitles.count {
 			cellHeights.append(kCloseCellHeight)
 		}
@@ -54,7 +61,13 @@ class ClubsViewController: UITableViewController {
 		cell.moreClubSponsor.text = "Sponsor(s): " + clubSponsors[indexPath.row]
 		cell.moreClubDescription.text = "Description: " + clubDescriptions[indexPath.row]
 		
+		cell.contactEmail = clubContacts[indexPath.row]
+		
 		return cell
+	}
+	
+	func sendEmail(email:String) {
+		UIApplication.sharedApplication().openURL(NSURL(string: "mailto://" + email)!)
 	}
 	
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -98,7 +111,7 @@ class ClubsViewController: UITableViewController {
 		let url = NSURL(string: url)
 		
 		//setup url request with url, default cache policy, and timeout length
-		let urlRequest = NSMutableURLRequest(URL: url!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: timeout)
+		let urlRequest = NSMutableURLRequest(URL: url!, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: timeout)
 		
 		let queue = NSOperationQueue()
 		
@@ -139,12 +152,13 @@ class ClubsViewController: UITableViewController {
 						let clubTitle = clubObject["name"] as? String
 						let clubSponsor = clubObject["sponsor"] as? String
 						let clubDescription = clubObject["description"] as? String
+						let clubContact = clubObject["contact_email"] as? String
 						
 						clubTitles.append(clubTitle!)
 						clubSponsors.append(clubSponsor!)
 						clubDescriptions.append(clubDescription!)
+						clubContacts.append(clubContact!)
 						
-						self.tableView.reloadData()
 					} else {
 						print("club not yet active")
 					}
@@ -157,7 +171,7 @@ class ClubsViewController: UITableViewController {
 		//refresh the table with the new information
 		
 		
-		
+		doTableRefresh()
 		createCellHeightsArray()
 	}
 	
@@ -168,6 +182,7 @@ class ClubsViewController: UITableViewController {
 		dispatch_async(dispatch_get_main_queue(), {
 			//sleep(4)
 			
+			self.tableView.reloadData()
 			return
 		})
 		

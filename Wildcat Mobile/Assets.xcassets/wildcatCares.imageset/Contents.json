@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "WildcatCaresforPresentation-2.png",
+      "filename" : "wildcat3.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "WildcatCaresforPresentation-1.png",
+      "filename" : "wildcat2.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "WildcatCaresforPresentation.png",
+      "filename" : "wildcat.png",
       "scale" : "3x"
     }
   ],
