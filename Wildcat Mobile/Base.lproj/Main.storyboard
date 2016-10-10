@@ -335,6 +335,7 @@
                         </connections>
                     </refreshControl>
                     <connections>
+                        <outlet property="plusButton" destination="lHg-Q1-S5m" id="wS7-f2-6tB"/>
                         <outlet property="tableView" destination="XBb-qN-cQm" id="nG6-S7-z4e"/>
                     </connections>
                 </tableViewController>
@@ -929,7 +930,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IdW-mF-TbR" id="JDn-z2-jGi">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Room #" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pqJ-Uo-rj1">
@@ -1005,7 +1006,7 @@
                 <navigationController title="AnnouncementsNavigation" automaticallyAdjustsScrollViewInsets="NO" id="MeO-6v-CpK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Announcements" image="newspaper" id="tdF-Pw-JT3"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="1Jg-oO-NTj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="1Jg-oO-NTj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1290,7 +1291,7 @@
                 <navigationController title="AcademicsNagivation" automaticallyAdjustsScrollViewInsets="NO" id="ebL-qP-6UV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Academics" image="school" id="El9-Lk-hhc"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Zft-MO-rBB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="Zft-MO-rBB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1345,9 +1346,9 @@
         <image name="teacher" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vlr-L2-ULg"/>
         <segue reference="Z5Q-ay-lUR"/>
         <segue reference="utc-d6-pgl"/>
-        <segue reference="cJX-D0-pZ4"/>
+        <segue reference="RBa-1X-UfW"/>
+        <segue reference="zkG-Iz-8Qo"/>
     </inferredMetricsTieBreakers>
 </document>

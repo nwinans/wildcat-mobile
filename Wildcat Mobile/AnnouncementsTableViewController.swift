@@ -19,6 +19,9 @@ class AnnouncementsTableViewController: UITableViewController {
 	var nameArray:Array<String> = Array<String>()
 	var activityArray: Array<String> = Array<String>()
 	var dateArray: Array<String> = Array<String>()
+    
+    //get plus bar button from storyboard
+    @IBOutlet weak var plusButton: UIBarButtonItem!
 
 	//Spreadsheet URL (script converts spreadsheet into JSON for downloading)
 	var defaultSpreadsheetURL = "https://script.google.com/macros/s/AKfycbxOLElujQcy1-ZUer1KgEvK16gkTLUqYftApjNCM_IRTL3HSuDk/exec?id=1ZET4Sf4U3j-8kBuTRVEgk7szsESiwLss6OgaxSLIMik&sheet=Sheet1"
@@ -27,6 +30,9 @@ class AnnouncementsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+        //set bar button to current plus
+        plusButton.title = PlusSchedule().plus()
+        
 		//runs function to populate arrays with data and then eventaully refreshes the table with new data
 		getDataFromURL(defaultSpreadsheetURL)
 		
