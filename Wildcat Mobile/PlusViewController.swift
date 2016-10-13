@@ -10,28 +10,22 @@ import UIKit
 
 class PlusViewController: UIViewController, UIScrollViewDelegate {
 
+	//get the scrollView and imageView from the storyboard
 	@IBOutlet weak var scrollView: UIScrollView!
 	@IBOutlet weak var imageView: UIImageView!
 	
+	//default function called when the view is about to load
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		self.scrollView.minimumZoomScale = 1.0
-		self.scrollView.maximumZoomScale = 6.0
-		
-		
-		
-        // Do any additional setup after loading the view.
-    }
+	//set the max the scroll view will zoom to to 6x
+	self.scrollView.minimumZoomScale = 1.0
+	self.scrollView.maximumZoomScale = 6.0	
+    }   
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //function required by UIScrollViewDelegate - asks for the view to be zoomed in on, we give it the imageView
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+	return self.imageView
     }
-    
-
-	func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
-		return self.imageView
-	}
 
 }
