@@ -11,25 +11,18 @@ import MessageUI
 
 class CrisisTableViewController: UITableViewController, MFMessageComposeViewControllerDelegate{
 
+    //default function called when view has been loaded
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
+	//optional function called when a row is selected
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		
+		//if the cell belongs to the "call" section
 		if indexPath.section == 0 {
-		
+			
+			//start a switch on the row of the cell selected
 			switch(indexPath.row) {
 			case 0:
 				callNumber("tel://7035274077")
@@ -52,6 +45,7 @@ class CrisisTableViewController: UITableViewController, MFMessageComposeViewCont
 			default:
 				break
 			}
+		//if the cell is in the "text" section
 		} else if indexPath.section == 1 {
 			switch(indexPath.row) {
 			case 0:
@@ -62,35 +56,47 @@ class CrisisTableViewController: UITableViewController, MFMessageComposeViewCont
 		}
 	}
 	
+	//function called a "call" number is clicked on 
 	func callNumber(number: String) {
+		//create a UIAlertController that will be an action sheet
 		let alert = UIAlertController.init(title: "This number is for crisis only", message: "Are you sure you want to call this number?", preferredStyle: UIAlertControllerStyle.ActionSheet)
 		
+		//create action to call the number
 		let callAction = UIAlertAction.init(title: "Call", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
 			UIApplication.sharedApplication().openURL(NSURL(string: number)!)
 		})
 		
+		//create action to cancel the number
 		let cancelAction = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { (UIAlertAction) in
 			self.dismissViewControllerAnimated(true, completion: nil)
 		})
 		
+		//add actions to alert controller
 		alert.addAction(callAction)
 		alert.addAction(cancelAction)
+		
+		//present the action sheet
 		self.presentViewController(alert, animated: true, completion: nil)
 	}
 	
+	//function called when a user clicks a "text" cell
 	func sendMessage(sender: AnyObject) {
+		//create message view controller
 		let messageVC = MFMessageComposeViewController()
 		
+		//set the body of the text message to NEEDHELP, and the recipient to 85511 (we only have one text-able number currently, so we can hardcode this)
 		messageVC.body = "NEEDHELP";
 		messageVC.recipients = ["85511"]
 		
+		//set the delegate to the CrisisTableViewController
 		messageVC.messageComposeDelegate = self;
 		
+		//show the view controller of the text message
 		self.presentViewController(messageVC, animated: false, completion: nil)
 	}
 	
+	//required function called when the user either sends or cancels a message view controller 
 	func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
-
 }
