@@ -166,84 +166,107 @@ class TeachersTableViewController: UITableViewController {
 	"Rose, Lyman",
 	"Stamper, Kara"]
 	
-	
+	//setup dictionary of emails for teachers
 	var emailDictionary: [String: String] = [String: String]()
 	
+	//setup variables used by SwiftAccordianCell to expand and contract the table
 	var previouslySelectedHeaderIndex: Int?
 	var currentlySelectedHeaderIndex: Int?
 	var currentlySelectedItemIndex: Int?
 	
+	//setup cells variable that will hold the headers and cells of the teachers for the table
 	let cells = SwiftyAccordionCells()
 	
+	//defualt function run when view had been loaded
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		//run setup function in this class
 		self.setup()
+		
+		//sets up tableview to use automatic height of cells - allows for cells to expand or contact with larger and smaller fonts
 		self.tableView.estimatedRowHeight = 45
 		self.tableView.rowHeight = UITableViewAutomaticDimension
 	}
 	
+	//defualt function run when view has just appeared
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
+		
+		//reload the tableView's data (may not be necessary)
 		self.tableView.reloadData()
 	}
 	
+	//setup the cells variable to include all teachers
 	func setup() {
+		//setup math header
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Mathematics"))
+		//run through every item in mathTeachers and add it to the cells variable
 		for teacher in mathTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 		
+		//setup science teachers
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Science"))
 		for teacher in scienceTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 		
+		//setup social studies teachers
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Social Studies"))
 		for teacher in socialTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 		
+		//setup english teachers
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "English"))
 		for teacher in englishTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 		
+		//setup pe teachers
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Physical Education"))
 		for teacher in peTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
-	
+		
+		//setup world language teachers
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "World Languages"))
 		for teacher in worldLanguagesTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value:teacher))
 		}
 		
+		//setup music teachers
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Music"))
 		for teacher in musicTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 		
+		//setup cte teachers
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Career Technical Education"))
 		for teacher in cteTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 		
+		//setup art teachers
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Art"))
 		for teacher in artTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 		
+		//setup esol teachers
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "ESOL"))
 		for teacher in esolTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 		
+		//setup counselors
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Counselor"))
 		for teacher in counselorTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
 		}
 		
+		//setup other teachers
 		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Other"))
 		for teacher in otherTeachers {
 			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
@@ -409,26 +432,33 @@ class TeachersTableViewController: UITableViewController {
 	
 	}
 	
-	
+	//required function that sets the total number of sections in the tableview - only one here because we are setting up sections differently (with SwiftyAccoridanCells)
 	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 		return 1
 	}
 	
+	//required function that sets the number of cells in the tableview equal to the number of items in the variable cells
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return self.cells.items.count
 	}
 	
+	//setup the tableview cell for the given indexPath
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+		//Get the current cell from the cells array
 		let item = self.cells.items[indexPath.row]
+		//Get the calue of the current cell from the above variable
 		let value = item.value as? String
 		
+		//if the item isn't a header cell...
 		if item as? SwiftyAccordionCells.HeaderItem == nil {
+			//...create a new blank cell, with a max of 2 lines and the value is the teachers name and the email on a new line
 			let cell = UITableViewCell()
 			cell.textLabel?.numberOfLines = 2
 			cell.textLabel?.text = value! + "\n" + emailDictionary[value!]!
 			cell.textLabel?.clipsToBounds = true
 			return cell
 		} else {
+			//...if the cell is a header cell, create a new cell with a black background and white text that has the Department name on it 
 			let cell = UITableViewCell()
 			cell.textLabel?.text = value
 			cell.backgroundColor = UIColor.blackColor()
@@ -441,14 +471,20 @@ class TeachersTableViewController: UITableViewController {
 		
 	}
 	
+	//optional function to have different cell heights
 	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		//get the current cell from the cells array
 		let item = self.cells.items[indexPath.row]
 		
+		//if the cell is a header...
 		if item is SwiftyAccordionCells.HeaderItem {
+			//... the height is 45
 			return 45
 		} else if item.isHidden {
+			//... if the item isn't a header but is hidden, return 0 height
 			return 0
 		} else {
+			//...return the autoheight of the cell
 			return UITableViewAutomaticDimension
 		}
 	}
