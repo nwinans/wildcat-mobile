@@ -10,70 +10,92 @@ import UIKit
 
 class ClubsViewController: UITableViewController {
 	
+	//set the height of the default, "closed", cell
 	let kCloseCellHeight: CGFloat = 60
+	//set the height of the "opened" cell
 	let kOpenCellHeight: CGFloat = 170
 	
+	//create an array of float variables that will hold the realtime heights of the cells
 	var cellHeights = [CGFloat]()
 	
+	//create arrays of the clubs' information
 	var clubTitles = [String]()
 	var clubSponsors = [String]()
 	var clubDescriptions = [String]()
 	var clubContacts = [String]()
 	
+	//link to spreadsheet - includes script to convert google spreadsheet to JSON
 	let spreadsheetURL = "https://script.google.com/macros/s/AKfycbxOLElujQcy1-ZUer1KgEvK16gkTLUqYftApjNCM_IRTL3HSuDk/exec?id=1Mu8Wn1CeEr7ehC4TYEUHmA-iVMknJF0c4Hpu-bJZvqY&sheet=Sheet1"
 	
+	//default function called when the view has loaded
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		//clear all the clubs' details - precautionary measure that will help prevent occasional crashes
 		cellHeights.removeAll(keepCapacity: false)
 		clubTitles.removeAll(keepCapacity: false)
 		clubDescriptions.removeAll(keepCapacity: false)
 		clubContacts.removeAll(keepCapacity: false)
 		
+		//run function to download the club data
 		getDataFromURL(spreadsheetURL)
 	}
 	
-	// MARK: configure
+	// function called to add every cell's height to the cellHeights array
 	func createCellHeightsArray() {
+		//remove every cell height as a precautionary measure
 		cellHeights.removeAll(keepCapacity: false)
+		//apend kCloseCellHeight to cellHeights once for every cell
 		for _ in 1...clubTitles.count {
 			cellHeights.append(kCloseCellHeight)
 		}
 	}
 	
+	//required function to provide the number of cells
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return clubTitles.count
 	}
 	
+	//optional function that allows each cell to have a different height
 	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		//if there are no cells, return the default 60
 		if cellHeights.count == 0 {
 			return 60
 		} else {
+			//return the height of each cell from the cell heights array
 			return cellHeights[indexPath.row]
 		}
 	}
 	
+	//optional function to set each cells' information to it's corrosponding information from the arrays
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+		//initialize the cell variable to be equal to the cell from the storyboard with the identifer - "FoldingCell"
 		let cell = tableView.dequeueReusableCellWithIdentifier("FoldingCell", forIndexPath: indexPath) as! ClubsCell
 		
+		//set labels in the cell to the corrosponding information
 		cell.basicClubTitle.text = clubTitles[indexPath.row]
 		cell.moreClubTitle.text = clubTitles[indexPath.row]
 		cell.moreClubSponsor.text = "Sponsor(s): " + clubSponsors[indexPath.row]
 		cell.moreClubDescription.text = "Description: " + clubDescriptions[indexPath.row]
 		
+		//set the club contact email (not a label but a variable in the ClubsCell class) to the corrosponding email
 		cell.contactEmail = clubContacts[indexPath.row]
 		
 		return cell
 	}
 	
+	//function to send an email to a given email address
 	func sendEmail(email:String) {
 		UIApplication.sharedApplication().openURL(NSURL(string: "mailto://" + email)!)
 	}
 	
+	//optional funciton called when a cell is selected
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		let cell = tableView.cellForRowAtIndexPath(indexPath) as! FoldingCell
 		
+		//set the duration equal to a basic float value
 		var duration = 0.0
+		//if the selected cell's height is the same as the closed cell height...
 		if cellHeights[indexPath.row] == kCloseCellHeight { // open cell
 			cellHeights[indexPath.row] = kOpenCellHeight
 			cell.selectedAnimation(true, animated: true, completion: nil)
