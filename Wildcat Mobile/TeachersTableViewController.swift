@@ -489,53 +489,75 @@ class TeachersTableViewController: UITableViewController {
 		}
 	}
 	
+	//optional function to perform an action when a cell is selected
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+		//get the current cell
 		let item = self.cells.items[indexPath.row]
 		
+		//if the cell is a header item...
 		if item is SwiftyAccordionCells.HeaderItem {
+			//...and there is no previously selected header...
 			if self.currentlySelectedHeaderIndex == nil {
+				//...set the selectedHeader to the current row/header
 				self.currentlySelectedHeaderIndex = indexPath.row
+			//...and there is a a previously selected header...
 			} else {
+				//set the previouslySelectedHeader to the value of the currentlySelectedHeaderIndex
 				self.previouslySelectedHeaderIndex = self.currentlySelectedHeaderIndex
+				//and update the currently selected header index to the new selected header index
 				self.currentlySelectedHeaderIndex = indexPath.row
 			}
 			
+			//if the previouslySelectedHeaderIndex isn't nil, set it to a local variable named the same thing
 			if let previouslySelectedHeaderIndex = self.previouslySelectedHeaderIndex {
+				//collapse all the cells in the previously selected header
 				self.cells.collapse(previouslySelectedHeaderIndex)
 			}
 			
+			//if the user didnt select the same header as previously selected...
 			if self.previouslySelectedHeaderIndex != self.currentlySelectedHeaderIndex {
+				//expand the cells under the new header
 				self.cells.expand(self.currentlySelectedHeaderIndex!)
 			} else {
+				//set both current and previous headers to nil as there is no header open anymore
 				self.currentlySelectedHeaderIndex = nil
 				self.previouslySelectedHeaderIndex = nil
 			}
 			
+			//notify the tableview that the data has been updated
 			self.tableView.beginUpdates()
 			self.tableView.endUpdates()
-			
+		
+		//if the selected cell is a teacher cell (not a header)
 		} else {
+			//set the currently selected cell equal to the current row
 			self.currentlySelectedItemIndex = indexPath.row
+			
+			//setup a UIAlertController (will present the user with an action sheet that pops up from the bottom)
 			let alert = UIAlertController.init(title: "What would you like to do?", message: "Would you like to copy this teacher's email, or start a new email to this teacher?", preferredStyle: UIAlertControllerStyle.ActionSheet)
 			
+			//create a new action that will be added to the alert that copies the teacher's email
 			let copyAction = UIAlertAction.init(title: "Copy", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
 				UIPasteboard.generalPasteboard().string = self.emailDictionary[item.value as! String]!
 			})
 			
+			//create a new action that will be added to the alert that starts a new email addressed to the teacher they selected
 			let sendAction = UIAlertAction.init(title: "Send an Email", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
 				UIApplication.sharedApplication().openURL(NSURL(string: "mailto:" + self.emailDictionary[item.value as! String]!)!)
 			})
 			
+			//create a cancel action that closes the action sheet
 			let cancelAction = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { (UIAlertAction) in
 				self.dismissViewControllerAnimated(true, completion: nil)
 			})
 			
+			//add the actions created above to the action sheet
 			alert.addAction(copyAction)
 			alert.addAction(sendAction)
 			alert.addAction(cancelAction)
+			
+			//present the action sheet that was just created
 			self.presentViewController(alert, animated: true, completion: nil)
 		}
 	}
-	
-	
 }
