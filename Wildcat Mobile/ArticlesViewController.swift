@@ -16,6 +16,10 @@ class ArticlesViewController: UITableViewController, SFSafariViewControllerDeleg
 	@IBOutlet weak var whatShouldISayView: UIView!
 	@IBOutlet weak var bodyImageView: UIView!
 	@IBOutlet weak var projectAwareView: UIView!
+    @IBOutlet weak var stopBullyingView: UIView!
+    @IBOutlet weak var crisisLinkView: UIView!
+    @IBOutlet weak var mentalHealthView: UIView!
+    @IBOutlet weak var substanceAbuseView: UIView!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -25,24 +29,40 @@ class ArticlesViewController: UITableViewController, SFSafariViewControllerDeleg
 		let whatShouldTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.whatShouldISay))
 		let bodyImageTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.bodyImage))
 		let projectAwareTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.projectAware))
+        let stopBullyingTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.stopBullying))
+        let crisisLinkTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.crisisLink))
+        let mentalHealthTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.mentalHealth))
+        let substanceAbuseTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.substanceAbuse))
 		
 		educatorTap.numberOfTapsRequired = 1
 		generalStatsTap.numberOfTapsRequired = 1
 		whatShouldTap.numberOfTapsRequired = 1
 		bodyImageTap.numberOfTapsRequired = 1
 		projectAwareTap.numberOfTapsRequired = 1
+        stopBullyingTap.numberOfTapsRequired = 1
+        crisisLinkTap.numberOfTapsRequired = 1
+        mentalHealthTap.numberOfTapsRequired = 1
+        substanceAbuseTap.numberOfTapsRequired = 1
 		
 		educatorToolkitView.userInteractionEnabled = true
 		generalStatisticsView.userInteractionEnabled = true
 		whatShouldISayView.userInteractionEnabled = true
 		bodyImageView.userInteractionEnabled = true
 		projectAwareView.userInteractionEnabled = true
+        stopBullyingView.userInteractionEnabled = true
+        crisisLinkView.userInteractionEnabled = true
+        mentalHealthView.userInteractionEnabled = true
+        substanceAbuseView.userInteractionEnabled = true
 		
 		educatorToolkitView.addGestureRecognizer(educatorTap)
 		generalStatisticsView.addGestureRecognizer(generalStatsTap)
 		whatShouldISayView.addGestureRecognizer(whatShouldTap)
 		bodyImageView.addGestureRecognizer(bodyImageTap)
 		projectAwareView.addGestureRecognizer(projectAwareTap)
+        stopBullyingView.addGestureRecognizer(stopBullyingTap)
+        crisisLinkView.addGestureRecognizer(crisisLinkTap)
+        mentalHealthView.addGestureRecognizer(mentalHealthTap)
+        substanceAbuseView.addGestureRecognizer(substanceAbuseTap)
 		
 	}
 	
@@ -65,6 +85,22 @@ class ArticlesViewController: UITableViewController, SFSafariViewControllerDeleg
 	func projectAware() {
 		openURL("http://www.SAMHSA.gov")
 	}
+    
+    func stopBullying() {
+        openURL("http://www.stopbullying.gov")
+    }
+    
+    func crisisLink() {
+        openURL("https://www.fcps.edu/resources/student-safety-and-wellness/mental-health-resources-and-emergency-services-information")
+    }
+    
+    func mentalHealth() {
+        openURL("https://www.fcps.edu/resources/student-safety-and-wellness/mental-health-and-resiliency")
+    }
+    
+    func substanceAbuse() {
+        openURL("http://www.fcps.edu")
+    }
 	
 	func openURL(url: String) {
 		if #available(iOS 9, *) {

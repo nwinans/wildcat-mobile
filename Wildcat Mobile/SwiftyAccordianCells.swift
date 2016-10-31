@@ -9,47 +9,50 @@
 import Foundation
 
 class SwiftyAccordionCells {
-	private (set) var items = [Item]()
-	
-	class Item {
-		var isHidden: Bool
-		var value: AnyObject
-		
-		init(_ hidden: Bool = true, value: AnyObject) {
-			self.isHidden = hidden
-			self.value = value
-		}
-	}
-	
-	class HeaderItem: Item {
-		init (value: AnyObject) {
-			super.init(false, value: value)
-		}
-	}
-	
-	func append(item: Item) {
-		self.items.append(item)
-	}
-	
-	func removeAll() {
-		self.items.removeAll()
-	}
-	
-	func expand(headerIndex: Int) {
-		self.toogleVisible(headerIndex, isHidden: false)
-	}
-	
-	func collapse(headerIndex: Int) {
-		self.toogleVisible(headerIndex, isHidden: true)
-	}
-	
-	private func toogleVisible(var headerIndex: Int, isHidden: Bool) {
-		headerIndex += 1
-		
-		while headerIndex < self.items.count && !(self.items[headerIndex] is HeaderItem) {
-			self.items[headerIndex].isHidden = isHidden
-			
-			headerIndex += 1
-		}
-	}
+    private (set) var items = [Item]()
+    
+    class Item {
+        var isHidden: Bool
+        var value: String
+        var isChecked: Bool
+        
+        init(_ hidden: Bool = true, value: String, checked: Bool = false) {
+            self.isHidden = hidden
+            self.value = value
+            self.isChecked = checked
+        }
+    }
+    
+    class HeaderItem: Item {
+        init (value: String) {
+            super.init(false, value: value, checked: false)
+        }
+    }
+    
+    func append(item: Item) {
+        self.items.append(item)
+    }
+    
+    func removeAll() {
+        self.items.removeAll()
+    }
+    
+    func expand(headerIndex: Int) {
+        self.toogleVisible(headerIndex, isHidden: false)
+    }
+    
+    func collapse(headerIndex: Int) {
+        self.toogleVisible(headerIndex, isHidden: true)
+    }
+    
+    private func toogleVisible(headerIndex: Int, isHidden: Bool) {
+        var headerIndex = headerIndex
+        headerIndex += 1
+        
+        while headerIndex < self.items.count && !(self.items[headerIndex] is HeaderItem) {
+            self.items[headerIndex].isHidden = isHidden
+            
+            headerIndex += 1
+        }
+    }
 }

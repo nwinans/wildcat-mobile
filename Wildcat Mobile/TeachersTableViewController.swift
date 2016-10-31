@@ -183,18 +183,16 @@ class TeachersTableViewController: UITableViewController {
 		
 		//run setup function in this class
 		self.setup()
-		
+		/*
 		//sets up tableview to use automatic height of cells - allows for cells to expand or contact with larger and smaller fonts
 		self.tableView.estimatedRowHeight = 45
-		self.tableView.rowHeight = UITableViewAutomaticDimension
+		self.tableView.rowHeight = UITableViewAutomaticDimension*/
 	}
 	
 	//defualt function run when view has just appeared
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		
-		//reload the tableView's data (may not be necessary)
-		self.tableView.reloadData()
 	}
 	
 	//setup the cells variable to include all teachers
@@ -447,15 +445,14 @@ class TeachersTableViewController: UITableViewController {
 		//Get the current cell from the cells array
 		let item = self.cells.items[indexPath.row]
 		//Get the calue of the current cell from the above variable
-		let value = item.value as? String
+		let value = item.value
 		
 		//if the item isn't a header cell...
 		if item as? SwiftyAccordionCells.HeaderItem == nil {
 			//...create a new blank cell, with a max of 2 lines and the value is the teachers name and the email on a new line
 			let cell = UITableViewCell()
 			cell.textLabel?.numberOfLines = 2
-			cell.textLabel?.text = value! + "\n" + emailDictionary[value!]!
-			cell.textLabel?.clipsToBounds = true
+			cell.textLabel?.text = value + "\n" + emailDictionary[value]!
 			return cell
 		} else {
 			//...if the cell is a header cell, create a new cell with a black background and white text that has the Department name on it 
@@ -463,11 +460,9 @@ class TeachersTableViewController: UITableViewController {
 			cell.textLabel?.text = value
 			cell.backgroundColor = UIColor.blackColor()
 			cell.textLabel?.textColor = UIColor.whiteColor()
-			cell.textLabel?.clipsToBounds = true
 			cell.selectionStyle = UITableViewCellSelectionStyle.None
 			return cell
 		}
-		
 		
 	}
 	
@@ -493,7 +488,6 @@ class TeachersTableViewController: UITableViewController {
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		//get the current cell
 		let item = self.cells.items[indexPath.row]
-		
 		//if the cell is a header item...
 		if item is SwiftyAccordionCells.HeaderItem {
 			//...and there is no previously selected header...

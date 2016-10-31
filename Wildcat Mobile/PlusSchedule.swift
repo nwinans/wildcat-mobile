@@ -5,6 +5,9 @@
 //  Created by Nick Winans on 10/9/16.
 //  Copyright © 2016 Centreville HS. All rights reserved.
 //
+
+import Foundation
+
 class PlusSchedule {
     
     //create variables that hold the desired date, plus, and a dictionary that will hold the plus for each date
