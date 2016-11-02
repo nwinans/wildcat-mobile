@@ -3,8 +3,6 @@
 //  Wildcat Mobile
 //
 //	This ViewController handles the Announcements scene and downloads the JSON form of a database and parses it and then sets tableView with that information
-//	TODO: add check if end date of announcement is before or after current data and include it if it is after the current date
-//	TODO: prevent title from overlapping date
 //
 //  Created by Nicholas Winans on 8/15/16.
 //  Copyright © 2016 Centreville HS. All rights reserved.
@@ -20,8 +18,11 @@ class AnnouncementsTableViewController: UITableViewController {
 	var activityArray: Array<String> = Array<String>()
 	var dateArray: Array<String> = Array<String>()
     
-    //get plus bar button from storyboard
-    @IBOutlet weak var plusButton: UIBarButtonItem!
+	//Create variable to hold the result of the JSON download. We use this later when the user refreshes to see if the new data is different
+	var jsonCache: AnyObject?
+	
+    	//get plus bar button from storyboard
+    	@IBOutlet weak var plusButton: UIBarButtonItem!
 
 	//Spreadsheet URL (script converts spreadsheet into JSON for downloading)
 	var defaultSpreadsheetURL = "https://script.google.com/macros/s/AKfycbxOLElujQcy1-ZUer1KgEvK16gkTLUqYftApjNCM_IRTL3HSuDk/exec?id=1ZET4Sf4U3j-8kBuTRVEgk7szsESiwLss6OgaxSLIMik&sheet=Sheet1"
@@ -114,6 +115,24 @@ class AnnouncementsTableViewController: UITableViewController {
 		
 			//sets table equal to the Sheet1 json object (in this case the whole thing)
 			if let table = json?["Sheet1"] as? NSArray{
+				
+				//check to see if we have previously retrieved data in this session
+				if (jsonCache != nil) {
+					//if the data hasn't changed since the last refresh
+					if (jsonCache == table) {
+						//break the function
+						break
+					} else {
+						//remove all the data from the arrays
+						announcementArray.removeAll(keepCapacity: false)
+						activityArray.removeAll(keepCapacity: false)
+						nameArray.removeAll(keepCapacity: false)
+						dateArray.removeAll(keepCapacity: false)
+					}
+				}
+				
+				//set the cache variable to the new data retrieved
+				jsonCache = table
 				
 				//loop through all the announcements in the json object, table
 				for i in 0.stride(to: table.count, by: 1) {
@@ -211,14 +230,14 @@ class AnnouncementsTableViewController: UITableViewController {
 	@IBAction func refresh(sender: UIRefreshControl) {
 		
 		//remove all data from the arrays to prevent duplicate data
-		announcementArray.removeAll(keepCapacity: false)
+		/*announcementArray.removeAll(keepCapacity: false)
 		activityArray.removeAll(keepCapacity: false)
 		nameArray.removeAll(keepCapacity: false)
 		dateArray.removeAll(keepCapacity: false)
 		
 		//notify the tableView that it's data has changed (it will remove all items from the tableView temporarily)
 		//There is probably a better way to handle this because if the data doesn't reload for whatever reason, then the table will remain blank
-		self.tableView.reloadData()
+		self.tableView.reloadData()*/
 		
 		//re-run the getDataFromURL function which is originally called when the view is first loaded
 		getDataFromURL(defaultSpreadsheetURL)
