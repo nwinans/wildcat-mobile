@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AnnouncementObject: NSObject NSCoding {
+class AnnouncementObject: NSObject, NSCoding {
 		var activity: String
         var announcement: String
         var date: String
@@ -33,14 +33,14 @@ class AnnouncementObject: NSObject NSCoding {
 		
 		required convenience init?(coder aDecoder: NSCoder) {
 			let activity = aDecoder.decodeObjectForKey(announcements.activity) as! String
-			let annoucement = aDecoder.decodeObjectForKey(announcements.announcement) as! String
+			let announcement = aDecoder.decodeObjectForKey(announcements.announcement) as! String
 			let date = aDecoder.decodeObjectForKey(announcements.date) as! String
 			let name = aDecoder.decodeObjectForKey(announcements.name) as! String
 			
 			self.init(activity: activity, announcement: announcement, date: date, name: name)
 		}
 		
-		init?(activity: activity, announcement: announcement, date: date, name: name) {
+		init?(activity: String, announcement: String, date: String, name: String) {
 			self.activity = activity
 			self.announcement = announcement
 			self.date = date

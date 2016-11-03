@@ -38,7 +38,7 @@ class ClubsViewController: UITableViewController {
 		clubContacts.removeAll(keepCapacity: false)
 		
 		//run function to download the club data
-		getDataFromURL(spreadsheetURL)
+		//getDataFromURL(spreadsheetURL)
 	}
 	
 	// function called to add every cell's height to the cellHeights array

@@ -12,19 +12,13 @@ import UIKit
 
 class AnnouncementsTableViewController: UITableViewController {
 	
-	//Make arrays for data storage as type Array<String> and assign it an empty string array
-	var announcementArray:Array<String> = Array<String>()
-	var nameArray:Array<String> = Array<String>()
-	var activityArray: Array<String> = Array<String>()
-	var dateArray: Array<String> = Array<String>()
-	
 	var announcements = [AnnouncementObject]()
 	var tempAnnouncements = [AnnouncementObject]()
 	
 	var singleAnnouncment: AnnouncementObject?
 	   
 	//Create variable to hold the result of the JSON download. We use this later when the user refreshes to see if the new data is different
-	var jsonCache: AnyObject?
+	//var jsonCache: AnyObject?
 	
     	//get plus bar button from storyboard
     	@IBOutlet weak var plusButton: UIBarButtonItem!
@@ -55,24 +49,26 @@ class AnnouncementsTableViewController: UITableViewController {
 		//when the user swipes down (and internally calls the ValueChanged function), the refresh function is called
 		refreshControl!.addTarget(self, action: #selector(AnnouncementsTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
 		
-	    	if let savedAnnouncements = loadAnnouncements() {
+        if let savedAnnouncements = loadAnnouncements() {
 			announcements += savedAnnouncements
-		} else {
-			//runs function to populate arrays with data and then eventaully refreshes the table with new data
-			getDataFromURL(defaultSpreadsheetURL)
 		}
-	    
+        
+        //runs function to populate arrays with data and then eventaully refreshes the table with new data
+        getDataFromURL(defaultSpreadsheetURL)
     }
+
+
 	
 	func saveAnnouncements() {
-		let isSaveSuccessful = NSKeyedArchiver.archiveRootObject(announcements, AnnouncementObject.ArchiveURL!.path!)
+		let isSaveSuccessful = NSKeyedArchiver.archiveRootObject(announcements, toFile: AnnouncementObject.ArchiveURL!.path!)
 		if !isSaveSuccessful {
 			print("failed to save")
 		}
 	}
 	
-	func loadClasses -> [AnnouncementObject]? {
-		return NSKeyedUnarchiver.unarchiveObjectWithFile(AnnouncementObject.ArchiveURL!.path!) as? [ClassObject]
+	func loadAnnouncements() -> [AnnouncementObject]? {
+		return NSKeyedUnarchiver.unarchiveObjectWithFile(AnnouncementObject.ArchiveURL!.path!) as? [AnnouncementObject]
+    }
 
 	//unused default function
     override func didReceiveMemoryWarning() {
@@ -94,11 +90,11 @@ class AnnouncementsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("announcementCell", forIndexPath: indexPath) as! AnnouncementTableViewCell
 
-        cell.announcementLabel.text = announcements[index].announcement//announcementArray[indexPath.row]
-	cell.nameLabel.text = announcements[index].name//nameArray[indexPath.row]
-	cell.activityLabel.text = announcements[index].activity//activityArray[indexPath.row]
-	cell.dateLabel.text = announcements[index].date//dateArray[indexPath.row]
-		
+        cell.announcementLabel.text = announcements[indexPath.row].announcement
+        cell.nameLabel.text = announcements[indexPath.row].name
+        cell.activityLabel.text = announcements[indexPath.row].activity
+        cell.dateLabel.text = announcements[indexPath.row].date
+        
         return cell
     }
 	
@@ -109,13 +105,17 @@ class AnnouncementsTableViewController: UITableViewController {
 		let url = NSURL(string: url)
 		
 		//setup url request with url, default cache policy, and timeout length
-		let urlRequest = NSMutableURLRequest(URL: url!, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: timeout)
+		let urlRequest = NSMutableURLRequest(URL: url!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeout)
 		
 		let queue = NSOperationQueue()
 		
 		//actually get the information asynchronously
 		NSURLConnection.sendAsynchronousRequest(urlRequest, queue: queue) { (response: NSURLResponse?, data: NSData?, error: NSError?) in
 			
+            if data == nil {
+                return
+            }
+            
 			//if the data has length and there was no error, extract the JSON tree from the data
 			//else if the data length is 0 and there was no error, print a message to the console that there was nothing to download at the url
 			//else if there was an error, print the error to the console
@@ -129,6 +129,17 @@ class AnnouncementsTableViewController: UITableViewController {
 		}
 	}
 	
+    func uniq<S : SequenceType, T : Hashable where S.Generator.Element == T>(source: S) -> [T] {
+        var buffer = [T]()
+        var added = Set<T>()
+        for elem in source {
+            if !added.contains(elem) {
+                buffer.append(elem)
+                added.insert(elem)
+            }
+        }
+        return buffer
+    }
 	
 	//function to extract json tree from nsdata object and then extract data from the json tree
 	func extractJSON(jsonData: NSData) {
@@ -137,25 +148,7 @@ class AnnouncementsTableViewController: UITableViewController {
 		
 			//sets table equal to the Sheet1 json object (in this case the whole thing)
 			if let table = json?["Sheet1"] as? NSArray{
-				
-				//check to see if we have previously retrieved data in this session
-				if (jsonCache != nil) {
-					//if the data hasn't changed since the last refresh
-					if (jsonCache == table) {
-						//break the function
-						break
-					} else {
-						//remove all the data from the arrays
-						announcementArray.removeAll(keepCapacity: false)
-						activityArray.removeAll(keepCapacity: false)
-						nameArray.removeAll(keepCapacity: false)
-						dateArray.removeAll(keepCapacity: false)
-					}
-				}
-				
-				//set the cache variable to the new data retrieved
-				jsonCache = table
-				
+								
 				//loop through all the announcements in the json object, table
 				for i in 0.stride(to: table.count, by: 1) {
 					
@@ -164,7 +157,11 @@ class AnnouncementsTableViewController: UITableViewController {
 						
 						//sets announcementApproved equal to the "Approved" json object
 						if let announcementApproved = announcementObject["Approved"] as? String {
-							
+                            
+                            if announcementApproved.isEmpty {
+                                return
+                            }
+                            
 							//sets announcementMessage equal to the announcement object
 							if let announcementMessage = announcementObject["What_is_the_announcement?"] as? String {
 								
@@ -213,14 +210,10 @@ class AnnouncementsTableViewController: UITableViewController {
 														dateFormatter.dateFormat = "MM/dd"
 														let date = dateFormatter.stringFromDate(timestamp!)
 														
-														let tempAnnouncement = AnnouncementObject(activity: announcementActivity, announcement: announcementMessage, name: announcementName, date: date
+														let tempAnnouncement = AnnouncementObject(activity: announcementActivity, announcement: announcementMessage, date: date, name: announcementName)
+                                                        
+														tempAnnouncements += [tempAnnouncement!]
 														
-														tempAnnouncements += tempAnnouncement
-														
-														//announcementArray.append(announcementMessage)
-														//nameArray.append(announcementName)
-														//dateArray.append(date)
-														//activityArray.append(announcementActivity)
 													}
 												} else {
 													print("The announcement \(announcementMessage) has expired")
@@ -237,30 +230,9 @@ class AnnouncementsTableViewController: UITableViewController {
 				}
 			}
 		
-		var lenOld = announcements.count
-		var lenNew = tempAnnouncements.count
-				
-		if (lenNew == 0) {
-			announcements.removeAll()
-		} else {
-			for index 1...lenNew {
-				if (announcements.contains(tempAnnouncements[index])) {
-					//do nothing
-				} else {
-					announcement += tempAnnouncements[index]))
-				}
-				
-				if (announcements.count != lenNew) {
-					for index 1...announcements.count {
-						if tempAnnouncements.contains(announcements[index]) {
-							//do nothing
-						} else {
-							announcements.removeAtIndex(index)
-						}
-					}
-				}
-			}
-		}
+        announcements = tempAnnouncements
+
+        tempAnnouncements.removeAll()
 		
 		saveAnnouncements()
 			
@@ -281,30 +253,12 @@ class AnnouncementsTableViewController: UITableViewController {
 	
 	//storyboard outlet (action) to handle the swipe to refresh feature
 	@IBAction func refresh(sender: UIRefreshControl) {
-		
-		//remove all data from the arrays to prevent duplicate data
-		/*announcementArray.removeAll(keepCapacity: false)
-		activityArray.removeAll(keepCapacity: false)
-		nameArray.removeAll(keepCapacity: false)
-		dateArray.removeAll(keepCapacity: false)
-		
-		//notify the tableView that it's data has changed (it will remove all items from the tableView temporarily)
-		//There is probably a better way to handle this because if the data doesn't reload for whatever reason, then the table will remain blank
-		self.tableView.reloadData()*/
-		
+				
 		//re-run the getDataFromURL function which is originally called when the view is first loaded
 		getDataFromURL(defaultSpreadsheetURL)
 		
 		//sends information to sender that the table is done refreshing
 		sender.endRefreshing()
 	}
-					
-	extension Array where Element : Equatable {
-		 // Remove first collection element that is equal to the given `object`:
-    mutating func removeObject(object : Generator.Element) {
-        if let index = self.indexOf(object) {
-            self.removeAtIndex(index)
-        }
-    }
-	}
+		
 }
