@@ -17,6 +17,8 @@
 		363EE62E1D40150200F4999F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 363EE62C1D40150200F4999F /* LaunchScreen.storyboard */; };
 		36405A2F1D6F584800CE9021 /* ClubsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36405A2E1D6F584800CE9021 /* ClubsViewController.swift */; };
 		365AD4681DCAB33A00E7CB82 /* AnnouncementObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365AD4671DCAB33A00E7CB82 /* AnnouncementObject.swift */; };
+		365CDD5D1DCC1E1F00E87B9A /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CDD5C1DCC1E1F00E87B9A /* Club.swift */; };
+		365CDD5F1DCC2E2800E87B9A /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CDD5E1DCC2E2800E87B9A /* Plus.swift */; };
 		3663C9821D62ACF60063BA3C /* AnnouncementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C9811D62ACF60063BA3C /* AnnouncementsTableViewController.swift */; };
 		3663C9841D63AA4F0063BA3C /* AnnouncementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3663C9831D63AA4F0063BA3C /* AnnouncementTableViewCell.swift */; };
 		369A4C091DAB0916006FCF51 /* PlusSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369A4C081DAB0916006FCF51 /* PlusSchedule.swift */; };
@@ -44,6 +46,8 @@
 		363EE62F1D40150200F4999F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36405A2E1D6F584800CE9021 /* ClubsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubsViewController.swift; sourceTree = "<group>"; };
 		365AD4671DCAB33A00E7CB82 /* AnnouncementObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementObject.swift; sourceTree = "<group>"; };
+		365CDD5C1DCC1E1F00E87B9A /* Club.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
+		365CDD5E1DCC2E2800E87B9A /* Plus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
 		3663C9801D6296340063BA3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		3663C9811D62ACF60063BA3C /* AnnouncementsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementsTableViewController.swift; sourceTree = "<group>"; };
 		3663C9831D63AA4F0063BA3C /* AnnouncementTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementTableViewCell.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 			children = (
 				36405A2E1D6F584800CE9021 /* ClubsViewController.swift */,
 				360A61D41D6F6A4700E76E00 /* ClubsCell.swift */,
+				365CDD5C1DCC1E1F00E87B9A /* Club.swift */,
 			);
 			name = Clubs;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 				36B435871D77BEC900284697 /* SwiftyExpandingTransition.swift */,
 				3603F3811D8C996A0037DDF9 /* SwiftyAccordianCells.swift */,
 				369A4C081DAB0916006FCF51 /* PlusSchedule.swift */,
+				365CDD5E1DCC2E2800E87B9A /* Plus.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -277,6 +283,8 @@
 				36E8D6E21DA47AC200E1F222 /* PlusViewController.swift in Sources */,
 				36405A2F1D6F584800CE9021 /* ClubsViewController.swift in Sources */,
 				369A4C091DAB0916006FCF51 /* PlusSchedule.swift in Sources */,
+				365CDD5F1DCC2E2800E87B9A /* Plus.swift in Sources */,
+				365CDD5D1DCC1E1F00E87B9A /* Club.swift in Sources */,
 				3663C9841D63AA4F0063BA3C /* AnnouncementTableViewCell.swift in Sources */,
 				36DBBEFF1D8DB0C800532E0F /* ClassObject.swift in Sources */,
 				36DBBEFD1D8DAF0B00532E0F /* ClassesTableViewCell.swift in Sources */,

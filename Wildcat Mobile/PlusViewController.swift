@@ -18,9 +18,9 @@ class PlusViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-	//set the max the scroll view will zoom to to 6x
+	//set the max the scroll view will zoom to to 6.5x
 	self.scrollView.minimumZoomScale = 1.0
-	self.scrollView.maximumZoomScale = 6.0	
+	self.scrollView.maximumZoomScale = 6.5
     }   
 
     //function required by UIScrollViewDelegate - asks for the view to be zoomed in on, we give it the imageView

@@ -19,10 +19,16 @@ class ClubsViewController: UITableViewController {
 	var cellHeights = [CGFloat]()
 	
 	//create arrays of the clubs' information
-	var clubTitles = [String]()
+	/*var clubTitles = [String]()
 	var clubSponsors = [String]()
 	var clubDescriptions = [String]()
-	var clubContacts = [String]()
+	var clubContacts = [String]()*/
+    
+    var clubs = [Club]()
+    var tempClubs = [Club]()
+    
+    
+    @IBOutlet weak var plusButton: UIBarButtonItem!
 	
 	//link to spreadsheet - includes script to convert google spreadsheet to JSON
 	let spreadsheetURL = "https://script.google.com/macros/s/AKfycbxOLElujQcy1-ZUer1KgEvK16gkTLUqYftApjNCM_IRTL3HSuDk/exec?id=1Mu8Wn1CeEr7ehC4TYEUHmA-iVMknJF0c4Hpu-bJZvqY&sheet=Sheet1"
@@ -30,30 +36,50 @@ class ClubsViewController: UITableViewController {
 	//default function called when the view has loaded
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        
+        plusButton.title = PlusSchedule().plus()
 		
 		//clear all the clubs' details - precautionary measure that will help prevent occasional crashes
-		cellHeights.removeAll(keepCapacity: false)
+		/*cellHeights.removeAll(keepCapacity: false)
 		clubTitles.removeAll(keepCapacity: false)
 		clubDescriptions.removeAll(keepCapacity: false)
-		clubContacts.removeAll(keepCapacity: false)
+		clubContacts.removeAll(keepCapacity: false)*/
 		
+        if let savedClubs = loadClubs() {
+            if clubs.count == 0 {
+                clubs += savedClubs
+                createCellHeightsArray()
+            }
+        }
+        
 		//run function to download the club data
-		//getDataFromURL(spreadsheetURL)
+		getDataFromURL(spreadsheetURL)
 	}
+    
+    func saveClubs() {
+        let isSaveSuccessful = NSKeyedArchiver.archiveRootObject(clubs, toFile: Club.ArchiveURL!.path!)
+        if !isSaveSuccessful {
+            print("failed to save")
+        }
+    }
+    
+    func loadClubs() -> [Club]? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Club.ArchiveURL!.path!) as? [Club]
+    }
 	
 	// function called to add every cell's height to the cellHeights array
 	func createCellHeightsArray() {
 		//remove every cell height as a precautionary measure
 		cellHeights.removeAll(keepCapacity: false)
 		//apend kCloseCellHeight to cellHeights once for every cell
-		for _ in 1...clubTitles.count {
+		for _ in 1...clubs.count {
 			cellHeights.append(kCloseCellHeight)
 		}
 	}
 	
 	//required function to provide the number of cells
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return clubTitles.count
+		return clubs.count
 	}
 	
 	//optional function that allows each cell to have a different height
@@ -73,13 +99,13 @@ class ClubsViewController: UITableViewController {
 		let cell = tableView.dequeueReusableCellWithIdentifier("FoldingCell", forIndexPath: indexPath) as! ClubsCell
 		
 		//set labels in the cell to the corrosponding information
-		cell.basicClubTitle.text = clubTitles[indexPath.row]
-		cell.moreClubTitle.text = clubTitles[indexPath.row]
-		cell.moreClubSponsor.text = "Sponsor(s): " + clubSponsors[indexPath.row]
-		cell.moreClubDescription.text = "Description: " + clubDescriptions[indexPath.row]
+		cell.basicClubTitle.text = clubs[indexPath.row].club
+		cell.moreClubTitle.text = clubs[indexPath.row].club
+		cell.moreClubSponsor.text = "Sponsor(s): " + clubs[indexPath.row].sponsor
+		cell.moreClubDescription.text = "Description: " + clubs[indexPath.row].cdescription
 		
 		//set the club contact email (not a label but a variable in the ClubsCell class) to the corrosponding email
-		cell.contactEmail = clubContacts[indexPath.row]
+		cell.contactEmail = clubs[indexPath.row].email
 		
 		return cell
 	}
@@ -176,10 +202,8 @@ class ClubsViewController: UITableViewController {
 						let clubDescription = clubObject["description"] as? String
 						let clubContact = clubObject["contact_email"] as? String
 						
-						clubTitles.append(clubTitle!)
-						clubSponsors.append(clubSponsor!)
-						clubDescriptions.append(clubDescription!)
-						clubContacts.append(clubContact!)
+                        let newClub = Club(club: clubTitle!, cdescription: clubDescription!, email: clubContact!, sponsor: clubSponsor!)
+                        tempClubs += [newClub!]
 						
 					} else {
 						print("club not yet active")
@@ -192,7 +216,11 @@ class ClubsViewController: UITableViewController {
 		
 		//refresh the table with the new information
 		
-		
+		clubs = tempClubs
+        tempClubs.removeAll()
+        
+        saveClubs()
+        
 		doTableRefresh()
 		createCellHeightsArray()
 	}
@@ -202,7 +230,6 @@ class ClubsViewController: UITableViewController {
 	func doTableRefresh() {
 		
 		dispatch_async(dispatch_get_main_queue(), {
-			//sleep(4)
 			
 			self.tableView.reloadData()
 			return

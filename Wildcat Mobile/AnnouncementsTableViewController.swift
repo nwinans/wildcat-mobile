@@ -14,8 +14,6 @@ class AnnouncementsTableViewController: UITableViewController {
 	
 	var announcements = [AnnouncementObject]()
 	var tempAnnouncements = [AnnouncementObject]()
-	
-	var singleAnnouncment: AnnouncementObject?
 	   
 	//Create variable to hold the result of the JSON download. We use this later when the user refreshes to see if the new data is different
 	//var jsonCache: AnyObject?

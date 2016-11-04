@@ -20,9 +20,13 @@ class ArticlesViewController: UITableViewController, SFSafariViewControllerDeleg
     @IBOutlet weak var crisisLinkView: UIView!
     @IBOutlet weak var mentalHealthView: UIView!
     @IBOutlet weak var substanceAbuseView: UIView!
+    
+    @IBOutlet weak var plusButton: UIBarButtonItem!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        
+        plusButton.title = PlusSchedule().plus()
 		
 		let educatorTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.educatorToolkit))
 		let generalStatsTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.generalStatistics))

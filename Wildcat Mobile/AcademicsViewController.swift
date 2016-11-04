@@ -20,10 +20,14 @@ class AcademicsViewController: UITableViewController, UINavigationControllerDele
 	@IBOutlet weak var libraryCell: UITableViewCell!
 	@IBOutlet weak var calendarCell: UITableViewCell!
 	@IBOutlet weak var athleticsCell: UITableViewCell!
+    
+    @IBOutlet weak var plusButton: UIBarButtonItem!
 	
 	//Default function called when view has been loaded (view is shown to user)
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        
+        plusButton.title = PlusSchedule().plus()
 		
 		//setup tap recognizers so the library cell and calendar cell do their desired actions when clicked on
 		let libraryTap = UITapGestureRecognizer(target: self, action: #selector(AcademicsViewController.libraryWebsite))
