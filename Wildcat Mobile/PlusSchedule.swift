@@ -16,8 +16,9 @@ class PlusSchedule {
     var plusCalendar:[String:String] = [String:String]()
     
     var plusses = [Plus]()
+    var tempPlusses = [Plus]()
     
-    var defaultSpreadsheetURL = ""
+    var defaultSpreadsheetURL = "https://script.google.com/macros/s/AKfycbxOLElujQcy1-ZUer1KgEvK16gkTLUqYftApjNCM_IRTL3HSuDk/exec?id=1z6JyOZYNLoMKuoQACGzv5xN9gQqnQpUyDP4nD0PCQec&sheet=Sheet1"
     
     //initialze this class if a date is passed
     init(date:NSDate) {
@@ -81,5 +82,58 @@ class PlusSchedule {
         return NSKeyedUnarchiver.unarchiveObjectWithFile(Plus.ArchiveURL!.path!) as? [Plus]
     }
     
+    func getDataFromURL(url: String) {
+		
+		let timeout = 15.0
+		let url = NSURL(string: url)
+		
+		//setup url request with url, default cache policy, and timeout length
+		let urlRequest = NSMutableURLRequest(URL: url!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeout)
+		
+		let queue = NSOperationQueue()
+		
+		//actually get the information asynchronously
+		NSURLConnection.sendAsynchronousRequest(urlRequest, queue: queue) { (response: NSURLResponse?, data: NSData?, error: NSError?) in
+			
+            if data == nil {
+                return
+            }
+            
+			//if the data has length and there was no error, extract the JSON tree from the data
+			//else if the data length is 0 and there was no error, print a message to the console that there was nothing to download at the url
+			//else if there was an error, print the error to the console
+			if data!.length > 0 && error == nil {
+				self.extractJSON(data!)
+			} else if data!.length == 0 && error == nil {
+				print("Nothing was downloaded")
+			} else if error != nil {
+				print("Error happened = \(error)")
+			}
+		}
+	}
     
+    //function to extract json tree from nsdata object and then extract data from the json tree
+	func extractJSON(jsonData: NSData) {
+			//try to parse the json data into an object, json
+			let json: AnyObject? = try! NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments)
+		
+			//sets table equal to the Sheet1 json object (in this case the whole thing)
+			if let table = json?["Sheet1"] as? NSArray{				
+				//loop through all the announcements in the json object, table
+				for i in 0.stride(to: table.count, by: 1) {
+					if let plusObject = table[i] as? NSDictionary {
+                        if let plusDate = plusObject["Date"] as? String {
+                            if let plusPlus = plusObject["Plus"] as? String {
+                                let tempPlus = Plus(date: plusDate, plus: plusPlus)
+                                tempPlusses += [tempPlus]
+                            }
+                        }
+				    }
+			    }
+            }
+		
+        plusses = tempPlusses
+        tempPlusses.removeAll()
+		savePlusses()
+	}
 }
