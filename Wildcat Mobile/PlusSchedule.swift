@@ -63,7 +63,7 @@ class PlusSchedule {
     //setup plus dictionary with every date and its corrosponding plus
     func setupPlus() {
         if let savedPlusses = loadPlusses() {
-            pluuses += savedPlusses
+            plusses += savedPlusses
         }
         
         getDataFromURL(defaultSpreadsheetURL)
