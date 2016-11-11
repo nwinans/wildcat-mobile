@@ -51,6 +51,7 @@ class AnnouncementsTableViewController: UITableViewController {
 			announcements += savedAnnouncements
 		}
         
+        
         //runs function to populate arrays with data and then eventaully refreshes the table with new data
         getDataFromURL(defaultSpreadsheetURL)
     }
@@ -126,24 +127,14 @@ class AnnouncementsTableViewController: UITableViewController {
 			}
 		}
 	}
-	
-    func uniq<S : SequenceType, T : Hashable where S.Generator.Element == T>(source: S) -> [T] {
-        var buffer = [T]()
-        var added = Set<T>()
-        for elem in source {
-            if !added.contains(elem) {
-                buffer.append(elem)
-                added.insert(elem)
-            }
-        }
-        return buffer
-    }
-	
+		
 	//function to extract json tree from nsdata object and then extract data from the json tree
 	func extractJSON(jsonData: NSData) {
 			//try to parse the json data into an object, json
 			let json: AnyObject? = try! NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments)
 		
+        print("sop")
+        
 			//sets table equal to the Sheet1 json object (in this case the whole thing)
 			if let table = json?["Sheet1"] as? NSArray{
 								
@@ -155,10 +146,6 @@ class AnnouncementsTableViewController: UITableViewController {
 						
 						//sets announcementApproved equal to the "Approved" json object
 						if let announcementApproved = announcementObject["Approved"] as? String {
-                            
-                            if announcementApproved.isEmpty {
-                                return
-                            }
                             
 							//sets announcementMessage equal to the announcement object
 							if let announcementMessage = announcementObject["What_is_the_announcement?"] as? String {
@@ -228,6 +215,24 @@ class AnnouncementsTableViewController: UITableViewController {
 				}
 			}
 		
+        /*let set1 = NSSet.init(array: announcements)
+        let set2 = NSSet.init(array: tempAnnouncements)
+        let isEqual = set1.isEqualToSet(set2 as! Set<NSObject>)*/
+        
+        var isEqual = false
+        
+        if announcements.count != tempAnnouncements.count {
+            isEqual = false
+        } else {
+            for i in 0.stride(to: announcements.count, by: 1) {
+                if announcements[i].equals(tempAnnouncements[i]) {
+                    isEqual = true
+                }
+            }
+        }
+        
+        print(isEqual)
+        
         announcements = tempAnnouncements
 
         tempAnnouncements.removeAll()
@@ -235,19 +240,36 @@ class AnnouncementsTableViewController: UITableViewController {
 		saveAnnouncements()
 			
 		//refresh the table with the new information
-		doTableRefresh();
+        if isEqual {
+            doTableRefresh()
+        } else {
+            doTableRefreshWithAnimation()
+        }
+        
 	}
 	
 	
 	//function to refresh the table on the main queue
-	func doTableRefresh() {
+	func doTableRefreshWithAnimation() {
 		
 		dispatch_async(dispatch_get_main_queue(), {
-			self.tableView.reloadData()
+			let range = NSMakeRange(0, self.tableView.numberOfSections)
+            let sections = NSIndexSet(indexesInRange: range)
+            
+            self.tableView.reloadSections(sections, withRowAnimation: .Automatic)
 			return
 		})
 		
 	}
+    
+    func doTableRefresh() {
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tableView.reloadData()
+            return
+        })
+        
+    }
 	
 	//storyboard outlet (action) to handle the swipe to refresh feature
 	@IBAction func refresh(sender: UIRefreshControl) {
@@ -258,5 +280,6 @@ class AnnouncementsTableViewController: UITableViewController {
 		//sends information to sender that the table is done refreshing
 		sender.endRefreshing()
 	}
+    
 		
 }

@@ -59,4 +59,8 @@ class AnnouncementObject: NSObject, NSCoding {
 			self.date = "1/1/17"
 			self.name = "Error"
 		}
+    
+    func equals(compareTo:AnnouncementObject) -> Bool {
+        return self.activity == (compareTo.activity) && self.announcement == (compareTo.announcement) && self.date == compareTo.date && self.name == self.name
+    }
 }

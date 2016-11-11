@@ -18,8 +18,30 @@ class AnnouncementTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.announcementLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        self.nameLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
+        self.dateLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
+        
+        let activityDescriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleHeadline)
+        
+        let boldTitleDescriptor = activityDescriptor.fontDescriptorWithSymbolicTraits(.TraitBold)
+        
+        self.activityLabel.font = UIFont(descriptor: boldTitleDescriptor!, size: 0)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AnnouncementTableViewCell.didChangePreferredContentSize), name: UIContentSizeCategoryDidChangeNotification, object: nil)
 		
-		//self.announcementLabel.preferredMaxLayoutWidth = self.announcementLabel.frame.width
+        
+    }
+    
+    func didChangePreferredContentSize() {
+        self.announcementLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        self.nameLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
+        let activityDescriptor = UIFontDescriptor.preferredFontDescriptorWithTextStyle(UIFontTextStyleHeadline)
+        
+        let boldTitleDescriptor = activityDescriptor.fontDescriptorWithSymbolicTraits(.TraitBold)
+        
+        self.activityLabel.font = UIFont(descriptor: boldTitleDescriptor!, size: 0)
+        self.dateLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -27,5 +49,4 @@ class AnnouncementTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

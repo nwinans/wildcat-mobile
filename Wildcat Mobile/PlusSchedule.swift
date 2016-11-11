@@ -56,9 +56,23 @@ class PlusSchedule {
     
     //copy of getPlus, but doesnt use the desired date, instead using the current date no matter what
     func plus() -> String {
+        setupPlus()
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy"
-        return plusCalendar[dateFormatter.stringFromDate(NSDate())]!
+        //return plusses[//plusCalendar[dateFormatter.stringFromDate(NSDate())]!
+        
+        let currentdate = dateFormatter.stringFromDate(NSDate())
+        
+        print(currentdate)
+        
+        for i in 0.stride(to: plusses.count, by: 1) {
+            print(plusses[i].date)
+            
+            if plusses[i].date == (currentdate){
+                return plusses[i].fullPlus
+            }
+        }
+        return "haha you thought"
     }
     
     //setup plus dictionary with every date and its corrosponding plus
@@ -72,7 +86,7 @@ class PlusSchedule {
     }
     
     func savePlusses() {
-        let isSaveSuccessful = NSKeyedArchiver.archiveRootObject(plusses, toFile: AnnouncementObject.ArchiveURL!.path!)
+        let isSaveSuccessful = NSKeyedArchiver.archiveRootObject(plusses, toFile: Plus.ArchiveURL!.path!)
         if !isSaveSuccessful {
             print("failed to save")
         }
@@ -125,7 +139,7 @@ class PlusSchedule {
                         if let plusDate = plusObject["Date"] as? String {
                             if let plusPlus = plusObject["Plus"] as? String {
                                 let tempPlus = Plus(date: plusDate, plus: plusPlus)
-                                tempPlusses += [tempPlus]
+                                tempPlusses += [tempPlus!]
                             }
                         }
 				    }

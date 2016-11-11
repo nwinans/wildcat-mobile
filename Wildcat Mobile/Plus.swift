@@ -50,11 +50,15 @@ class Plus: NSObject, NSCoding {
     }
     
     init?(date: String, plus: String) {
+
+        
         self.date = date
         self.plus = plus
+        self.fullPlus = "A+1"
+        super.init()
+        
         self.fullPlus = self.getFullPlus(plus)
         
-        super.init()
         
         if date.isEmpty || plus.isEmpty || fullPlus.isEmpty {
             return nil
@@ -68,6 +72,7 @@ class Plus: NSObject, NSCoding {
     }
     
     func getFullPlus(plus: String) -> String {
+        print(plus)
         if (plus != "A" && plus != "B") {
             let shortPlus = Int(plus)
             if shortPlus == 1 || shortPlus == 3 || shortPlus == 5 || shortPlus == 7 {
