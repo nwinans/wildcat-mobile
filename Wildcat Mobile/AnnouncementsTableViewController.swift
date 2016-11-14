@@ -2,7 +2,8 @@
 //  AnnouncementsTableViewController.swift
 //  Wildcat Mobile
 //
-//	This ViewController handles the Announcements scene and downloads the JSON form of a database and parses it and then sets tableView with that information
+//This ViewController handles the Announcements scene and downloads the JSON form of a database and parses it and then sets tableView with that information
+//We store previously loaded announcements and load them when the app loads to give the illusion of a faster loading app
 //
 //  Created by Nicholas Winans on 8/15/16.
 //  Copyright © 2016 Centreville HS. All rights reserved.
@@ -14,9 +15,6 @@ class AnnouncementsTableViewController: UITableViewController {
 	
 	var announcements = [AnnouncementObject]()
 	var tempAnnouncements = [AnnouncementObject]()
-	   
-	//Create variable to hold the result of the JSON download. We use this later when the user refreshes to see if the new data is different
-	//var jsonCache: AnyObject?
 	
     	//get plus bar button from storyboard
     	@IBOutlet weak var plusButton: UIBarButtonItem!
@@ -30,9 +28,6 @@ class AnnouncementsTableViewController: UITableViewController {
 		
         //set bar button to current plus
         plusButton.title = PlusSchedule().plus()
-        
-	    //runs function to populate arrays with data and then eventaully refreshes the table with new data
-		//getDataFromURL(defaultSpreadsheetURL)
 	    
 		//functions used to auto-resize the height of each row, using both seems redundant but for some reason is required
 		tableView.estimatedRowHeight = 100
@@ -42,7 +37,7 @@ class AnnouncementsTableViewController: UITableViewController {
 		refreshControl = UIRefreshControl()
 		
 		//set text of refresh control to string
-		refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
+		refreshControl!.attributedTitle = NSAttributedString(string: "Refresh")
 		
 		//when the user swipes down (and internally calls the ValueChanged function), the refresh function is called
 		refreshControl!.addTarget(self, action: #selector(AnnouncementsTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
@@ -51,13 +46,9 @@ class AnnouncementsTableViewController: UITableViewController {
 			announcements += savedAnnouncements
 		}
         
-        
         //runs function to populate arrays with data and then eventaully refreshes the table with new data
         getDataFromURL(defaultSpreadsheetURL)
     }
-
-
-	
 	func saveAnnouncements() {
 		let isSaveSuccessful = NSKeyedArchiver.archiveRootObject(announcements, toFile: AnnouncementObject.ArchiveURL!.path!)
 		if !isSaveSuccessful {
@@ -67,13 +58,7 @@ class AnnouncementsTableViewController: UITableViewController {
 	
 	func loadAnnouncements() -> [AnnouncementObject]? {
 		return NSKeyedUnarchiver.unarchiveObjectWithFile(AnnouncementObject.ArchiveURL!.path!) as? [AnnouncementObject]
-    }
-
-	//unused default function
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+	}
 
 	//Default TableView function when using Dynamic Protoypes - We only have one section of announcements currently, so we just return 1
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -82,14 +67,21 @@ class AnnouncementsTableViewController: UITableViewController {
 
 	//Default TableView function when using Dynamic Prototypes - we will always have an announcement so we pass the length of the announcementArray
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return announcements.count//announcementArray.count
+		return announcements.count
     }
 
     //Default TableView function when using DynamicPrototypes - sets up cell's labels to go with corrosponding arrays
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("announcementCell", forIndexPath: indexPath) as! AnnouncementTableViewCell
 
-        cell.announcementLabel.text = announcements[indexPath.row].announcement
+		//get announcement str from array
+		let str = announcements[indexPath.row].announcement
+		
+		//replace escaped new line chars from JSON to the actual \n character
+		let labelString = str.replacingOccurrences(of: "\\n", with: "\n")
+		
+		//set the labels in the cell to the appriopriate string from the announcement array
+        cell.announcementLabel.text = labelString
         cell.nameLabel.text = announcements[indexPath.row].name
         cell.activityLabel.text = announcements[indexPath.row].activity
         cell.dateLabel.text = announcements[indexPath.row].date
@@ -100,7 +92,7 @@ class AnnouncementsTableViewController: UITableViewController {
 	//function to download JSON data from server
 	func getDataFromURL(url: String) {
 		
-		let timeout = 15.0
+		let timeout = 30.0
 		let url = NSURL(string: url)
 		
 		//setup url request with url, default cache policy, and timeout length
@@ -132,8 +124,6 @@ class AnnouncementsTableViewController: UITableViewController {
 	func extractJSON(jsonData: NSData) {
 			//try to parse the json data into an object, json
 			let json: AnyObject? = try! NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments)
-		
-        print("sop")
         
 			//sets table equal to the Sheet1 json object (in this case the whole thing)
 			if let table = json?["Sheet1"] as? NSArray{
