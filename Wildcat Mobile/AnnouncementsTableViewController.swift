@@ -193,9 +193,7 @@ class AnnouncementsTableViewController: UITableViewController {
 												} else {
 													print("The announcement \(announcementMessage) has expired")
 												}
-												
 											}
-											
 										}
 									}
 								}
@@ -204,40 +202,36 @@ class AnnouncementsTableViewController: UITableViewController {
 					}
 				}
 			}
-		
-        /*let set1 = NSSet.init(array: announcements)
-        let set2 = NSSet.init(array: tempAnnouncements)
-        let isEqual = set1.isEqualToSet(set2 as! Set<NSObject>)*/
+		//create variable to test equality of old and new announcements
+        	var isEqual = true
         
-        var isEqual = false
-        
-        if announcements.count != tempAnnouncements.count {
-            isEqual = false
-        } else {
-            for i in 0.stride(to: announcements.count, by: 1) {
-                if announcements[i].equals(tempAnnouncements[i]) {
-                    isEqual = true
-                }
-            }
-        }
-        
-        print(isEqual)
-        
-        announcements = tempAnnouncements
+		//if the length isn't equal, then the announcements aren't equal
+        	if announcements.count != tempAnnouncements.count {
+            		isEqual = false
+        	} else {
+			//loop through every announcement and if one isn't equal, set isEqual to false
+            		for i in 0.stride(to: announcements.count, by: 1) {
+                		if !announcements[i].equals(tempAnnouncements[i]) {
+                    			isEqual = false
+                		} 
+            		}
+		}
 
-        tempAnnouncements.removeAll()
+		//if the old and new announcement are the same, we don't need to worry about reloading the table
+		if !isEqual(
+			//set the announcements to new announcments
+        		announcements = tempAnnouncements
+
+			//remove all announcements from the tempAnnouncement variable (so refreshing won't make duplicates)
+        		tempAnnouncements.removeAll()
 		
-		saveAnnouncements()
+			//save the announcements to the disk 
+			saveAnnouncements()
 			
-		//refresh the table with the new information
-        if isEqual {
-            doTableRefresh()
-        } else {
-            doTableRefreshWithAnimation()
-        }
-        
+			//refresh the table with the new information
+           		doTableRefreshWithAnimation()
+        	}
 	}
-	
 	
 	//function to refresh the table on the main queue
 	func doTableRefreshWithAnimation() {
@@ -249,17 +243,7 @@ class AnnouncementsTableViewController: UITableViewController {
             self.tableView.reloadSections(sections, withRowAnimation: .Automatic)
 			return
 		})
-		
 	}
-    
-    func doTableRefresh() {
-        
-        dispatch_async(dispatch_get_main_queue(), {
-            self.tableView.reloadData()
-            return
-        })
-        
-    }
 	
 	//storyboard outlet (action) to handle the swipe to refresh feature
 	@IBAction func refresh(sender: UIRefreshControl) {
