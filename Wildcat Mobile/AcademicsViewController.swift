@@ -14,7 +14,7 @@ class AcademicsViewController: UITableViewController, UINavigationControllerDele
 	//setup transition variable - will hold the animation/transition type when a tableview row is selected
 	let transition = SwiftyExpandingTransition()
 	//setup an empty CGRect - will be assigned in prepareForSegue
-	var selectedCellFrame = CGRectZero
+    var selectedCellFrame = CGRect(x: 0, y: 0, width: 0, height: 0)
 	
 	//Setup variables to get library cell and calendar cell from the Storyboard View
 	@IBOutlet weak var libraryCell: UITableViewCell!
@@ -40,9 +40,9 @@ class AcademicsViewController: UITableViewController, UINavigationControllerDele
 		athleticsTap.numberOfTapsRequired = 1
 		
 		//override any settings in the storyboard disabling user input on the library and calendar cells
-		libraryCell.userInteractionEnabled = true
-		calendarCell.userInteractionEnabled = true
-		athleticsCell.userInteractionEnabled = true
+		libraryCell.isUserInteractionEnabled = true
+		calendarCell.isUserInteractionEnabled = true
+		athleticsCell.isUserInteractionEnabled = true
 		
 		//add the tap recognizer to the corrosponding cell
 		libraryCell.addGestureRecognizer(libraryTap)
@@ -51,30 +51,30 @@ class AcademicsViewController: UITableViewController, UINavigationControllerDele
 	}
 	
 	//default function run right before segue is called (right before leaving this page)
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+	func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		//if the segue isn't the crisis or plus buttons in the tab bar...
 		if segue.identifier != "crisisAcademics" && segue.identifier != "plusAcademics" {
 			//...set the selectedCellFrame variable equal to the tableView's frame
-			self.selectedCellFrame = tableView.convertRect(sender!.frame, toView: tableView.superview)
+			self.selectedCellFrame = tableView.convert(sender!.frame, to: tableView.superview)
 			self.navigationController?.delegate = self
 		}
 	}
 	
 	//function to set animation controller for an operation
-	func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+	func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 		//if the segue is a push operation...
-		if operation == UINavigationControllerOperation.Push {
+		if operation == UINavigationControllerOperation.push {
 			//...set the variable transition (initialized at top) to push segue type that animates over 0.4 seconds 
 			//and the cellFrame is the one assigned in prepareForSegue
-			transition.operation = UINavigationControllerOperation.Push
+			transition.operation = UINavigationControllerOperation.push
 			transition.duration = 0.40
 			transition.selectedCellFrame = self.selectedCellFrame
 			
 			return transition
 		//or if the segue is a pop operation...
-		} else if operation == UINavigationControllerOperation.Pop {
+		} else if operation == UINavigationControllerOperation.pop {
 			//...set the variable transition to a pop segue type that occurs over 0.3 seconds, slightly faster. 
-			transition.operation = UINavigationControllerOperation.Pop
+			transition.operation = UINavigationControllerOperation.pop
 			transition.duration = 0.30
 			
 			return transition
@@ -86,35 +86,35 @@ class AcademicsViewController: UITableViewController, UINavigationControllerDele
 	
 	//pass the library url to the openURL function
 	func libraryWebsite() {
-		openURL("http://libcat.fcps.edu/uhtbin/cgisirsi/x/0/0/57/49?user_id=410WEB")
+		openURL(url: "http://libcat.fcps.edu/uhtbin/cgisirsi/x/0/0/57/49?user_id=410WEB")
 	}
 	
 	//pass the athletics url to the openURL function
 	func athleticsWebsite() {
-		openURL("http://wearecville.com")
+		openURL(url: "http://wearecville.com")
 	}
 	
 	//open url function
 	func openURL(url: String) {
 		//if you are on iOS 9 or above, open the provided url in the new Safari View Controller
 		if #available(iOS 9, *) {
-			let svc = SFSafariViewController(URL: NSURL(string: url)!)
-			self.presentViewController(svc, animated: true, completion: nil)
+			let svc = SFSafariViewController(url: NSURL(string: url)! as URL)
+			self.present(svc, animated: true, completion: nil)
 		} else {
 			//if you are on iOS 8, open the URL in Safari normally (leaves the app)
-			UIApplication.sharedApplication().openURL(NSURL(string: url)!)
+			UIApplication.shared.openURL(NSURL(string: url)! as URL)
 		}
 	}
 	
 	//function handled when dismissing the Safari view controller, only available on ios9 and above
 	@available(iOS 9.0, *)
 	func safariViewControllerDidFinish(controller: SFSafariViewController) {
-		controller.dismissViewControllerAnimated(true, completion: nil)
+		controller.dismiss(animated: true, completion: nil)
 	}
 	
 	//open the calendar app
 	func calendarLink() {
-		UIApplication.sharedApplication().openURL(NSURL(string:"calshow://")!)
+		UIApplication.shared.openURL(NSURL(string:"calshow://")! as URL)
 	}
 	
 }

@@ -29,23 +29,21 @@ class ClubsCell: FoldingCell {
 		moreClubContact.layer.cornerRadius = 13
 		moreClubContact.layer.masksToBounds = true
 		
-		moreClubContact.addTarget(self, action: #selector(sendEmail), forControlEvents: .TouchUpInside)
+		moreClubContact.addTarget(self, action: #selector(sendEmail), for: .touchUpInside)
 		
 		super.awakeFromNib()
 	}
 	
 	func sendEmail() {
-		UIApplication.sharedApplication().openURL(NSURL(string: "mailto://" + contactEmail)!)
+		UIApplication.shared.openURL(NSURL(string: "mailto://" + contactEmail)! as URL)
 	}
 	
-	override func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval {
-		
-		//create duration of animations
-		let durations = [0.26, 0.2, 0.2]
-		
-		//return the durations
-		return durations[itemIndex]
-	}
+    override func animationDuration(itemIndex:NSInteger, type:AnimationType)-> TimeInterval {
+        
+        // durations count equal it itemCount
+        let durations = [0.33, 0.26, 0.26] // timing animation for each view
+        return durations[itemIndex]
+    }
 	
 }
 

@@ -14,9 +14,9 @@ class Club: NSObject, NSCoding {
     var email: String
     var sponsor: String
     
-    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     
-    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("clubs")
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("clubs")
     
     struct clubs {
         static let club = "club"
@@ -25,18 +25,18 @@ class Club: NSObject, NSCoding {
         static let sponsor = "sponsor"
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(club, forKey: clubs.club)
-        aCoder.encodeObject(cdescription, forKey: clubs.cdescription)
-        aCoder.encodeObject(email, forKey: clubs.email)
-        aCoder.encodeObject(sponsor, forKey: clubs.sponsor)
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(club, forKey: clubs.club)
+        aCoder.encode(cdescription, forKey: clubs.cdescription)
+        aCoder.encode(email, forKey: clubs.email)
+        aCoder.encode(sponsor, forKey: clubs.sponsor)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        let club = aDecoder.decodeObjectForKey(clubs.club) as? String
-        let cdescription = aDecoder.decodeObjectForKey(clubs.cdescription) as? String
-        let email = aDecoder.decodeObjectForKey(clubs.email) as? String
-        let sponsor = aDecoder.decodeObjectForKey(clubs.sponsor) as? String
+        let club = aDecoder.decodeObject(forKey: clubs.club) as? String
+        let cdescription = aDecoder.decodeObject(forKey: clubs.cdescription) as? String
+        let email = aDecoder.decodeObject(forKey: clubs.email) as? String
+        let sponsor = aDecoder.decodeObject(forKey: clubs.sponsor) as? String
         
         self.init(club: club!, cdescription: cdescription!, email: email!, sponsor: sponsor!)
     }

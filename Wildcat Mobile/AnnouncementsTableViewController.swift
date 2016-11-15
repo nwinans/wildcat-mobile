@@ -40,39 +40,39 @@ class AnnouncementsTableViewController: UITableViewController {
 		refreshControl!.attributedTitle = NSAttributedString(string: "Refresh")
 		
 		//when the user swipes down (and internally calls the ValueChanged function), the refresh function is called
-		refreshControl!.addTarget(self, action: #selector(AnnouncementsTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+		refreshControl!.addTarget(self, action: #selector(refresh(_:)), for: UIControlEvents.valueChanged)
 		
         if let savedAnnouncements = loadAnnouncements() {
 			announcements += savedAnnouncements
 		}
         
         //runs function to populate arrays with data and then eventaully refreshes the table with new data
-        getDataFromURL(defaultSpreadsheetURL)
+        getDataFromURL(url: defaultSpreadsheetURL)
     }
 	func saveAnnouncements() {
-		let isSaveSuccessful = NSKeyedArchiver.archiveRootObject(announcements, toFile: AnnouncementObject.ArchiveURL!.path!)
+		let isSaveSuccessful = NSKeyedArchiver.archiveRootObject(announcements, toFile: AnnouncementObject.ArchiveURL.path)
 		if !isSaveSuccessful {
 			print("failed to save")
 		}
 	}
 	
 	func loadAnnouncements() -> [AnnouncementObject]? {
-		return NSKeyedUnarchiver.unarchiveObjectWithFile(AnnouncementObject.ArchiveURL!.path!) as? [AnnouncementObject]
+		return NSKeyedUnarchiver.unarchiveObject(withFile: AnnouncementObject.ArchiveURL.path) as? [AnnouncementObject]
 	}
 
 	//Default TableView function when using Dynamic Protoypes - We only have one section of announcements currently, so we just return 1
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
 	//Default TableView function when using Dynamic Prototypes - we will always have an announcement so we pass the length of the announcementArray
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return announcements.count
     }
 
     //Default TableView function when using DynamicPrototypes - sets up cell's labels to go with corrosponding arrays
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("announcementCell", forIndexPath: indexPath) as! AnnouncementTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "announcementCell", for: indexPath as IndexPath) as! AnnouncementTableViewCell
 
 		//get announcement str from array
 		let str = announcements[indexPath.row].announcement
@@ -96,12 +96,12 @@ class AnnouncementsTableViewController: UITableViewController {
 		let url = NSURL(string: url)
 		
 		//setup url request with url, default cache policy, and timeout length
-		let urlRequest = NSMutableURLRequest(URL: url!, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeout)
+		let urlRequest = NSMutableURLRequest(url: url! as URL, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeout)
 		
-		let queue = NSOperationQueue()
+		let queue = OperationQueue()
 		
 		//actually get the information asynchronously
-		NSURLConnection.sendAsynchronousRequest(urlRequest, queue: queue) { (response: NSURLResponse?, data: NSData?, error: NSError?) in
+		NSURLConnection.sendAsynchronousRequest(urlRequest as URLRequest, queue: queue) { (response: URLResponse?, data: Data?, error: Error?) in
 			
             if data == nil {
                 return
@@ -110,9 +110,9 @@ class AnnouncementsTableViewController: UITableViewController {
 			//if the data has length and there was no error, extract the JSON tree from the data
 			//else if the data length is 0 and there was no error, print a message to the console that there was nothing to download at the url
 			//else if there was an error, print the error to the console
-			if data!.length > 0 && error == nil {
-				self.extractJSON(data!)
-			} else if data!.length == 0 && error == nil {
+			if data!.count > 0 && error == nil {
+				self.extractJSON(jsonData: data! as NSData)
+			} else if data!.count == 0 && error == nil {
 				print("Nothing was downloaded")
 			} else if error != nil {
 				print("Error happened = \(error)")
@@ -123,13 +123,13 @@ class AnnouncementsTableViewController: UITableViewController {
 	//function to extract json tree from nsdata object and then extract data from the json tree
 	func extractJSON(jsonData: NSData) {
 			//try to parse the json data into an object, json
-			let json: AnyObject? = try! NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments)
+			let json: AnyObject? = try! JSONSerialization.jsonObject(with: jsonData as Data, options: .allowFragments) as AnyObject?
         
 			//sets table equal to the Sheet1 json object (in this case the whole thing)
 			if let table = json?["Sheet1"] as? NSArray{
 								
 				//loop through all the announcements in the json object, table
-				for i in 0.stride(to: table.count, by: 1) {
+                for i in stride(from: 0, to: table.count, by: 1) {
 					
 					//sets announcementObject equal to to the current object in the table array as type NSDictionary
 					if let announcementObject = table[i] as? NSDictionary {
@@ -156,23 +156,23 @@ class AnnouncementsTableViewController: UITableViewController {
 												let currentDate: NSDate = NSDate()
 												
 												//Create NSDateFormatter to parse times into NSDates
-												let formatter = NSDateFormatter()
+												let formatter = DateFormatter()
 												
 												//set timezone of formatter to east coast
-												formatter.timeZone = NSTimeZone.defaultTimeZone()
+												formatter.timeZone = NSTimeZone.default
 												
 												//set dateFormat of formatter to IRFC 3339 (the format that google spreadsheets saves in)
 												formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 												
 												//create NSDates for timestamp and expiration date
-												let timestamp = formatter.dateFromString(announcementTimestamp)
-												let expiraton = formatter.dateFromString(announcementExpiration)
+												let timestamp = formatter.date(from: announcementTimestamp)
+												let expiraton = formatter.date(from: announcementExpiration)
 												
 												//check to see if the announcement is still valid, or if it has expired
 												//	if it is valid, check to see if announcement is approved
 												//	if the announcement is expired, it prints a message saying which annoncement is expired
 												
-												if (expiraton?.compare(currentDate) == .OrderedDescending) {
+												if (expiraton?.compare(currentDate as Date) == .orderedDescending) {
 													
 													//check to see if the announcement is approved, or it is empty
 													// if the announcement isnt approved, it prints a message to the console saying which announcement wasn't approved
@@ -181,9 +181,9 @@ class AnnouncementsTableViewController: UITableViewController {
 														print("The announcement \(announcementMessage) wasn't approved")
 													} else {
 														//Format timestamp as desired format ("Month, Day, Year")
-														let dateFormatter = NSDateFormatter()
+														let dateFormatter = DateFormatter()
 														dateFormatter.dateFormat = "MM/dd"
-														let date = dateFormatter.stringFromDate(timestamp!)
+														let date = dateFormatter.string(from: timestamp!)
 														
 														let tempAnnouncement = AnnouncementObject(activity: announcementActivity, announcement: announcementMessage, date: date, name: announcementName)
                                                         
@@ -210,15 +210,15 @@ class AnnouncementsTableViewController: UITableViewController {
             		isEqual = false
         	} else {
 			//loop through every announcement and if one isn't equal, set isEqual to false
-            		for i in 0.stride(to: announcements.count, by: 1) {
-                		if !announcements[i].equals(tempAnnouncements[i]) {
+                for i in stride(from:0, to: announcements.count, by: 1) {
+                		if !announcements[i].equals(compareTo: tempAnnouncements[i]) {
                     			isEqual = false
                 		} 
             		}
 		}
 
 		//if the old and new announcement are the same, we don't need to worry about reloading the table
-		if !isEqual(
+        if !isEqual{
 			//set the announcements to new announcments
         		announcements = tempAnnouncements
 
@@ -230,26 +230,28 @@ class AnnouncementsTableViewController: UITableViewController {
 			
 			//refresh the table with the new information
            		doTableRefreshWithAnimation()
-        	}
+        } else {
+            tempAnnouncements.removeAll()
+        }
 	}
 	
 	//function to refresh the table on the main queue
 	func doTableRefreshWithAnimation() {
 		
-		dispatch_async(dispatch_get_main_queue(), {
+        DispatchQueue.main.async(execute: {
 			let range = NSMakeRange(0, self.tableView.numberOfSections)
-            let sections = NSIndexSet(indexesInRange: range)
+            let sections = NSIndexSet(indexesIn: range)
             
-            self.tableView.reloadSections(sections, withRowAnimation: .Automatic)
+            self.tableView.reloadSections(sections as IndexSet, with: .automatic)
 			return
 		})
 	}
 	
 	//storyboard outlet (action) to handle the swipe to refresh feature
-	@IBAction func refresh(sender: UIRefreshControl) {
+	func refresh(_ sender: UIRefreshControl) {
 				
 		//re-run the getDataFromURL function which is originally called when the view is first loaded
-		getDataFromURL(defaultSpreadsheetURL)
+		getDataFromURL(url: defaultSpreadsheetURL)
 		
 		//sends information to sender that the table is done refreshing
 		sender.endRefreshing()

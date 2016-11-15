@@ -54,15 +54,15 @@ class ArticlesViewController: UITableViewController, SFSafariViewControllerDeleg
 		substanceAbuseTap.numberOfTapsRequired = 1
 		
 		//override any settings in the storyboard preventing user interaction
-		educatorToolkitView.userInteractionEnabled = true
-		generalStatisticsView.userInteractionEnabled = true
-		whatShouldISayView.userInteractionEnabled = true
-		bodyImageView.userInteractionEnabled = true
-		projectAwareView.userInteractionEnabled = true
-        	stopBullyingView.userInteractionEnabled = true
-       		crisisLinkView.userInteractionEnabled = true
-        	mentalHealthView.userInteractionEnabled = true
-        	substanceAbuseView.userInteractionEnabled = true
+		educatorToolkitView.isUserInteractionEnabled = true
+		generalStatisticsView.isUserInteractionEnabled = true
+		whatShouldISayView.isUserInteractionEnabled = true
+		bodyImageView.isUserInteractionEnabled = true
+		projectAwareView.isUserInteractionEnabled = true
+        	stopBullyingView.isUserInteractionEnabled = true
+       		crisisLinkView.isUserInteractionEnabled = true
+        	mentalHealthView.isUserInteractionEnabled = true
+        	substanceAbuseView.isUserInteractionEnabled = true
 		
 		//add tap listeners to the corrosponding views
 		educatorToolkitView.addGestureRecognizer(educatorTap)
@@ -79,55 +79,55 @@ class ArticlesViewController: UITableViewController, SFSafariViewControllerDeleg
 	//functions to open corrosponding links from the cards (called when tap listener is tapped)
 	
 	func educatorToolkit() {
-		openURL("http://www.nationaleatingdisorders.org/sites/default/files/Toolkits/EducatorToolkit.pdf")
+		openURL(url: "http://www.nationaleatingdisorders.org/sites/default/files/Toolkits/EducatorToolkit.pdf")
 	}
 	
 	func generalStatistics() {
-		openURL("http://www.nationaleatingdisorders.org/general-statistics")
+		openURL(url: "http://www.nationaleatingdisorders.org/general-statistics")
 	}
 	
 	func whatShouldISay() {
-		openURL("http://www.nationaleatingdisorders.org/what-should-i-say")
+		openURL(url: "http://www.nationaleatingdisorders.org/what-should-i-say")
 	}
 	
 	func bodyImage() {
-		openURL("http://www.nationaleatingdisorders.org/what-body-image")
+		openURL(url: "http://www.nationaleatingdisorders.org/what-body-image")
 	}
 	
 	func projectAware() {
-		openURL("http://www.SAMHSA.gov")
+		openURL(url: "http://www.SAMHSA.gov")
 	}
     
     	func stopBullying() {
-        	openURL("http://www.stopbullying.gov")
+        	openURL(url: "http://www.stopbullying.gov")
     	}
     
     	func crisisLink() {
-        	openURL("https://www.fcps.edu/resources/student-safety-and-wellness/mental-health-resources-and-emergency-services-information")
+        	openURL(url: "https://www.fcps.edu/resources/student-safety-and-wellness/mental-health-resources-and-emergency-services-information")
     	}
     
     	func mentalHealth() {
-        	openURL("https://www.fcps.edu/resources/student-safety-and-wellness/mental-health-and-resiliency")
+        	openURL(url: "https://www.fcps.edu/resources/student-safety-and-wellness/mental-health-and-resiliency")
     	}
     
     	func substanceAbuse() {
-        	openURL("http://www.fcps.edu")
+        	openURL(url: "http://www.fcps.edu")
     	}
 	
 	//function to open a url in the new SafariViewController on iOS 9+ or regular old safari in ios 8
 	func openURL(url: String) {
 		if #available(iOS 9, *) {
-			let svc = SFSafariViewController(URL: NSURL(string: url)!)
-			self.presentViewController(svc, animated: true, completion: nil)
+			let svc = SFSafariViewController(url: NSURL(string: url)! as URL)
+			self.present(svc, animated: true, completion: nil)
 		} else {
-			UIApplication.sharedApplication().openURL(NSURL(string: url)!)
+			UIApplication.shared.openURL(NSURL(string: url)! as URL)
 		}
 	}
 	
 	//if user is on iOS 9+, and the user clicks done on the view controller, dismiss the view controller and do nothing else
 	@available(iOS 9.0, *)
-	func safariViewControllerDidFinish(controller: SFSafariViewController) {
-		controller.dismissViewControllerAnimated(true, completion: nil)
+	func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+		controller.dismiss(animated: true, completion: nil)
 	}
 	
 }

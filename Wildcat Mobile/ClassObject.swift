@@ -9,27 +9,27 @@
 import UIKit
 
 class ClassObject: NSObject, NSCoding {
+
 	var subject: String
 	var room: String
 	
-	static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+	static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
 	
-	static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("classes")
+	static let ArchiveURL = DocumentsDirectory.appendingPathComponent("classes")
 
-	
 	struct classes {
 		static let subject = "subject"
 		static let room = "room"
 	}
 	
-	func encodeWithCoder(aCoder: NSCoder) {
-		aCoder.encodeObject(subject, forKey: classes.subject)
-		aCoder.encodeObject(room, forKey: classes.room)
+	func encode(with aCoder: NSCoder) {
+		aCoder.encode(subject, forKey: classes.subject)
+		aCoder.encode(room, forKey: classes.room)
 	}
 	
 	required convenience init?(coder aDecoder: NSCoder) {
-		let subject = aDecoder.decodeObjectForKey(classes.subject) as! String
-		let room = aDecoder.decodeObjectForKey(classes.room) as! String
+		let subject = aDecoder.decodeObject(forKey: classes.subject) as! String
+		let room = aDecoder.decodeObject(forKey: classes.room) as! String
 		
 		self.init(subject: subject, room: room)
 	}

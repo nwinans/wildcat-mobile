@@ -13,9 +13,9 @@ class Plus: NSObject, NSCoding {
     var plus: String
     var fullPlus: String
     
-    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     
-    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("plus")
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("plus")
     
     struct plusses {
         static let date = "date"
@@ -23,16 +23,16 @@ class Plus: NSObject, NSCoding {
         static let fullPlus = "fullplus"
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(date, forKey: plusses.date)
-        aCoder.encodeObject(plus, forKey: plusses.plus)
-        aCoder.encodeObject(fullPlus, forKey: plusses.fullPlus)
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(date, forKey: plusses.date)
+        aCoder.encode(plus, forKey: plusses.plus)
+        aCoder.encode(fullPlus, forKey: plusses.fullPlus)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        let date = aDecoder.decodeObjectForKey(plusses.date) as! String
-        let plus = aDecoder.decodeObjectForKey(plusses.plus) as! String
-        let fullplus = aDecoder.decodeObjectForKey(plusses.fullPlus) as! String
+        let date = aDecoder.decodeObject(forKey: plusses.date) as! String
+        let plus = aDecoder.decodeObject(forKey: plusses.plus) as! String
+        let fullplus = aDecoder.decodeObject(forKey: plusses.fullPlus) as! String
         
         self.init(date: date, plus: plus, fullplus: fullplus)
     }
@@ -57,8 +57,7 @@ class Plus: NSObject, NSCoding {
         self.fullPlus = "A+1"
         super.init()
         
-        self.fullPlus = self.getFullPlus(plus)
-        
+        self.fullPlus = self.getFullPlus(plus: plus)
         
         if date.isEmpty || plus.isEmpty || fullPlus.isEmpty {
             return nil
@@ -72,13 +71,12 @@ class Plus: NSObject, NSCoding {
     }
     
     func getFullPlus(plus: String) -> String {
-        print(plus)
         if (plus != "A" && plus != "B") {
             let shortPlus = Int(plus)
             if shortPlus == 1 || shortPlus == 3 || shortPlus == 5 || shortPlus == 7 {
-                return "A+" + String(shortPlus)
+                return "A+" + String(describing: shortPlus)
             } else if shortPlus == 2 || shortPlus == 4 || shortPlus == 6  {
-                return "B+" + String(shortPlus)
+                return "B+" + String(describing: shortPlus)
             } else if shortPlus == 8 {
                 return "B+7"
             }

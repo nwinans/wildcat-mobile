@@ -43,7 +43,7 @@ class ClassesTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         //self.navigationItem.rightBarButtonItem = self.editButtonItem()
 		
-		tableView.registerClass(ClassesTableViewCell.self, forCellReuseIdentifier: "classes")
+		tableView.register(ClassesTableViewCell.self, forCellReuseIdentifier: "classes")
 		
 		if let savedClasses = loadClasses() {
 			classes += savedClasses
@@ -65,18 +65,13 @@ class ClassesTableViewController: UITableViewController {
 		classes += [class0, class1, class2, class3, class4, class5, class6, class7]
 	}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Table view data source
 
-	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+	override func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
 	
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return classes.count
     }
@@ -86,44 +81,32 @@ class ClassesTableViewController: UITableViewController {
 		return false
 	}
 	
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("classes", forIndexPath: indexPath) as! ClassesTableViewCell
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "classes", for: indexPath as IndexPath) as! ClassesTableViewCell
 		
 		let item = classes[indexPath.row]
 		
 		cell.classes = item
-		cell.selectionStyle = UITableViewCellSelectionStyle.None
+		cell.selectionStyle = UITableViewCellSelectionStyle.none
 		
 		return cell
 		
 	}
 	
-	override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+	override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
 		if indexPath.row > 0 {
-			return UITableViewCellEditingStyle.Delete
+			return UITableViewCellEditingStyle.delete
 		} else {
-			return UITableViewCellEditingStyle.None
+			return UITableViewCellEditingStyle.none
 		}
 	}
-	
-    // Override to support conditional editing of the table view.
-	override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-		/*if indexPath.row > 0 {
-			return true
-		} else {
-			return false
-		}*/
 		
-		return true
-	}
-	
-	
-	override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 		
 		if indexPath.row > 0 {
-			if (editingStyle == UITableViewCellEditingStyle.Delete) {
+			if (editingStyle == UITableViewCellEditingStyle.delete) {
 				// handle delete (by removing the data from your array and updating the tableview)
-				classes.removeAtIndex(indexPath.row)
+				classes.remove(at: indexPath.row)
 				saveClasses()
 				tableView.reloadData()
 			}
@@ -131,14 +114,14 @@ class ClassesTableViewController: UITableViewController {
 	}
 	
 	func saveClasses() {
-		let isSaveSuccessful = NSKeyedArchiver.archiveRootObject(classes, toFile: ClassObject.ArchiveURL!.path!)
+		let isSaveSuccessful = NSKeyedArchiver.archiveRootObject(classes, toFile: ClassObject.ArchiveURL.path)
 		if !isSaveSuccessful {
 			print("failed to save meals...")
 		}
 	}
 	
 	func loadClasses() -> [ClassObject]? {
-		return NSKeyedUnarchiver.unarchiveObjectWithFile(ClassObject.ArchiveURL!.path!) as? [ClassObject]
+		return NSKeyedUnarchiver.unarchiveObject(withFile: ClassObject.ArchiveURL.path) as? [ClassObject]
 	}
 	
 	var newsubject: String = ""
@@ -167,12 +150,12 @@ class ClassesTableViewController: UITableViewController {
 	
 	@IBAction func addItem() {
 		// display an alert
-		let newClassPrompt = UIAlertController(title: "Enter new class", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-		newClassPrompt.addTextFieldWithConfigurationHandler(addSubjectTextField)
-		newClassPrompt.addTextFieldWithConfigurationHandler(addRoomTextField)
-		newClassPrompt.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
-		newClassPrompt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: classEntered))
-		presentViewController(newClassPrompt, animated: true, completion: nil)
+		let newClassPrompt = UIAlertController(title: "Enter new class", message: "", preferredStyle: UIAlertControllerStyle.alert)
+		newClassPrompt.addTextField(configurationHandler: addSubjectTextField)
+		newClassPrompt.addTextField(configurationHandler: addRoomTextField)
+		newClassPrompt.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+		newClassPrompt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: classEntered))
+		present(newClassPrompt, animated: true, completion: nil)
 	}
 	
 	func addNewItem() {

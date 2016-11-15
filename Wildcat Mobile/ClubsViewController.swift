@@ -53,37 +53,38 @@ class ClubsViewController: UITableViewController {
         }
         
 		//run function to download the club data
-		getDataFromURL(spreadsheetURL)
+		getDataFromURL(url: spreadsheetURL)
 	}
     
     func saveClubs() {
-        let isSaveSuccessful = NSKeyedArchiver.archiveRootObject(clubs, toFile: Club.ArchiveURL!.path!)
+        let isSaveSuccessful = NSKeyedArchiver.archiveRootObject(clubs, toFile: Club.ArchiveURL.path)
         if !isSaveSuccessful {
             print("failed to save")
         }
     }
     
     func loadClubs() -> [Club]? {
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(Club.ArchiveURL!.path!) as? [Club]
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Club.ArchiveURL.path) as? [Club]
     }
 	
 	// function called to add every cell's height to the cellHeights array
 	func createCellHeightsArray() {
 		//remove every cell height as a precautionary measure
-		cellHeights.removeAll(keepCapacity: false)
+		cellHeights.removeAll(keepingCapacity: false)
 		//apend kCloseCellHeight to cellHeights once for every cell
 		for _ in 1...clubs.count {
 			cellHeights.append(kCloseCellHeight)
 		}
 	}
 	
-	//required function to provide the number of cells
-	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return clubs.count
-	}
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return clubs.count
+    }
+    
+	
 	
 	//optional function that allows each cell to have a different height
-	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		//if there are no cells, return the default 60
 		if cellHeights.count == 0 {
 			return 60
@@ -94,9 +95,9 @@ class ClubsViewController: UITableViewController {
 	}
 	
 	//optional function to set each cells' information to it's corrosponding information from the arrays
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		//initialize the cell variable to be equal to the cell from the storyboard with the identifer - "FoldingCell"
-		let cell = tableView.dequeueReusableCellWithIdentifier("FoldingCell", forIndexPath: indexPath) as! ClubsCell
+		let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath as IndexPath) as! ClubsCell
 		
 		//set labels in the cell to the corrosponding information
 		cell.basicClubTitle.text = clubs[indexPath.row].club
@@ -112,12 +113,12 @@ class ClubsViewController: UITableViewController {
 	
 	//function to send an email to a given email address
 	func sendEmail(email:String) {
-		UIApplication.sharedApplication().openURL(NSURL(string: "mailto://" + email)!)
+		UIApplication.shared.openURL(NSURL(string: "mailto://" + email)! as URL)
 	}
 	
 	//optional funciton called when a cell is selected
-	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-		let cell = tableView.cellForRowAtIndexPath(indexPath) as! FoldingCell
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let cell = tableView.cellForRow(at: indexPath as IndexPath) as! FoldingCell
 		
 		//set the duration equal to a basic float value
 		var duration = 0.0
@@ -125,20 +126,20 @@ class ClubsViewController: UITableViewController {
 		if cellHeights[indexPath.row] == kCloseCellHeight { // open cell
 			cellHeights[indexPath.row] = kOpenCellHeight
 			cell.selectedAnimation(true, animated: true, completion: nil)
-			duration = 0.5
+			duration = 0.3
 		} else {// close cell
 			cellHeights[indexPath.row] = kCloseCellHeight
 			cell.selectedAnimation(false, animated: true, completion: nil)
-			duration = 0.8
+			duration = 1.1
 		}
 		
-		UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
+		UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: { () -> Void in
 			tableView.beginUpdates()
 			tableView.endUpdates()
 			}, completion: nil)
 	}
 	
-	override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+	func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
 		
 		guard case let cell as ClubsCell = cell else {
 			return
@@ -155,23 +156,23 @@ class ClubsViewController: UITableViewController {
 	//function to download JSON data from server
 	func getDataFromURL(url: String) {
 		
-		let timeout = 15.0
+		let timeout = 30.0
 		let url = NSURL(string: url)
 		
 		//setup url request with url, default cache policy, and timeout length
-		let urlRequest = NSMutableURLRequest(URL: url!, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: timeout)
+		let urlRequest = URLRequest(url: url! as URL, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: timeout)
 		
-		let queue = NSOperationQueue()
+		let queue = OperationQueue()
 		
 		//actually get the information asynchronously
-		NSURLConnection.sendAsynchronousRequest(urlRequest, queue: queue) { (response: NSURLResponse?, data: NSData?, error: NSError?) in
+		NSURLConnection.sendAsynchronousRequest(urlRequest, queue: queue) { (response: URLResponse?, data: Data?, error: Error?) in
 			
 			//if the data has length and there was no error, extract the JSON tree from the data
 			//else if the data length is 0 and there was no error, print a message to the console that there was nothing to download at the url
 			//else if there was an error, print the error to the console
-			if data!.length > 0 && error == nil {
-				self.extractJSON(data!)
-			} else if data!.length == 0 && error == nil {
+			if data!.count > 0 && error == nil {
+				self.extractJSON(jsonData: data! as NSData)
+			} else if data!.count == 0 && error == nil {
 				print("Nothing was downloaded")
 			} else if error != nil {
 				print("Error happened = \(error)")
@@ -183,13 +184,13 @@ class ClubsViewController: UITableViewController {
 	//function to extract json tree from nsdata object and then extract data from the json tree
 	func extractJSON(jsonData: NSData) {
 		//try to parse the json data into an object, json
-		let json: AnyObject? = try! NSJSONSerialization.JSONObjectWithData(jsonData, options: .AllowFragments)
+		let json: AnyObject? = try! JSONSerialization.jsonObject(with: jsonData as Data, options: .allowFragments) as AnyObject?
 		
 		//sets table equal to the Sheet1 json object (in this case the whole thing)
 		if let table = json?["Sheet1"] as? NSArray{
 			
 			//loop through all the clubs in the json object, table
-			for i in 0.stride(to: table.count, by: 1) {
+            for i in stride(from: 0, to: table.count, by: 1) {
 				
 				//sets clubObject equal to to the current object in the table array as type NSDictionary
 				if let clubObject = table[i] as? NSDictionary {
@@ -229,8 +230,7 @@ class ClubsViewController: UITableViewController {
 	//function to refresh the table on the main queue
 	func doTableRefresh() {
 		
-		dispatch_async(dispatch_get_main_queue(), {
-			
+        DispatchQueue.main.async( execute: {
 			self.tableView.reloadData()
 			return
 		})

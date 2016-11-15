@@ -38,11 +38,11 @@ class SwiftyAccordionCells {
     }
     
     func expand(headerIndex: Int) {
-        self.toogleVisible(headerIndex, isHidden: false)
+        self.toogleVisible(headerIndex: headerIndex, isHidden: false)
     }
     
     func collapse(headerIndex: Int) {
-        self.toogleVisible(headerIndex, isHidden: true)
+        self.toogleVisible(headerIndex: headerIndex, isHidden: true)
     }
     
     private func toogleVisible(headerIndex: Int, isHidden: Bool) {

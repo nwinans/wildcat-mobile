@@ -189,85 +189,80 @@ class TeachersTableViewController: UITableViewController {
 		self.tableView.rowHeight = UITableViewAutomaticDimension*/
 	}
 	
-	//defualt function run when view has just appeared
-	override func viewDidAppear(animated: Bool) {
-		super.viewDidAppear(animated)
-		
-	}
 	
 	//setup the cells variable to include all teachers
 	func setup() {
 		//setup math header
-		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Mathematics"))
+		self.cells.append(item: SwiftyAccordionCells.HeaderItem(value: "Mathematics"))
 		//run through every item in mathTeachers and add it to the cells variable
 		for teacher in mathTeachers {
-			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
+			self.cells.append(item: SwiftyAccordionCells.Item(value: teacher))
 		}
 		
 		//setup science teachers
-		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Science"))
+		self.cells.append(item: SwiftyAccordionCells.HeaderItem(value: "Science"))
 		for teacher in scienceTeachers {
-			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
+			self.cells.append(item: SwiftyAccordionCells.Item(value: teacher))
 		}
 		
 		//setup social studies teachers
-		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Social Studies"))
+		self.cells.append(item: SwiftyAccordionCells.HeaderItem(value: "Social Studies"))
 		for teacher in socialTeachers {
-			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
+			self.cells.append(item: SwiftyAccordionCells.Item(value: teacher))
 		}
 		
 		//setup english teachers
-		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "English"))
+		self.cells.append(item: SwiftyAccordionCells.HeaderItem(value: "English"))
 		for teacher in englishTeachers {
-			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
+			self.cells.append(item: SwiftyAccordionCells.Item(value: teacher))
 		}
 		
 		//setup pe teachers
-		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Physical Education"))
+		self.cells.append(item: SwiftyAccordionCells.HeaderItem(value: "Physical Education"))
 		for teacher in peTeachers {
-			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
+			self.cells.append(item: SwiftyAccordionCells.Item(value: teacher))
 		}
 		
 		//setup world language teachers
-		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "World Languages"))
+		self.cells.append(item: SwiftyAccordionCells.HeaderItem(value: "World Languages"))
 		for teacher in worldLanguagesTeachers {
-			self.cells.append(SwiftyAccordionCells.Item(value:teacher))
+			self.cells.append(item: SwiftyAccordionCells.Item(value:teacher))
 		}
 		
 		//setup music teachers
-		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Music"))
+		self.cells.append(item: SwiftyAccordionCells.HeaderItem(value: "Music"))
 		for teacher in musicTeachers {
-			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
+			self.cells.append(item: SwiftyAccordionCells.Item(value: teacher))
 		}
 		
 		//setup cte teachers
-		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Career Technical Education"))
+		self.cells.append(item: SwiftyAccordionCells.HeaderItem(value: "Career Technical Education"))
 		for teacher in cteTeachers {
-			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
+			self.cells.append(item: SwiftyAccordionCells.Item(value: teacher))
 		}
 		
 		//setup art teachers
-		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Art"))
+		self.cells.append(item: SwiftyAccordionCells.HeaderItem(value: "Art"))
 		for teacher in artTeachers {
-			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
+			self.cells.append(item: SwiftyAccordionCells.Item(value: teacher))
 		}
 		
 		//setup esol teachers
-		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "ESOL"))
+		self.cells.append(item: SwiftyAccordionCells.HeaderItem(value: "ESOL"))
 		for teacher in esolTeachers {
-			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
+			self.cells.append(item: SwiftyAccordionCells.Item(value: teacher))
 		}
 		
 		//setup counselors
-		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Counselor"))
+		self.cells.append(item: SwiftyAccordionCells.HeaderItem(value: "Counselor"))
 		for teacher in counselorTeachers {
-			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
+			self.cells.append(item: SwiftyAccordionCells.Item(value: teacher))
 		}
 		
 		//setup other teachers
-		self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Other"))
+        self.cells.append(item: SwiftyAccordionCells.HeaderItem(value: "Other"))
 		for teacher in otherTeachers {
-			self.cells.append(SwiftyAccordionCells.Item(value: teacher))
+			self.cells.append(item: SwiftyAccordionCells.Item(value: teacher))
 		}
 		
 		//EMAILS
@@ -431,17 +426,17 @@ class TeachersTableViewController: UITableViewController {
 	}
 	
 	//required function that sets the total number of sections in the tableview - only one here because we are setting up sections differently (with SwiftyAccoridanCells)
-	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+	override func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
 	
-	//required function that sets the number of cells in the tableview equal to the number of items in the variable cells
-	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return self.cells.items.count
-	}
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.cells.items.count
+    }
+
 	
 	//setup the tableview cell for the given indexPath
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		//Get the current cell from the cells array
 		let item = self.cells.items[indexPath.row]
 		//Get the calue of the current cell from the above variable
@@ -458,16 +453,16 @@ class TeachersTableViewController: UITableViewController {
 			//...if the cell is a header cell, create a new cell with a black background and white text that has the Department name on it 
 			let cell = UITableViewCell()
 			cell.textLabel?.text = value
-			cell.backgroundColor = UIColor.blackColor()
-			cell.textLabel?.textColor = UIColor.whiteColor()
-			cell.selectionStyle = UITableViewCellSelectionStyle.None
+			cell.backgroundColor = UIColor.black
+			cell.textLabel?.textColor = UIColor.white
+			cell.selectionStyle = UITableViewCellSelectionStyle.none
 			return cell
 		}
 		
 	}
 	
 	//optional function to have different cell heights
-	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		//get the current cell from the cells array
 		let item = self.cells.items[indexPath.row]
 		
@@ -485,7 +480,7 @@ class TeachersTableViewController: UITableViewController {
 	}
 	
 	//optional function to perform an action when a cell is selected
-	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		//get the current cell
 		let item = self.cells.items[indexPath.row]
 		//if the cell is a header item...
@@ -505,13 +500,13 @@ class TeachersTableViewController: UITableViewController {
 			//if the previouslySelectedHeaderIndex isn't nil, set it to a local variable named the same thing
 			if let previouslySelectedHeaderIndex = self.previouslySelectedHeaderIndex {
 				//collapse all the cells in the previously selected header
-				self.cells.collapse(previouslySelectedHeaderIndex)
+				self.cells.collapse(headerIndex: previouslySelectedHeaderIndex)
 			}
 			
 			//if the user didnt select the same header as previously selected...
 			if self.previouslySelectedHeaderIndex != self.currentlySelectedHeaderIndex {
 				//expand the cells under the new header
-				self.cells.expand(self.currentlySelectedHeaderIndex!)
+				self.cells.expand(headerIndex: self.currentlySelectedHeaderIndex!)
 			} else {
 				//set both current and previous headers to nil as there is no header open anymore
 				self.currentlySelectedHeaderIndex = nil
@@ -528,21 +523,21 @@ class TeachersTableViewController: UITableViewController {
 			self.currentlySelectedItemIndex = indexPath.row
 			
 			//setup a UIAlertController (will present the user with an action sheet that pops up from the bottom)
-			let alert = UIAlertController.init(title: "What would you like to do?", message: "Would you like to copy this teacher's email, or start a new email to this teacher?", preferredStyle: UIAlertControllerStyle.ActionSheet)
+			let alert = UIAlertController.init(title: "What would you like to do?", message: "Would you like to copy this teacher's email, or start a new email to this teacher?", preferredStyle: UIAlertControllerStyle.actionSheet)
 			
 			//create a new action that will be added to the alert that copies the teacher's email
-			let copyAction = UIAlertAction.init(title: "Copy", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
-				UIPasteboard.generalPasteboard().string = self.emailDictionary[item.value as! String]!
+			let copyAction = UIAlertAction.init(title: "Copy", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
+				UIPasteboard.general.string = self.emailDictionary[item.value]!
 			})
 			
 			//create a new action that will be added to the alert that starts a new email addressed to the teacher they selected
-			let sendAction = UIAlertAction.init(title: "Send an Email", style: UIAlertActionStyle.Default, handler: { (UIAlertAction) in
-				UIApplication.sharedApplication().openURL(NSURL(string: "mailto:" + self.emailDictionary[item.value as! String]!)!)
+			let sendAction = UIAlertAction.init(title: "Send an Email", style: UIAlertActionStyle.default, handler: { (UIAlertAction) in
+				UIApplication.shared.openURL(NSURL(string: "mailto:" + self.emailDictionary[item.value]!)! as URL)
 			})
 			
 			//create a cancel action that closes the action sheet
-			let cancelAction = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { (UIAlertAction) in
-				self.dismissViewControllerAnimated(true, completion: nil)
+			let cancelAction = UIAlertAction.init(title: "Cancel", style: UIAlertActionStyle.cancel, handler: { (UIAlertAction) in
+				self.dismiss(animated: true, completion: nil)
 			})
 			
 			//add the actions created above to the action sheet
@@ -551,7 +546,7 @@ class TeachersTableViewController: UITableViewController {
 			alert.addAction(cancelAction)
 			
 			//present the action sheet that was just created
-			self.presentViewController(alert, animated: true, completion: nil)
+			self.present(alert, animated: true, completion: nil)
 		}
 	}
 }

@@ -25,27 +25,27 @@ class ClassesTableViewCell: UITableViewCell{
 		subject = UITextField(frame: CGRect.null)
 		room = UITextField(frame: CGRect.null)
 		
-		subject.textColor = UIColor.blackColor()
-		room.textColor = UIColor.blackColor()
+		subject.textColor = UIColor.black
+		room.textColor = UIColor.black
 		
-		subject.font = UIFont.systemFontOfSize(16.0)
-		room.font = UIFont.systemFontOfSize(16.0)
+		subject.font = UIFont.systemFont(ofSize: 16.0)
+		room.font = UIFont.systemFont(ofSize: 16.0)
 		
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 				
-		subject.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
-		room.contentVerticalAlignment = UIControlContentVerticalAlignment.Center
+		subject.contentVerticalAlignment = UIControlContentVerticalAlignment.center
+		room.contentVerticalAlignment = UIControlContentVerticalAlignment.center
 		
-		subject.autocorrectionType = .No
-		room.autocorrectionType = .No
+		subject.autocorrectionType = .no
+		room.autocorrectionType = .no
 		
-		subject.autocapitalizationType = .Words
-		room.autocapitalizationType = .AllCharacters
+		subject.autocapitalizationType = .words
+		room.autocapitalizationType = .allCharacters
 		
-		room.textAlignment = .Right
+		room.textAlignment = .right
 		
-		subject.userInteractionEnabled = false
-		room.userInteractionEnabled = false
+		subject.isUserInteractionEnabled = false
+		room.isUserInteractionEnabled = false
 		
 		addSubview(subject)
 		addSubview(room)
