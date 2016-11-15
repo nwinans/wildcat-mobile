@@ -51,38 +51,37 @@ class AcademicsViewController: UITableViewController, UINavigationControllerDele
 	}
 	
 	//default function run right before segue is called (right before leaving this page)
-	func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		//if the segue isn't the crisis or plus buttons in the tab bar...
 		if segue.identifier != "crisisAcademics" && segue.identifier != "plusAcademics" {
 			//...set the selectedCellFrame variable equal to the tableView's frame
-			self.selectedCellFrame = tableView.convert(sender!.frame, to: tableView.superview)
+			self.selectedCellFrame = tableView.convert((sender! as AnyObject).frame , to: tableView.superview)
 			self.navigationController?.delegate = self
 		}
 	}
 	
-	//function to set animation controller for an operation
-	func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-		//if the segue is a push operation...
-		if operation == UINavigationControllerOperation.push {
-			//...set the variable transition (initialized at top) to push segue type that animates over 0.4 seconds 
-			//and the cellFrame is the one assigned in prepareForSegue
-			transition.operation = UINavigationControllerOperation.push
-			transition.duration = 0.40
-			transition.selectedCellFrame = self.selectedCellFrame
-			
-			return transition
-		//or if the segue is a pop operation...
-		} else if operation == UINavigationControllerOperation.pop {
-			//...set the variable transition to a pop segue type that occurs over 0.3 seconds, slightly faster. 
-			transition.operation = UINavigationControllerOperation.pop
-			transition.duration = 0.30
-			
-			return transition
-		}
-		
-		//the transition is some other type
-		return nil
-	}
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        //if the segue is a push operation...
+        if operation == UINavigationControllerOperation.push {
+            //...set the variable transition (initialized at top) to push segue type that animates over 0.4 seconds
+            //and the cellFrame is the one assigned in prepareForSegue
+            transition.operation = UINavigationControllerOperation.push
+            transition.duration = 0.40
+            transition.selectedCellFrame = self.selectedCellFrame
+            
+            return transition
+            //or if the segue is a pop operation...
+        } else if operation == UINavigationControllerOperation.pop {
+            //...set the variable transition to a pop segue type that occurs over 0.3 seconds, slightly faster.
+            transition.operation = UINavigationControllerOperation.pop
+            transition.duration = 0.30
+            
+            return transition
+        }
+        
+        //the transition is some other type
+        return nil
+    }
 	
 	//pass the library url to the openURL function
 	func libraryWebsite() {
@@ -104,12 +103,6 @@ class AcademicsViewController: UITableViewController, UINavigationControllerDele
 			//if you are on iOS 8, open the URL in Safari normally (leaves the app)
 			UIApplication.shared.openURL(NSURL(string: url)! as URL)
 		}
-	}
-	
-	//function handled when dismissing the Safari view controller, only available on ios9 and above
-	@available(iOS 9.0, *)
-	func safariViewControllerDidFinish(controller: SFSafariViewController) {
-		controller.dismiss(animated: true, completion: nil)
 	}
 	
 	//open the calendar app
