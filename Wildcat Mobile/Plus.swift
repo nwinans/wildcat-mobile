@@ -74,9 +74,9 @@ class Plus: NSObject, NSCoding {
         if (plus != "A" && plus != "B") {
             let shortPlus = Int(plus)
             if shortPlus == 1 || shortPlus == 3 || shortPlus == 5 || shortPlus == 7 {
-                return "A+" + String(describing: shortPlus)
+                return "A+" + String(describing: shortPlus!)
             } else if shortPlus == 2 || shortPlus == 4 || shortPlus == 6  {
-                return "B+" + String(describing: shortPlus)
+                return "B+" + String(describing: shortPlus!)
             } else if shortPlus == 8 {
                 return "B+7"
             }
