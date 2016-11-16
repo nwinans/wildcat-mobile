@@ -6,6 +6,7 @@
 //  Copyright © 2016 Centreville HS. All rights reserved.
 //
 
+//import the UIKit - we are using scrollviews and imageviews
 import UIKit
 
 class PlusViewController: UIViewController, UIScrollViewDelegate {
@@ -24,7 +25,7 @@ class PlusViewController: UIViewController, UIScrollViewDelegate {
     }   
 
     //function required by UIScrollViewDelegate - asks for the view to be zoomed in on, we give it the imageView
-    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
 	return self.imageView
     }
 
