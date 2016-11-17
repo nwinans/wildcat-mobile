@@ -134,71 +134,52 @@ class AnnouncementsTableViewController: UITableViewController {
 					//sets announcementObject equal to to the current object in the table array as type NSDictionary
 					if let announcementObject = table[i] as? NSDictionary {
 						
-						//sets announcementApproved equal to the "Approved" json object
-						if let announcementApproved = announcementObject["Approved"] as? String {
+                        guard let anApproved = announcementObject["Approved"] as? String, let anMessage = announcementObject["What_is_the_announcement?"] as? String, let anName = announcementObject["What_is_your_name?"] as? String, let anActivity = announcementObject["What_activity_is_this_announcement_related?"] as? String, let anTimestamp = announcementObject["Timestamp"] as? String, let anExpiration = announcementObject["Until_when_should_this_announcement_be_shown?"] as? String
                             
-							//sets announcementMessage equal to the announcement object
-							if let announcementMessage = announcementObject["What_is_the_announcement?"] as? String {
-								
-								//sets announcementName equal to the name of the person who is sending the announcement
-								if let announcementName = announcementObject["What_is_your_name?"] as? String {
-									
-									//sets announcementActivity equal to the activity the announcement is related to
-									if let announcementActivity = announcementObject["What_activity_is_this_announcement_related?"] as? String {
-										
-										//sets announcementTimestamp equal to the time the announcement was created
-										if let announcementTimestamp = announcementObject["Timestamp"] as? String {
-											
-											//sets announcementExpiration to the expiraton date of the announcement
-											if let announcementExpiration = announcementObject["Until_when_should_this_announcement_be_shown?"] as? String{
+                            else { return }
+                        
+                        
+                            //set current date to constant called currentDate
+                            let currentDate: NSDate = NSDate()
 												
-												//set current date to constant called currentDate
-												let currentDate: NSDate = NSDate()
+                            //Create NSDateFormatter to parse times into NSDates
+                            let formatter = DateFormatter()
 												
-												//Create NSDateFormatter to parse times into NSDates
-												let formatter = DateFormatter()
+                            //set timezone of formatter to east coast
+                            formatter.timeZone = NSTimeZone.default
 												
-												//set timezone of formatter to east coast
-												formatter.timeZone = NSTimeZone.default
+                            //set dateFormat of formatter to IRFC 3339 (the format that google spreadsheets saves in)
+                            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 												
-												//set dateFormat of formatter to IRFC 3339 (the format that google spreadsheets saves in)
-												formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                            //create NSDates for timestamp and expiration date
+                            let timestamp = formatter.date(from: anTimestamp)
+                            let expiraton = formatter.date(from: anExpiration)
 												
-												//create NSDates for timestamp and expiration date
-												let timestamp = formatter.date(from: announcementTimestamp)
-												let expiraton = formatter.date(from: announcementExpiration)
+                            //check to see if the announcement is still valid, or if it has expired
+                            //	if it is valid, check to see if announcement is approved
+                            //	if the announcement is expired, it prints a message saying which annoncement is expired
 												
-												//check to see if the announcement is still valid, or if it has expired
-												//	if it is valid, check to see if announcement is approved
-												//	if the announcement is expired, it prints a message saying which annoncement is expired
-												
-												if (expiraton?.compare(currentDate as Date) == .orderedDescending) {
+                            if (expiraton?.compare(currentDate as Date) == .orderedDescending) {
 													
-													//check to see if the announcement is approved, or it is empty
-													// if the announcement isnt approved, it prints a message to the console saying which announcement wasn't approved
-													// if the announcement is approved, it adds all the relevant data into the relevant arrays
-													if announcementApproved.isEmpty {
-														print("The announcement \(announcementMessage) wasn't approved")
-													} else {
-														//Format timestamp as desired format ("Month, Day, Year")
-														let dateFormatter = DateFormatter()
-														dateFormatter.dateFormat = "MM/dd"
-														let date = dateFormatter.string(from: timestamp!)
+                            //check to see if the announcement is approved, or it is empty
+                            // if the announcement isnt approved, it prints a message to the console saying which announcement wasn't approved
+                            // if the announcement is approved, it adds all the relevant data into the relevant arrays
+                            if anApproved.isEmpty {
+                                    print("The announcement \(anMessage) wasn't approved")
+                            } else {
+                                //Format timestamp as desired format ("Month, Day, Year")
+                                let dateFormatter = DateFormatter()
+                                dateFormatter.dateFormat = "MM/dd"
+                                let date = dateFormatter.string(from: timestamp!)
 														
-														let tempAnnouncement = AnnouncementObject(activity: announcementActivity, announcement: announcementMessage, date: date, name: announcementName)
+                                let tempAnnouncement = AnnouncementObject(activity: anActivity, announcement: anMessage, date: date, name: anName)
                                                         
-														tempAnnouncements += [tempAnnouncement!]
+                                tempAnnouncements += [tempAnnouncement!]
 														
-													}
-												} else {
-													print("The announcement \(announcementMessage) has expired")
-												}
-											}
-										}
-									}
-								}
-							}
-						}
+                            }
+                        } else {
+                            print("The announcement \(anMessage) has expired")
+                        }
 					}
 				}
 			}

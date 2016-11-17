@@ -195,17 +195,12 @@ class ClubsViewController: UITableViewController {
 				//sets clubObject equal to to the current object in the table array as type NSDictionary
 				if let clubObject = table[i] as? NSDictionary {
 					
-					let active = clubObject["show_flag"] as? Int
-					
-					if active! == 1 {
-						let clubTitle = clubObject["name"] as? String
-						let clubSponsor = clubObject["sponsor"] as? String
-						let clubDescription = clubObject["description"] as? String
-						let clubContact = clubObject["contact_email"] as? String
-						
-                        let newClub = Club(club: clubTitle!, cdescription: clubDescription!, email: clubContact!, sponsor: clubSponsor!)
+                    guard let clubTitle = clubObject["name"] as? String, let clubSponsor = clubObject["sponsor"] as? String, let clubDescription = clubObject["description"] as? String, let clubContact = clubObject["contact_email"] as? String, let active = clubObject["show_flag"] as? Int
+                        else {return}
+                    
+					if active == 1 {
+                        let newClub = Club(club: clubTitle, cdescription: clubDescription, email: clubContact, sponsor: clubSponsor)
                         tempClubs += [newClub!]
-						
 					} else {
 						print("club not yet active")
 					}

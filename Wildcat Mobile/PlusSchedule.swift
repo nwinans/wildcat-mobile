@@ -134,13 +134,11 @@ class PlusSchedule {
 				//loop through all the announcements in the json object, table
                 for i in stride(from: 0, to: table.count, by: 1) {
 					if let plusObject = table[i] as? NSDictionary {
-                        if let plusDate = plusObject["Date"] as? String {
-                            if let plusPlus = plusObject["Plus"] as? String {
-                                let tempPlus = Plus(date: plusDate, plus: plusPlus)
-                                tempPlusses += [tempPlus!]
-                            }
-                        }
-				    }
+                        guard let plusDate = plusObject["Date"] as? String, let plusPlus = plusObject["Plus"] as? String
+                            else {return}
+                        let tempPlus = Plus(date: plusDate, plus: plusPlus)
+                        tempPlusses += [tempPlus!]
+                    }
 			    }
             }
 		
