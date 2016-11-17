@@ -16,6 +16,7 @@
 		363EE62B1D40150200F4999F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 363EE62A1D40150200F4999F /* Assets.xcassets */; };
 		363EE62E1D40150200F4999F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 363EE62C1D40150200F4999F /* LaunchScreen.storyboard */; };
 		36405A2F1D6F584800CE9021 /* ClubsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36405A2E1D6F584800CE9021 /* ClubsViewController.swift */; };
+		364C90C41DDD41BB00E85C34 /* NewClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364C90C31DDD41BB00E85C34 /* NewClassViewController.swift */; };
 		365AD4681DCAB33A00E7CB82 /* AnnouncementObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365AD4671DCAB33A00E7CB82 /* AnnouncementObject.swift */; };
 		365CDD5D1DCC1E1F00E87B9A /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CDD5C1DCC1E1F00E87B9A /* Club.swift */; };
 		365CDD5F1DCC2E2800E87B9A /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CDD5E1DCC2E2800E87B9A /* Plus.swift */; };
@@ -45,6 +46,7 @@
 		363EE62D1D40150200F4999F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		363EE62F1D40150200F4999F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36405A2E1D6F584800CE9021 /* ClubsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubsViewController.swift; sourceTree = "<group>"; };
+		364C90C31DDD41BB00E85C34 /* NewClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewClassViewController.swift; sourceTree = "<group>"; };
 		365AD4671DCAB33A00E7CB82 /* AnnouncementObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementObject.swift; sourceTree = "<group>"; };
 		365CDD5C1DCC1E1F00E87B9A /* Club.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
 		365CDD5E1DCC2E2800E87B9A /* Plus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				36DBBEFA1D8D9AAB00532E0F /* ClassesTableViewController.swift */,
 				36DBBEFC1D8DAF0B00532E0F /* ClassesTableViewCell.swift */,
 				36DBBEFE1D8DB0C800532E0F /* ClassObject.swift */,
+				364C90C31DDD41BB00E85C34 /* NewClassViewController.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				36B435881D77BEC900284697 /* SwiftyExpandingTransition.swift in Sources */,
 				36B71FC91D65461100DDCB0C /* CardView.swift in Sources */,
 				36DBBEFB1D8D9AAB00532E0F /* ClassesTableViewController.swift in Sources */,
+				364C90C41DDD41BB00E85C34 /* NewClassViewController.swift in Sources */,
 				360A61D51D6F6A4700E76E00 /* ClubsCell.swift in Sources */,
 				36064A651D8E211800AF605D /* CrisisTableViewController.swift in Sources */,
 				36B4358A1D77BF4300284697 /* AcademicsViewController.swift in Sources */,
