@@ -38,6 +38,7 @@
 		3603F3811D8C996A0037DDF9 /* SwiftyAccordianCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyAccordianCells.swift; sourceTree = "<group>"; };
 		36064A641D8E211800AF605D /* CrisisTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrisisTableViewController.swift; sourceTree = "<group>"; };
 		360A61D41D6F6A4700E76E00 /* ClubsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubsCell.swift; sourceTree = "<group>"; };
+		36127FCA1DE3FE12003245E6 /* Wildcat Mobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Wildcat Mobile.entitlements"; sourceTree = "<group>"; };
 		36275D2D1D74ABCC00355BE2 /* ArticlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
 		363EE61E1D40150200F4999F /* Wildcat Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wildcat Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		363EE6211D40150200F4999F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +134,7 @@
 		363EE6201D40150200F4999F /* Wildcat Mobile */ = {
 			isa = PBXGroup;
 			children = (
+				36127FCA1DE3FE12003245E6 /* Wildcat Mobile.entitlements */,
 				36DE7E491D6FD094005F5283 /* App Delegate */,
 				36E68FAB1D40337700543F9A /* Storyboards */,
 				36E68FAA1D40335E00543F9A /* View Controllers */,
@@ -240,6 +242,14 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = L53C7EM63K;
 						LastSwiftMigration = 0810;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -422,6 +432,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Wildcat Mobile/Wildcat Mobile.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = L53C7EM63K;
 				INFOPLIST_FILE = "Wildcat Mobile/Info.plist";
@@ -442,6 +453,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Wildcat Mobile/Wildcat Mobile.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = L53C7EM63K;
 				INFOPLIST_FILE = "Wildcat Mobile/Info.plist";

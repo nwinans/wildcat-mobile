@@ -59,12 +59,10 @@ class PlusSchedule {
         setupPlus()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy"
-        //return plusses[//plusCalendar[dateFormatter.stringFromDate(NSDate())]!
         
         let currentdate = dateFormatter.string(from: NSDate() as Date)
         
         for i in stride(from: 0, to: plusses.count, by: 1) {
-            print(plusses[i].date)
             
             if plusses[i].date == (currentdate){
                 return plusses[i].fullPlus
@@ -79,7 +77,9 @@ class PlusSchedule {
             plusses += savedPlusses
         }
         
-        getDataFromURL(url: defaultSpreadsheetURL)
+        if plusses.count == 0 {
+            getDataFromURL(url: defaultSpreadsheetURL)
+        }
         
     }
     
@@ -103,7 +103,7 @@ class PlusSchedule {
 		let urlRequest = NSMutableURLRequest(url: url! as URL, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: timeout)
 		
 		let queue = OperationQueue()
-		
+        
 		//actually get the information asynchronously
 		NSURLConnection.sendAsynchronousRequest(urlRequest as URLRequest, queue: queue) { (response: URLResponse?, data: Data?, error: Error?) in
 			
@@ -145,5 +145,5 @@ class PlusSchedule {
         plusses = tempPlusses
         tempPlusses.removeAll()
 		savePlusses()
-	}
+        }
 }

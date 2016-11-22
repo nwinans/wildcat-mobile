@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		// Override point for customization after application launch.
         
+        /*let settings = UIUserNotificationSettings(types: UIUserNotificationType.alert, categories: nil)
+        UIApplication.shared.registerUserNotificationSettings(settings)*/
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        
 		return true
 	}
 
@@ -42,6 +46,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	}
 
+    func application(_ application: UIApplication, performFetchWith completionHandler: (UIBackgroundFetchResult) -> Void) {
+        print("Complete");
+         getData();
+        //completionHandler(UIBackgroundFetchResult.newData)
+        
+       
+        
+    }
+    
+    func getData() -> Void{
+        let url = "https://script.google.com/macros/s/AKfycbxOLElujQcy1-ZUer1KgEvK16gkTLUqYftApjNCM_IRTL3HSuDk/exec?id=1ZET4Sf4U3j-8kBuTRVEgk7szsESiwLss6OgaxSLIMik&sheet=Sheet1";
+        let request = URLRequest(url: URL(string: url)!);
+        
+        NSURLConnection.sendAsynchronousRequest(request,queue: OperationQueue.main) {
+            (response: URLResponse?, data: Data?, error: Error?) -> Void in
+            let annResults: AnyObject? = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as AnyObject?
+            let table = annResults?["Sheet1"] as? NSArray
+            //let announcements: [AnnouncementObject]=[];
+            //announcements = annResults["table"] as [NSDictionary];
+            let localNotification:UILocalNotification = UILocalNotification()
+            localNotification.alertAction = "Testing notifications on iOS8"
+            localNotification.alertBody = "Movie Count : \(table?.count)"
+            localNotification.fireDate = Date(timeIntervalSinceNow: 1)
+            UIApplication.shared.scheduleLocalNotification(localNotification)
+        }
+        
+        
+    }
 
 }
 
