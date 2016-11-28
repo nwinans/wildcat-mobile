@@ -334,7 +334,7 @@
 						LastSwiftMigration = 0810;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Push = {
 								enabled = 0;
@@ -634,6 +634,7 @@
 				360B4FF31DE77D8A00546E2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		363EE6191D40150100F4999F /* Build configuration list for PBXProject "Wildcat Mobile" */ = {
 			isa = XCConfigurationList;
