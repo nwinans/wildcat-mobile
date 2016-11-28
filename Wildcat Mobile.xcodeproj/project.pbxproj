@@ -10,6 +10,11 @@
 		3603F3821D8C996A0037DDF9 /* SwiftyAccordianCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3603F3811D8C996A0037DDF9 /* SwiftyAccordianCells.swift */; };
 		36064A651D8E211800AF605D /* CrisisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36064A641D8E211800AF605D /* CrisisTableViewController.swift */; };
 		360A61D51D6F6A4700E76E00 /* ClubsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360A61D41D6F6A4700E76E00 /* ClubsCell.swift */; };
+		360B4FE41DE77D8A00546E2E /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 360B4FE31DE77D8A00546E2E /* UserNotifications.framework */; };
+		360B4FE61DE77D8A00546E2E /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 360B4FE51DE77D8A00546E2E /* UserNotificationsUI.framework */; };
+		360B4FE91DE77D8A00546E2E /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360B4FE81DE77D8A00546E2E /* NotificationViewController.swift */; };
+		360B4FEC1DE77D8A00546E2E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 360B4FEA1DE77D8A00546E2E /* MainInterface.storyboard */; };
+		360B4FF01DE77D8A00546E2E /* dailyannouncement.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 360B4FE11DE77D8A00546E2E /* dailyannouncement.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		36275D2E1D74ABCC00355BE2 /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36275D2D1D74ABCC00355BE2 /* ArticlesViewController.swift */; };
 		363EE6221D40150200F4999F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363EE6211D40150200F4999F /* AppDelegate.swift */; };
 		363EE6291D40150200F4999F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 363EE6271D40150200F4999F /* Main.storyboard */; };
@@ -34,10 +39,40 @@
 		36E8D6E21DA47AC200E1F222 /* PlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E8D6E11DA47AC200E1F222 /* PlusViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		360B4FEE1DE77D8A00546E2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 363EE6161D40150100F4999F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 360B4FE01DE77D8A00546E2E;
+			remoteInfo = dailyannouncement;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		360B4FF41DE77D8A00546E2E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				360B4FF01DE77D8A00546E2E /* dailyannouncement.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3603F3811D8C996A0037DDF9 /* SwiftyAccordianCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyAccordianCells.swift; sourceTree = "<group>"; };
 		36064A641D8E211800AF605D /* CrisisTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrisisTableViewController.swift; sourceTree = "<group>"; };
 		360A61D41D6F6A4700E76E00 /* ClubsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubsCell.swift; sourceTree = "<group>"; };
+		360B4FE11DE77D8A00546E2E /* dailyannouncement.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = dailyannouncement.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		360B4FE31DE77D8A00546E2E /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		360B4FE51DE77D8A00546E2E /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		360B4FE81DE77D8A00546E2E /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		360B4FEB1DE77D8A00546E2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		360B4FED1DE77D8A00546E2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36127FCA1DE3FE12003245E6 /* Wildcat Mobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Wildcat Mobile.entitlements"; sourceTree = "<group>"; };
 		36275D2D1D74ABCC00355BE2 /* ArticlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
 		363EE61E1D40150200F4999F /* Wildcat Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wildcat Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +102,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		360B4FDE1DE77D8A00546E2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				360B4FE61DE77D8A00546E2E /* UserNotificationsUI.framework in Frameworks */,
+				360B4FE41DE77D8A00546E2E /* UserNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		363EE61B1D40150100F4999F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -77,6 +121,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		360B4FE21DE77D8A00546E2E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				360B4FE31DE77D8A00546E2E /* UserNotifications.framework */,
+				360B4FE51DE77D8A00546E2E /* UserNotificationsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		360B4FE71DE77D8A00546E2E /* dailyannouncement */ = {
+			isa = PBXGroup;
+			children = (
+				360B4FE81DE77D8A00546E2E /* NotificationViewController.swift */,
+				360B4FEA1DE77D8A00546E2E /* MainInterface.storyboard */,
+				360B4FED1DE77D8A00546E2E /* Info.plist */,
+			);
+			path = dailyannouncement;
+			sourceTree = "<group>";
+		};
 		36275D291D74A9DE00355BE2 /* Announcements */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				363EE6201D40150200F4999F /* Wildcat Mobile */,
+				360B4FE71DE77D8A00546E2E /* dailyannouncement */,
+				360B4FE21DE77D8A00546E2E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				363EE61E1D40150200F4999F /* Wildcat Mobile.app */,
+				360B4FE11DE77D8A00546E2E /* dailyannouncement.appex */,
 			);
 			name = Products;
 			path = ..;
@@ -211,6 +277,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		360B4FE01DE77D8A00546E2E /* dailyannouncement */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 360B4FF11DE77D8A00546E2E /* Build configuration list for PBXNativeTarget "dailyannouncement" */;
+			buildPhases = (
+				360B4FDD1DE77D8A00546E2E /* Sources */,
+				360B4FDE1DE77D8A00546E2E /* Frameworks */,
+				360B4FDF1DE77D8A00546E2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dailyannouncement;
+			productName = dailyannouncement;
+			productReference = 360B4FE11DE77D8A00546E2E /* dailyannouncement.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		363EE61D1D40150100F4999F /* Wildcat Mobile */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 363EE6321D40150200F4999F /* Build configuration list for PBXNativeTarget "Wildcat Mobile" */;
@@ -218,10 +301,12 @@
 				363EE61A1D40150100F4999F /* Sources */,
 				363EE61B1D40150100F4999F /* Frameworks */,
 				363EE61C1D40150100F4999F /* Resources */,
+				360B4FF41DE77D8A00546E2E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				360B4FEF1DE77D8A00546E2E /* PBXTargetDependency */,
 			);
 			name = "Wildcat Mobile";
 			productName = "Wildcat Mobile";
@@ -234,10 +319,15 @@
 		363EE6161D40150100F4999F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Centreville HS";
 				TargetAttributes = {
+					360B4FE01DE77D8A00546E2E = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = L53C7EM63K;
+						ProvisioningStyle = Automatic;
+					};
 					363EE61D1D40150100F4999F = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = L53C7EM63K;
@@ -247,7 +337,7 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -267,11 +357,20 @@
 			projectRoot = "";
 			targets = (
 				363EE61D1D40150100F4999F /* Wildcat Mobile */,
+				360B4FE01DE77D8A00546E2E /* dailyannouncement */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		360B4FDF1DE77D8A00546E2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				360B4FEC1DE77D8A00546E2E /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		363EE61C1D40150100F4999F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -285,6 +384,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		360B4FDD1DE77D8A00546E2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				360B4FE91DE77D8A00546E2E /* NotificationViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		363EE61A1D40150100F4999F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -316,7 +423,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		360B4FEF1DE77D8A00546E2E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 360B4FE01DE77D8A00546E2E /* dailyannouncement */;
+			targetProxy = 360B4FEE1DE77D8A00546E2E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		360B4FEA1DE77D8A00546E2E /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				360B4FEB1DE77D8A00546E2E /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		363EE6271D40150200F4999F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -337,6 +460,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		360B4FF21DE77D8A00546E2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = L53C7EM63K;
+				INFOPLIST_FILE = dailyannouncement/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.centrevillehs.wildcatmobiletest.dailyannouncement;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		360B4FF31DE77D8A00546E2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = L53C7EM63K;
+				INFOPLIST_FILE = dailyannouncement/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.centrevillehs.wildcatmobiletest.dailyannouncement;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		363EE6301D40150200F4999F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -432,7 +591,6 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "Wildcat Mobile/Wildcat Mobile.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = L53C7EM63K;
 				INFOPLIST_FILE = "Wildcat Mobile/Info.plist";
@@ -453,7 +611,6 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "Wildcat Mobile/Wildcat Mobile.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = L53C7EM63K;
 				INFOPLIST_FILE = "Wildcat Mobile/Info.plist";
@@ -470,6 +627,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		360B4FF11DE77D8A00546E2E /* Build configuration list for PBXNativeTarget "dailyannouncement" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				360B4FF21DE77D8A00546E2E /* Debug */,
+				360B4FF31DE77D8A00546E2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		363EE6191D40150100F4999F /* Build configuration list for PBXProject "Wildcat Mobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

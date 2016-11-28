@@ -7,24 +7,44 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate{
 
 	var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         // Override point for customization after application launch.
         
-        let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-        application.registerUserNotificationSettings(settings)
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
+                if !accepted {
+                    print("ACCESS DENIED")
+                } else {
+                    print("we into the fbi")
+                }
+            }
+            let action = UNNotificationAction(identifier: "remind", title: "Remind me later", options: [])
+            let category = UNNotificationCategory(identifier: "new", actions: [action], intentIdentifiers: [], options: [])
+            UNUserNotificationCenter.current().setNotificationCategories([category])
+        } else {
+            let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+             application.registerUserNotificationSettings(settings)
+        }
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
-        let localNotification:UILocalNotification = UILocalNotification()
-        localNotification.alertAction = "Testing notifications on iOS8"
-        localNotification.alertBody = "This is a test notification"
-        localNotification.fireDate = Date(timeIntervalSinceNow: 5)
-        UIApplication.shared.scheduleLocalNotification(localNotification)
+        let notDate = Date(timeIntervalSinceNow: 20.0)
+        print("date: \(notDate)")
+        
+        if #available(iOS 10.0, *) {
+            print("we planting the virus")
+            scheduleNotification(at: notDate)
+            
+        } else {
+            // Fallback on earlier versions
+        }
+        
         
         return true
     }
@@ -64,39 +84,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationWillTerminate(_ application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	}
-
-    func application(_ application: UIApplication, performFetchWith completionHandler: (UIBackgroundFetchResult) -> Void) {
-        print("Complete");
-        let localNotification:UILocalNotification = UILocalNotification()
-        localNotification.alertAction = "Testing notifications on iOS8"
-        localNotification.alertBody = "Movie Count : 0"
-        localNotification.fireDate = Date(timeIntervalSinceNow: 1)
-        UIApplication.shared.scheduleLocalNotification(localNotification)
-        completionHandler(UIBackgroundFetchResult.newData)
+    
+    @available(iOS 10.0, *)
+    func scheduleNotification(at date: Date) {
+        let calendar = Calendar(identifier: .gregorian)
+        let components = calendar.dateComponents(in: .current, from: date)
+        let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
         
-       
+        let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
         
+        let content = UNMutableNotificationContent()
+        content.title = "Wildcat Mobile: Daily Update"
+        content.body = "Here are all your unread announcements from Wildcat Mobile"
+        //content.categoryIdentifier = "remindLater"
+        content.categoryIdentifier = "new"
+        content.sound = UNNotificationSound.default()
+        content.badge = 1
+        let request = UNNotificationRequest(identifier: "new", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().add(request) {(error) in
+            if let error = error {
+                print("Uh oh! We had an error: \(error)")
+            }
+        }
     }
     
-    func getData() -> Void{
-        let url = "https://script.google.com/macros/s/AKfycbxOLElujQcy1-ZUer1KgEvK16gkTLUqYftApjNCM_IRTL3HSuDk/exec?id=1ZET4Sf4U3j-8kBuTRVEgk7szsESiwLss6OgaxSLIMik&sheet=Sheet1";
-        let request = URLRequest(url: URL(string: url)!);
-        
-        NSURLConnection.sendAsynchronousRequest(request,queue: OperationQueue.main) {
-            (response: URLResponse?, data: Data?, error: Error?) -> Void in
-            let annResults: AnyObject? = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as AnyObject?
-            let table = annResults?["Sheet1"] as? NSArray
-            //let announcements: [AnnouncementObject]=[];
-            //announcements = annResults["table"] as [NSDictionary];
-            let localNotification:UILocalNotification = UILocalNotification()
-            localNotification.alertAction = "Testing notifications on iOS8"
-            localNotification.alertBody = "Movie Count : \(table?.count)"
-            localNotification.fireDate = Date(timeIntervalSinceNow: 1)
-            UIApplication.shared.scheduleLocalNotification(localNotification)
-        }
-        
-        
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler(.alert)
     }
-
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        if response.actionIdentifier == "remind" {
+            let newDate = Date(timeInterval: 900, since: Date())
+            scheduleNotification(at: newDate)
+        }
+    }
 }
+
+
 
