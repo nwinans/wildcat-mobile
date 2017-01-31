@@ -24,10 +24,15 @@ class BellScheduleViewController: UITableViewController {
 	let regBlockL1T = "2st Lunch times go here"
   
     //2 hour early release block schedule, 4 blocks because no plus (and 4 lunches)
-    let ereBlock1 = "look a bunny"
-    let ereBlock2 = "(\\  /)"
-    let ereBlock3 = "(='.'=)"
-    let ereBlock4 = "(') (')"
+    let ereBlock1 = "1st/2nd period"
+    let ereBlock1T = "8:10 - 9:03"
+    let ereBlock2 = "3rd/4th period"
+    let ereBlock2T = "9:08 - 10:06"
+	//switch 7th period right?
+    let ereBlock3 = "7th period"
+    let ereBlock3T = "10:11 - 10:47"
+    let ereBlock4 = "5th/6th period"
+    let ereBlock4T = "10:52 - 12:55"
 	
     //2 hour delay schedule, 4 blocks becuase no plus (and 4 lunches)
     let delBlock1 = "1st/2nd period"
