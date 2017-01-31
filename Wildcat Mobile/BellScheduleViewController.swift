@@ -20,7 +20,8 @@ class BellScheduleViewController: UITableViewController {
     let regBlock4T = "11:58 - 2:01"
     let regBlock5 = "7th period"
     let regBlock5T = "2:08 - 2:55"
-    //let regBlockL1 = "1st Lunch"
+    let regBlockL1 = "1st Lunch"
+	let regBlockL1T = "2st Lunch times go here"
   
     //2 hour early release block schedule, 4 blocks because no plus (and 4 lunches)
     let ereBlock1 = "look a bunny"
