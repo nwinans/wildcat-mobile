@@ -20,6 +20,8 @@ class AcademicsViewController: UITableViewController, UINavigationControllerDele
 	@IBOutlet weak var libraryCell: UITableViewCell!
 	@IBOutlet weak var calendarCell: UITableViewCell!
 	@IBOutlet weak var athleticsCell: UITableViewCell!
+    @IBOutlet weak var blackboardCell: UITableViewCell!
+    @IBOutlet weak var sisCell: UITableViewCell!
     
     @IBOutlet weak var plusButton: UIBarButtonItem!
 	
@@ -33,21 +35,29 @@ class AcademicsViewController: UITableViewController, UINavigationControllerDele
 		let libraryTap = UITapGestureRecognizer(target: self, action: #selector(AcademicsViewController.libraryWebsite))
 		let calendarTap = UITapGestureRecognizer(target: self, action: #selector(AcademicsViewController.calendarLink))
 		let athleticsTap = UITapGestureRecognizer(target: self, action: #selector(AcademicsViewController.athleticsWebsite))
+        let blackboardTap = UITapGestureRecognizer(target: self, action: #selector(AcademicsViewController.blackboardWebsite))
+        let sisTap = UITapGestureRecognizer(target: self, action: #selector(AcademicsViewController.sisWebsite))
 		
 		//setup tap recognizers to only need 1 tap
 		libraryTap.numberOfTapsRequired = 1
 		calendarTap.numberOfTapsRequired = 1
 		athleticsTap.numberOfTapsRequired = 1
+        blackboardTap.numberOfTapsRequired = 1
+        sisTap.numberOfTapsRequired = 1
 		
 		//override any settings in the storyboard disabling user input on the library and calendar cells
 		libraryCell.isUserInteractionEnabled = true
 		calendarCell.isUserInteractionEnabled = true
 		athleticsCell.isUserInteractionEnabled = true
+        blackboardCell.isUserInteractionEnabled = true
+        sisCell.isUserInteractionEnabled = true
 		
 		//add the tap recognizer to the corrosponding cell
 		libraryCell.addGestureRecognizer(libraryTap)
 		calendarCell.addGestureRecognizer(calendarTap)
 		athleticsCell.addGestureRecognizer(athleticsTap)
+        blackboardCell.addGestureRecognizer(blackboardTap)
+        sisCell.addGestureRecognizer(sisTap)
 	}
 	
 	//default function run right before segue is called (right before leaving this page)
@@ -92,6 +102,14 @@ class AcademicsViewController: UITableViewController, UINavigationControllerDele
 	func athleticsWebsite() {
 		openURL(url: "http://wearecville.com")
 	}
+    
+    func blackboardWebsite() {
+        openURL(url: "http://fcps.blackboard.com")
+    }
+    
+    func sisWebsite() {
+        openURL(url: "https://sisstudent.fcps.edu")
+    }
 	
 	//open url function
 	func openURL(url: String) {

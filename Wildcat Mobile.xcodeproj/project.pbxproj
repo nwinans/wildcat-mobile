@@ -21,6 +21,7 @@
 		363EE62E1D40150200F4999F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 363EE62C1D40150200F4999F /* LaunchScreen.storyboard */; };
 		36405A2F1D6F584800CE9021 /* ClubsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36405A2E1D6F584800CE9021 /* ClubsViewController.swift */; };
 		364C90C41DDD41BB00E85C34 /* NewClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364C90C31DDD41BB00E85C34 /* NewClassViewController.swift */; };
+		36569FD21E40483B00269CAC /* BellScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36569FD11E40483B00269CAC /* BellScheduleViewController.swift */; };
 		365AD4681DCAB33A00E7CB82 /* AnnouncementObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365AD4671DCAB33A00E7CB82 /* AnnouncementObject.swift */; };
 		365CDD5D1DCC1E1F00E87B9A /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CDD5C1DCC1E1F00E87B9A /* Club.swift */; };
 		365CDD5F1DCC2E2800E87B9A /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CDD5E1DCC2E2800E87B9A /* Plus.swift */; };
@@ -57,6 +58,7 @@
 		363EE62F1D40150200F4999F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36405A2E1D6F584800CE9021 /* ClubsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubsViewController.swift; sourceTree = "<group>"; };
 		364C90C31DDD41BB00E85C34 /* NewClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewClassViewController.swift; sourceTree = "<group>"; };
+		36569FD11E40483B00269CAC /* BellScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BellScheduleViewController.swift; sourceTree = "<group>"; };
 		365AD4671DCAB33A00E7CB82 /* AnnouncementObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementObject.swift; sourceTree = "<group>"; };
 		365CDD5C1DCC1E1F00E87B9A /* Club.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
 		365CDD5E1DCC2E2800E87B9A /* Plus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 		36275D2C1D74A9F000355BE2 /* Academics */ = {
 			isa = PBXGroup;
 			children = (
+				36569FD11E40483B00269CAC /* BellScheduleViewController.swift */,
 				36B435891D77BF4300284697 /* AcademicsViewController.swift */,
 				36DBBEF91D8D96C400532E0F /* Classes */,
 				36A2ACC51D7F854600046487 /* Teachers */,
@@ -382,6 +385,7 @@
 				36A2ACC71D7F857900046487 /* TeachersTableViewController.swift in Sources */,
 				36275D2E1D74ABCC00355BE2 /* ArticlesViewController.swift in Sources */,
 				365AD4681DCAB33A00E7CB82 /* AnnouncementObject.swift in Sources */,
+				36569FD21E40483B00269CAC /* BellScheduleViewController.swift in Sources */,
 				36B435881D77BEC900284697 /* SwiftyExpandingTransition.swift in Sources */,
 				36B71FC91D65461100DDCB0C /* CardView.swift in Sources */,
 				36DBBEFB1D8D9AAB00532E0F /* ClassesTableViewController.swift in Sources */,
