@@ -14,7 +14,6 @@
 		360B4FE61DE77D8A00546E2E /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 360B4FE51DE77D8A00546E2E /* UserNotificationsUI.framework */; };
 		360B4FE91DE77D8A00546E2E /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360B4FE81DE77D8A00546E2E /* NotificationViewController.swift */; };
 		360B4FEC1DE77D8A00546E2E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 360B4FEA1DE77D8A00546E2E /* MainInterface.storyboard */; };
-		360B4FF01DE77D8A00546E2E /* dailyannouncement.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 360B4FE11DE77D8A00546E2E /* dailyannouncement.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		36275D2E1D74ABCC00355BE2 /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36275D2D1D74ABCC00355BE2 /* ArticlesViewController.swift */; };
 		363EE6221D40150200F4999F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363EE6211D40150200F4999F /* AppDelegate.swift */; };
 		363EE6291D40150200F4999F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 363EE6271D40150200F4999F /* Main.storyboard */; };
@@ -39,30 +38,6 @@
 		36E8D6E21DA47AC200E1F222 /* PlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E8D6E11DA47AC200E1F222 /* PlusViewController.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		360B4FEE1DE77D8A00546E2E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 363EE6161D40150100F4999F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 360B4FE01DE77D8A00546E2E;
-			remoteInfo = dailyannouncement;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		360B4FF41DE77D8A00546E2E /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				360B4FF01DE77D8A00546E2E /* dailyannouncement.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		3603F3811D8C996A0037DDF9 /* SwiftyAccordianCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyAccordianCells.swift; sourceTree = "<group>"; };
 		36064A641D8E211800AF605D /* CrisisTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrisisTableViewController.swift; sourceTree = "<group>"; };
@@ -73,7 +48,6 @@
 		360B4FE81DE77D8A00546E2E /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		360B4FEB1DE77D8A00546E2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		360B4FED1DE77D8A00546E2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		36127FCA1DE3FE12003245E6 /* Wildcat Mobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Wildcat Mobile.entitlements"; sourceTree = "<group>"; };
 		36275D2D1D74ABCC00355BE2 /* ArticlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
 		363EE61E1D40150200F4999F /* Wildcat Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wildcat Mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		363EE6211D40150200F4999F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -200,7 +174,6 @@
 		363EE6201D40150200F4999F /* Wildcat Mobile */ = {
 			isa = PBXGroup;
 			children = (
-				36127FCA1DE3FE12003245E6 /* Wildcat Mobile.entitlements */,
 				36DE7E491D6FD094005F5283 /* App Delegate */,
 				36E68FAB1D40337700543F9A /* Storyboards */,
 				36E68FAA1D40335E00543F9A /* View Controllers */,
@@ -301,12 +274,10 @@
 				363EE61A1D40150100F4999F /* Sources */,
 				363EE61B1D40150100F4999F /* Frameworks */,
 				363EE61C1D40150100F4999F /* Resources */,
-				360B4FF41DE77D8A00546E2E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				360B4FEF1DE77D8A00546E2E /* PBXTargetDependency */,
 			);
 			name = "Wildcat Mobile";
 			productName = "Wildcat Mobile";
@@ -422,14 +393,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		360B4FEF1DE77D8A00546E2E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 360B4FE01DE77D8A00546E2E /* dailyannouncement */;
-			targetProxy = 360B4FEE1DE77D8A00546E2E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		360B4FEA1DE77D8A00546E2E /* MainInterface.storyboard */ = {
@@ -588,7 +551,6 @@
 		363EE6331D40150200F4999F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -608,7 +570,6 @@
 		363EE6341D40150200F4999F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

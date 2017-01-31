@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         // Override point for customization after application launch.
-        
+       /*
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
                 if !accepted {
@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             
         } else {
             // Fallback on earlier versions
-        }
+        }*/
         
         
         return true
@@ -83,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 	func applicationWillTerminate(_ application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	}
-    
+    /*
     @available(iOS 10.0, *)
     func scheduleNotification(at date: Date) {
         let calendar = Calendar(identifier: .gregorian)
@@ -122,7 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             let newDate = Date(timeInterval: 900, since: Date())
             scheduleNotification(at: newDate)
         }
-    }
+    }*/
 }
 
 

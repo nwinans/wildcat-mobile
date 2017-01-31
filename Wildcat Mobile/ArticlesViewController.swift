@@ -17,13 +17,13 @@ class ArticlesViewController: UITableViewController, SFSafariViewControllerDeleg
 	@IBOutlet weak var whatShouldISayView: UIView!
 	@IBOutlet weak var bodyImageView: UIView!
 	@IBOutlet weak var projectAwareView: UIView!
-    	@IBOutlet weak var stopBullyingView: UIView!
-    	@IBOutlet weak var crisisLinkView: UIView!
-    	@IBOutlet weak var mentalHealthView: UIView!
-    	@IBOutlet weak var substanceAbuseView: UIView!
+    @IBOutlet weak var stopBullyingView: UIView!
+    @IBOutlet weak var crisisLinkView: UIView!
+    @IBOutlet weak var mentalHealthView: UIView!
+    //@IBOutlet weak var substanceAbuseView: UIView!
     
 	//create variable for plus button - used to set the current plus at runtime 
-    	@IBOutlet weak var plusButton: UIBarButtonItem!
+    @IBOutlet weak var plusButton: UIBarButtonItem!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -37,10 +37,10 @@ class ArticlesViewController: UITableViewController, SFSafariViewControllerDeleg
 		let whatShouldTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.whatShouldISay))
 		let bodyImageTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.bodyImage))
 		let projectAwareTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.projectAware))
-        	let stopBullyingTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.stopBullying))
-        	let crisisLinkTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.crisisLink))
-        	let mentalHealthTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.mentalHealth))
-        	let substanceAbuseTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.substanceAbuse))
+        let stopBullyingTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.stopBullying))
+        let crisisLinkTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.crisisLink))
+        let mentalHealthTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.mentalHealth))
+        //let substanceAbuseTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.substanceAbuse))
 		
 		//set the required number of taps to 1 (probably not needed but makes sure that only one tap needed)
 		educatorTap.numberOfTapsRequired = 1
@@ -48,10 +48,10 @@ class ArticlesViewController: UITableViewController, SFSafariViewControllerDeleg
 		whatShouldTap.numberOfTapsRequired = 1
 		bodyImageTap.numberOfTapsRequired = 1
 		projectAwareTap.numberOfTapsRequired = 1
-        	stopBullyingTap.numberOfTapsRequired = 1
-        	crisisLinkTap.numberOfTapsRequired = 1
-        	mentalHealthTap.numberOfTapsRequired = 1
-		substanceAbuseTap.numberOfTapsRequired = 1
+        stopBullyingTap.numberOfTapsRequired = 1
+        crisisLinkTap.numberOfTapsRequired = 1
+        mentalHealthTap.numberOfTapsRequired = 1
+		//substanceAbuseTap.numberOfTapsRequired = 1
 		
 		//override any settings in the storyboard preventing user interaction
 		educatorToolkitView.isUserInteractionEnabled = true
@@ -59,10 +59,10 @@ class ArticlesViewController: UITableViewController, SFSafariViewControllerDeleg
 		whatShouldISayView.isUserInteractionEnabled = true
 		bodyImageView.isUserInteractionEnabled = true
 		projectAwareView.isUserInteractionEnabled = true
-        	stopBullyingView.isUserInteractionEnabled = true
-       		crisisLinkView.isUserInteractionEnabled = true
-        	mentalHealthView.isUserInteractionEnabled = true
-        	substanceAbuseView.isUserInteractionEnabled = true
+        stopBullyingView.isUserInteractionEnabled = true
+        crisisLinkView.isUserInteractionEnabled = true
+        mentalHealthView.isUserInteractionEnabled = true
+        //substanceAbuseView.isUserInteractionEnabled = true
 		
 		//add tap listeners to the corrosponding views
 		educatorToolkitView.addGestureRecognizer(educatorTap)
@@ -70,10 +70,10 @@ class ArticlesViewController: UITableViewController, SFSafariViewControllerDeleg
 		whatShouldISayView.addGestureRecognizer(whatShouldTap)
 		bodyImageView.addGestureRecognizer(bodyImageTap)
 		projectAwareView.addGestureRecognizer(projectAwareTap)
-       		stopBullyingView.addGestureRecognizer(stopBullyingTap)
-        	crisisLinkView.addGestureRecognizer(crisisLinkTap)
-        	mentalHealthView.addGestureRecognizer(mentalHealthTap)
-        	substanceAbuseView.addGestureRecognizer(substanceAbuseTap)	
+        stopBullyingView.addGestureRecognizer(stopBullyingTap)
+        crisisLinkView.addGestureRecognizer(crisisLinkTap)
+        mentalHealthView.addGestureRecognizer(mentalHealthTap)
+        //substanceAbuseView.addGestureRecognizer(substanceAbuseTap)
 	}
 	
 	//functions to open corrosponding links from the cards (called when tap listener is tapped)
@@ -98,21 +98,21 @@ class ArticlesViewController: UITableViewController, SFSafariViewControllerDeleg
 		openURL(url: "http://www.SAMHSA.gov")
 	}
     
-    	func stopBullying() {
-        	openURL(url: "http://www.stopbullying.gov")
-    	}
+    func stopBullying() {
+        openURL(url: "http://www.stopbullying.gov")
+    }
     
-    	func crisisLink() {
-        	openURL(url: "https://www.fcps.edu/resources/student-safety-and-wellness/mental-health-resources-and-emergency-services-information")
-    	}
+    func crisisLink() {
+        openURL(url: "https://www.fcps.edu/resources/student-safety-and-wellness/mental-health-resources-and-emergency-services-information")
+    }
     
-    	func mentalHealth() {
-        	openURL(url: "https://www.fcps.edu/resources/student-safety-and-wellness/mental-health-and-resiliency")
-    	}
+    func mentalHealth() {
+        openURL(url: "https://www.fcps.edu/resources/student-safety-and-wellness/mental-health-and-resiliency")
+    }
     
-    	func substanceAbuse() {
-        	openURL(url: "http://www.fcps.edu")
-    	}
+    /*func substanceAbuse() {
+        openURL(url: "http://www.fcps.edu")
+    }*/
 	
 	//function to open a url in the new SafariViewController on iOS 9+ or regular old safari in ios 8
 	func openURL(url: String) {
