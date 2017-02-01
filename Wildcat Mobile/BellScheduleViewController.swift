@@ -35,15 +35,7 @@ class BellScheduleViewController: UITableViewController {
         regBlockT.append("11:58 - 2:01")
         regBlock.append("7th period")
         regBlockT.append("2:08 - 2:55")
-        
-        /*regBlock.append("1st Lunch")
-        regBlockT.append("11:52 - 12:20")*/
-        /*regBlock.append("2nd Lunch")
-        regBlockT.append("12:25 - 12:54")
-        regBlock.append("3rd Lunch")
-        regBlockT.append("12:59 - 1:28")
-        regBlock.append("4th Lunch")
-        regBlockT.append("1:33 - 2:01")*/
+        //lunches
         regBlock.append("1st Lunch\n2nd Lunch\n3rd Lunch\n4th Lunch")
         regBlockT.append("11:52 - 12:20\n12:25 - 12:54\n12:59 - 1:28\n1:33 - 2:01")
         
@@ -52,73 +44,53 @@ class BellScheduleViewController: UITableViewController {
         ereBlockT.append("8:10 - 9:03")
         ereBlock.append("3rd/4th period")
         ereBlockT.append("9:08 - 10:06")
-        //switch 7th period right?
+        //switch 7th period
         ereBlock.append("7th period")
         ereBlockT.append("10:11 - 10:47")
         ereBlock.append("5th/6th period")
         ereBlockT.append("10:52 - 12:55")
-        
-        /*ereBlock.append("1st Lunch")
-        ereBlockT.append("10:47 - 11:16")
-        ereBlock.append("2nd Lunch")
-        ereBlockT.append("11:21 - 11:49")
-        ereBlock.append("3rd Lunch")
-        ereBlockT.append("11:54 - 12:23")
-        ereBlock.append("4th Lunch")
-        ereBlockT.append("12:28 - 12:55")*/
+        //lunches
         ereBlock.append("1st Lunch\n2nd Lunch\n3rd Lunch\n4th Lunch")
         ereBlockT.append("10:47 - 11:16\n11:21 - 11:49\n11:58 - 12:23\n12:28 - 12:55")
         
         //2 hour delay schedule, 4 blocks becuase no plus (and 4 lunches)
-        let delBlock1 = "1st/2nd period"
-        let delBlock1T = "10:10 - 11:09"
-        let delBlock2 = "3rd/4th period"
-        let delBlock2T = "11:15 - 12:14"
-        let delBlock3 = "5th/6th period"
-        let delBlock3T = "12:20 - 2:24"
-        let delBlock4 = "7th period"
-        let delBlock4T = "2:30 - 2:55"
-        let delBlockL1 = "1st Lunch"
-        let delBlockL1T = "12:14 - 12:43"
-        let delBlockL2 = "2nd Lunch"
-        let delBlockL2T = "12:48 - 1:17"
-        let delBlockL3 = "3rd Lunch"
-        let delBlockL3T = "1:22 - 1:50"
-        let delBlockL4 = "4th Lunch"
-        let delBlockL4T = "1:55 - 2:24"
-
+        delBlock.append("1st/2nd period")
+        delBlockT.append("10:10 - 11:09")
+        delBlock.append("3rd/4th period")
+        delBlockT.append("11:15 - 12:14")
+        delBlock.append("5th/6th period")
+        delBlockT.append("12:20 - 2:24")
+        delBlock.append("7th period")
+        delBlockT.append("2:30 - 2:55")
+        delBlock.append("1st Lunch\n2nd Lunch\n3rd Lunch\n4th Lunch")
+        delBlockT.append("12:14 - 12:43\n12:48 - 1:17\n1:22 - 1:50\n1:55 - 2:24")
     }
 	
     func magic(_ r: Int, _ s: Int) -> Array<String> {
         switch s{
-        case 0: return potion(regBlock, regBlockT, r)
-        case 1: return potion(ereBlock, ereBlockT, r)
-        default: return ["this hasn't been implemented yet.", "error"]
+        case 0: return potion(periodArray: regBlock, timeArray: regBlockT, row: r) //i know the potion function is a complete waste of code
+        case 1: return potion(periodArray: ereBlock, timeArray: ereBlockT, row: r) //but i just wanted to have a little fun, and magic returns
+	case 2: return potion(periodArray: delBlock, timeArray: delBlockT, row: r) //potion - magic potion. hahaha please send help.
+        default: return ["Your're a wizard Harry!", "just kidding, you're a muggle"]
         }
     }
     
-    func potion(_ p: Array<String>, _ t: Array<String>, _ r: Int) -> Array<String> {
+    func potion(periodArray p: Array<String>, timeArray t: Array<String>, row r: Int) -> Array<String> {
         return [p[r], t[r]]
     }
-    
-    func wand(_ t: Int) -> Int {
-        switch t {
-        case 0: return regBlock.count
-        case 1: return ereBlock.count
-        default: return 0
-        }
-    }
-    
-    func voldemortz() -> Int {
+	//3 different bell schedule apps
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
 	
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return voldemortz()
-    }
-	
+	//the different sections may or may not have plusses so we need to return different lengths
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wand(section)
+       switch section {
+        case 0: return regBlock.count
+        case 1: return ereBlock.count
+	case 2: return delBlock.count
+        default: return 0
+        }
     }
 		
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
