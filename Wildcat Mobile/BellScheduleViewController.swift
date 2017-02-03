@@ -19,7 +19,9 @@ class BellScheduleViewController: UITableViewController {
     var ereBlockT = Array<String>()
     var delBlock = Array<String>()
     var delBlockT = Array<String>()
-    
+	
+	var existingInteractivePopGestureRecognizerDelegate : UIGestureRecognizerDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 50
@@ -116,6 +118,30 @@ class BellScheduleViewController: UITableViewController {
         case 1: return "2 Hour Early Release Bell Schedule"
         case 2: return "2 Hour Delay Bell Schedule"
         default: return "you're a wizard harry"
+        }
+    }
+	
+	override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Hold reference to current interactivePopGestureRecognizer delegate
+        if navigationController?.interactivePopGestureRecognizer?.delegate != nil {
+            existingInteractivePopGestureRecognizerDelegate = navigationController?.interactivePopGestureRecognizer?.delegate!
+	}
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Set interactivePopGestureRecognizer delegate to nil
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Return interactivePopGestureRecognizer delegate to previously held object
+        if existingInteractivePopGestureRecognizerDelegate != nil {
+            navigationController?.interactivePopGestureRecognizer?.delegate = existingInteractivePopGestureRecognizerDelegate!
         }
     }
 		
