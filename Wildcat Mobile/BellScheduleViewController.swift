@@ -108,6 +108,9 @@ class BellScheduleViewController: UITableViewController {
         } else if indexPath.section == 1 && indexPath.row == 4 {
             cell.textLabel!.numberOfLines = 4
             cell.detailTextLabel!.numberOfLines = 4
+        } else if indexPath.section == 2 && indexPath.row == 4 {
+            cell.textLabel!.numberOfLines = 4
+            cell.detailTextLabel!.numberOfLines = 4
         }
 		return cell
 	}

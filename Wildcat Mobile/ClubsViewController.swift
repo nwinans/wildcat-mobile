@@ -126,11 +126,11 @@ class ClubsViewController: UITableViewController {
 		if cellHeights[indexPath.row] == kCloseCellHeight { // open cell
 			cellHeights[indexPath.row] = kOpenCellHeight
 			cell.selectedAnimation(true, animated: true, completion: nil)
-			duration = 0.3
+			duration = 0.4
 		} else {// close cell
 			cellHeights[indexPath.row] = kCloseCellHeight
 			cell.selectedAnimation(false, animated: true, completion: nil)
-			duration = 1.1
+			duration = 0.6
 		}
 		
 		UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: { () -> Void in
