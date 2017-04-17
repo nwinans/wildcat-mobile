@@ -22,6 +22,14 @@ class ArticlesViewController: UITableViewController, SFSafariViewControllerDeleg
     @IBOutlet weak var mentalHealthView: UIView!
     //@IBOutlet weak var substanceAbuseView: UIView!
     
+    @IBOutlet weak var etLabel: UILabel!
+    @IBOutlet weak var gtLabel: UILabel!
+    @IBOutlet weak var wsisLabel: UILabel!
+    @IBOutlet weak var biLabel: UILabel!
+    @IBOutlet weak var samshaLabel: UILabel!
+    @IBOutlet weak var sbLabel: UILabel!
+    @IBOutlet weak var clLabel: UILabel!
+    @IBOutlet weak var mhLabel: UILabel!
 	//create variable for plus button - used to set the current plus at runtime 
     @IBOutlet weak var plusButton: UIBarButtonItem!
 	
@@ -31,6 +39,18 @@ class ArticlesViewController: UITableViewController, SFSafariViewControllerDeleg
 		//set the plus button text to the current plus obtained from the PlusSchedule class
        		plusButton.title = PlusSchedule().plus()
 		
+        //font sizes... joy
+        self.etLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        self.gtLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        self.wsisLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        self.biLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        self.samshaLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        self.sbLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        self.clLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        self.mhLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ArticlesViewController.didChangePreferredContentSize), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
+        
 		//create listeners to listen for taps on each of the cards
 		let educatorTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.educatorToolkit))
 		let generalStatsTap = UITapGestureRecognizer(target: self, action: #selector(ArticlesViewController.generalStatistics))
@@ -130,4 +150,15 @@ class ArticlesViewController: UITableViewController, SFSafariViewControllerDeleg
 		controller.dismiss(animated: true, completion: nil)
 	}
 	
+    func didChangePreferredContentSize() {
+        self.etLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        self.gtLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        self.wsisLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        self.biLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        self.samshaLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        self.sbLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        self.clLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        self.mhLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+    }
+    
 }
